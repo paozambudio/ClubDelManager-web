@@ -6,7 +6,7 @@ subtitle: "Llega la segunda edición de Summits a cargo del Club del Manager. Es
 date: "2024-05-30"
 
 type: "eventos"
-active: false
+active: true
 ---
 
 ## ¿Querés llevar tu liderazgo al siguiente nivel?

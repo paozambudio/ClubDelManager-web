@@ -22,7 +22,9 @@ const HomePage = () => {
   </h2>*/}
 
         {/*<LastestPostPreview />*/}
+
         <GetNoticias />
+
         <ResumeHistory />
       </div>
     </>

@@ -1,4 +1,4 @@
-import  fs  from "fs";
+import fs from "fs";
 import matter from "gray-matter";
 import { PostMetadata } from "./PostMetadata";
 
@@ -19,6 +19,7 @@ const getPostMetadata = (): PostMetadata[] => {
       imagen: `blog-portada/${fileName.replace(".md", ".jpg")}`, // Ruta a la imagen de portada
       type: matterResult.data.type, // Agregamos el tipo o categoría
       autor: matterResult.data.autor, // Agregamos el autor
+      active: matterResult.data.active,
     };
   });
 
