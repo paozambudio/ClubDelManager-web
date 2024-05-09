@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://club-aeroespacial.vercel.app/
+
+# Sitemaps
+Sitemap: https://club-aeroespacial.vercel.app/sitemap.xml
