@@ -24,7 +24,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
             key={-1}
             className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl ${
               selectedType === null
-                ? "bg-blue-600 text-white"
+                ? "bg-blue-400 text-white"
                 : "text-white dark:hover:text-white"
             }`}
             style={{ minWidth: "fit-content" }} // Add this line
@@ -37,7 +37,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
               key={index}
               className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl ${
                 selectedType === type
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-400 text-white"
                   : "text-white dark:hover:text-white"
               }`}
               style={{ minWidth: "fit-content" }} // Add this line
@@ -74,6 +74,13 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
             </div>
           ))}
       </ul>
+      <div className="inline-flex w-full mt-6 sm:w-auto">
+        <Link href="">
+          <button className="inline-flex items-center justify-center w-full px-6 py-2 font-medium text-white duration-300 bg-blue-400  rounded-lg hover:bg-blue-500  focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+            Volver
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
