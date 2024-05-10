@@ -24,7 +24,7 @@ export default function RootLayout({
     <html>
       <meta
         name="google-site-verification"
-        content="Htw698g_MUfYHkXQHIE5OYuq_Rpf9tpj6ZE2a_mLKeY"
+        content="9dFJwNUMX40bhEsdoRcLJ5auqGKW-HF12DSvzxdWp10"
       />
       <head />
       <body className="min-h-screen flex-col bg-gradient-to-r from-slate-300 to-slate-400">
