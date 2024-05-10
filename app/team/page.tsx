@@ -76,7 +76,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -91,7 +92,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -151,7 +153,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -166,7 +169,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -226,7 +230,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -241,7 +246,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -301,7 +307,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -316,7 +323,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -376,7 +384,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -391,7 +400,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -451,7 +461,8 @@ const blogPage = () => {
 
             <div className="flex mt-4 -mx-2">
               <a
-                href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+                href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Instagram"
               >
@@ -466,7 +477,8 @@ const blogPage = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/nahuel-quiroga/"
+                href="https://www.linkedin.com/company/el-club-del-manager/"
+                target="_blank"
                 className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                 aria-label="Facebook"
               >
@@ -527,7 +539,8 @@ const blogPage = () => {
 
           <div className="flex mt-4 -mx-2">
             <a
-              href="https://www.instagram.com/nahuelfacundox/?igsh=OXAwa2Y1eTRsdzA%3D"
+              href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
               className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
               aria-label="Instagram"
             >
@@ -542,7 +555,8 @@ const blogPage = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/nahuel-quiroga/"
+              href="https://www.linkedin.com/company/el-club-del-manager/"
+              target="_blank"
               className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
               aria-label="Facebook"
             >
