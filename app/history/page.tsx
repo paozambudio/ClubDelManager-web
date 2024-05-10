@@ -23,40 +23,6 @@ export default function HistoryPage() {
             </button>
           </Link>
         </div>
-
-        {/* <div className="mx-auto max-w-4xl space-y-8  text-white">
-          <div className="mx-auto max-w-3xl space-y-8">
-            <div className="grid items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-4xl lg:grid-cols-3">
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-bold">CANSAT Argentina 2023</h3>
-                <p className="text-sm">
-                  On July 16, 1969, the Apollo 11 spacecraft was launched from
-                  Kennedy Space Center in Florida. The Saturn V rocket carried
-                  the crew into space, beginning their historic journey to the
-                  Moon.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-bold">Translunar Injection</h3>
-                <p className="text-sm">
-                  After orbiting the Earth, the spacecraft performed a
-                  translunar injection, sending it on a trajectory towards the
-                  Moon. The crew settled in for the three-day journey,
-                  conducting experiments and preparing for the lunar landing.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-bold">Lunar Orbit Insertion</h3>
-                <p className="text-sm ">
-                  The spacecraft entered lunar orbit, and the crew prepared for
-                  the final stage of the mission. The Eagle lunar module
-                  separated from the command module, carrying Neil Armstrong and
-                  Buzz Aldrin to the surface of the Moon.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
