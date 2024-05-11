@@ -31,7 +31,7 @@ export default function Member(Member: MemberItemProps) {
           href={Member.linkedinURL}
           target="_blank"
           className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
-          aria-label="Facebook"
+          aria-label="Linkedin"
         >
           <svg
             className="w-7 h-7 fill-current"

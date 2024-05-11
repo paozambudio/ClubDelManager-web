@@ -23,7 +23,6 @@ const GetNoticias = () => {
         </Link>
       </div>
 
-      {console.log(latestPosts)}
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {latestPosts
           .filter((post) => post.active)
