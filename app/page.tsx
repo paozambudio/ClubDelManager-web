@@ -14,7 +14,7 @@ const HomePage = async () => {
 
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
         <NumbersHome
-          miembrosCount={62}
+          miembrosCount={70}
           proyectosCount={5}
           participacionCount={15}
         />
