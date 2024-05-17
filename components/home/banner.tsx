@@ -46,7 +46,7 @@ const Banner: React.FC<BannerProps> = ({ altText }) => {
           </h1>*/}
             <AnimatePresence>
               <motion.h2
-                className="mt-4 text-2xl text-gray-300  text-white sm:text-2xl md:text-2xl"
+                className="mt-4 text-2xl text-gray-300  sm:text-2xl md:text-2xl"
                 key={indiceFrase}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

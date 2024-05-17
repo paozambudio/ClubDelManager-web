@@ -5,9 +5,12 @@ import GetNoticias from "../components/blog/GetNoticias";
 import Banner from "../components/home/banner";
 import ResumeHistory from "../components/home/resumeHistory";
 import NumbersHome from "../components/home/numbersHome";
-import { dbConnect } from "../config/database";
+import dbConnect from "../config/database";
+import { debug } from "console";
 
 const HomePage = async () => {
+  await dbConnect();
+
   return (
     <>
       <Banner altText="Imagen de banner" />

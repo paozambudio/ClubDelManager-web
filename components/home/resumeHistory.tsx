@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import Carousel from "./Carousel";
 
 const ResumeHistory = () => {
   return (
@@ -23,14 +24,8 @@ const ResumeHistory = () => {
           </Link>
         </div>
       </div>
-      <div className="mx-auto md:w-1/2 flex items-center">
-        <Image
-          alt="History Image"
-          src="/images/fundacionCDM/fundacionCDM-img1.jpg"
-          width={400}
-          height={500}
-          className="rounded-lg"
-        />
+      <div className="block mx-auto md:w-1/2 items-center p-10">
+        <Carousel />
       </div>
     </div>
   );

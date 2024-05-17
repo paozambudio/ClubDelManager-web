@@ -11,7 +11,7 @@ const GetNoticias = () => {
 
   return (
     <>
-      <div className="container px-10 py-10 mx-auto mt-6 md:flex md:items-center md:justify-between ">
+      <div className="container px-10 py-10 pt-10 mx-auto mt-6 md:flex md:items-center md:justify-between ">
         <h1 className="text-2xl font-semibold text-blue-400 capitalize lg:text-3xl dark:text-white">
           Enterate de las últimas novedades
         </h1>
