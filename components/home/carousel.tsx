@@ -120,7 +120,7 @@ const images = [
   },
 ];
 
-const Slider = () => {
+const Carousel = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const clickNext = () => {
@@ -167,4 +167,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Carousel;

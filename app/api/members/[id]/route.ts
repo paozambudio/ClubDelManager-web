@@ -2,11 +2,13 @@ import dbConnect from "../../../../config/database";
 import Member from "../../../../models/member";
 
 //GET /api/members/:id
-export const GET = async (request, { params }) => {
+//export const GET = async (request, { params }) => {
+export const GET = async () => {
   try {
     await dbConnect();
 
-    const member = await Member.findById(params.id);
+    //const member = await Member.findById(params.id);
+    const member = await Member.find();
     if (!member) return new Response("Miembro no existente", { status: 404 });
 
     return new Response(JSON.stringify(member), {

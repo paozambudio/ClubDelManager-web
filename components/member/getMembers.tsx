@@ -1,12 +1,13 @@
 import Link from "next/link";
-import member from "../../models/member";
+//import { Member } from "../../models/member";
 //import { Member } from "../types/member"
 
-interface MemberItemProps {
-  members: member[];
-}
+/*interface MemberItemProps {
+  members: Member[];
+}*/
 
-export default function getMembers({ members }: MemberItemProps) {
+//export default function getMembers({ members }: MemberItemProps) {
+export default function getMembers() {
   return (
     <section className="container px-4 mx-auto">
       <div className="sm:flex sm:items-center sm:justify-between">
@@ -22,11 +23,11 @@ export default function getMembers({ members }: MemberItemProps) {
           </div>
         </div>
       </div>
-      <div>
+      {/*<div>
         {members.map((member) => (
           <p>{member.nombre}</p>
         ))}
-      </div>
+      </div>*/}
 
       <div className="mt-6 md:flex md:items-center md:justify-between">
         <div className="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">

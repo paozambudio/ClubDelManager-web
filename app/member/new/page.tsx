@@ -36,7 +36,7 @@ export default function MemberCreatePage() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-6 h-6 mx-3 text-gray-400 dark:text-gray-500"
+                  className="w-6 h-6 mx-3 text-gray-400 dark:text-gray-500"
                 >
                   <path
                     stroke-linecap="round"
@@ -112,14 +112,14 @@ export default function MemberCreatePage() {
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
           <div>
             <CheckBox id="directivo" />
-            <label className="text-gray-400 dark:text-gray-200" for="directivo">
+            <label className="text-gray-400 dark:text-gray-200">
               ¿Es de la comisión directiva?
             </label>
           </div>
 
           <div>
             <CheckBox id="activo" />
-            <label className="text-gray-400 dark:text-gray-200" for="activo">
+            <label className="text-gray-400 dark:text-gray-200">
               ¿Está activo?
             </label>
           </div>

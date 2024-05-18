@@ -44,7 +44,7 @@ const MemberPage = () => {
             | undefined;
         } = await fetchMember(id);
 
-        setMember(member);
+        //setMember(member);
       } catch (error) {
         console.error("Error fetching member: ", error);
       } finally {
