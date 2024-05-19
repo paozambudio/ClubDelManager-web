@@ -14,9 +14,7 @@ const HomePage = async () => {
   return (
     <>
       <Banner altText="Imagen de banner" />
-      <div>
-        <h3>estoy en dev</h3>
-      </div>
+
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
         <NumbersHome
           miembrosCount={70}
