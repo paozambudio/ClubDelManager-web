@@ -25,7 +25,7 @@ const ResumeHistory = () => {
         </div>
       </div>
       <div className="block mx-auto md:w-1/2 items-center p-10">
-        {/*<Carousel />*/}
+        <p></p>
       </div>
     </div>
   );
