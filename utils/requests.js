@@ -1,5 +1,5 @@
 import { GET } from "../app/api/members/route";
-import { GetById } from "../app/api/members/[id]/route";
+//import { GetById } from "../app/api/members/[id]/route";
 
 async function fetchMembers() {
   try {
@@ -19,7 +19,8 @@ async function fetchMembers() {
 async function fetchMember(id) {
   try {
     //const res = await fetch("http://localhost:3000/api/members");
-    const res = await GetById(id);
+    //const res = await GetById(id);
+    const res = await GET();
     if (!res.ok) {
       throw new Error("Falló");
     }
