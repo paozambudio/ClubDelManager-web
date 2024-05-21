@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import Carousel from "./Carousel";
+import Carrusel from "./Carrusel";
 
 const ResumeHistory = () => {
   return (
@@ -31,7 +31,7 @@ const ResumeHistory = () => {
         </div>
       </div>
       <div className="block mx-auto md:w-1/2 items-center p-10">
-        <Carousel />
+        <Carrusel />
       </div>
     </div>
   );

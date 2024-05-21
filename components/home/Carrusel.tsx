@@ -120,7 +120,7 @@ const images = [
   },
 ];
 
-const Carousel = () => {
+const Carrusel = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const clickNext = () => {
@@ -167,4 +167,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Carrusel;
