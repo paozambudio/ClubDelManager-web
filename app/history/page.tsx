@@ -24,7 +24,7 @@ export default function HistoryPage() {
               </p>
               <img
                 className="align-middle"
-                src="imgHome/img7.jpeg"
+                src="imgHome/Img7.jpeg"
                 width={800}
                 height={300}
               />
