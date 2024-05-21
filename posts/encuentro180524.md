@@ -26,7 +26,6 @@ Transcurrió el tiempo y nos fuimos dando cuenta que cada uno lleva en sí mismo
 La tarde cerro con un juego que puso a prueba nuestras destrezas y puntería y un sol cálido y testigo de una experiencia que sin lugar a dudas me había transformado, pues yo siento que de ese lugar salí diferente e indudablemente mejor.
 Gracias Euge Plaza (redactora)
 
-| ![images/encuentro180524/encuentro180524-img2.jpeg](/images/encuentro180524/encuentro180524-img3.jpeg "Encuentro 18/05/24") | ![images/encuentro180524/fencuentro180524-img3.jpeg](/images/encuentro180524/encuentro180524-img4.jpeg "Encuentro 18/05/24") |
-| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+![images/encuentro180524/encuentro180524-img2.jpeg](/images/encuentro180524/encuentro180524-img3.jpeg "Encuentro 18/05/24") ![images/encuentro180524/fencuentro180524-img3.jpeg](/images/encuentro180524/encuentro180524-img4.jpeg "Encuentro 18/05/24")
 
 Querés leer más? ingresá a [la nota](https://www.linkedin.com/pulse/reflexiones-de-un-dia-trabajo-20-managers-el-club-del-manager-p6zif/?trackingId=J1COrOx%2BXxP39g6RQ6CQqA%3D%3D).

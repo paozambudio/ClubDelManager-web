@@ -22,7 +22,6 @@ La nueva Comisión Directiva está encabezada por Azeglio como presidente, Garc�
 
 El CDM cuenta con más de 60 miembros de diversos sectores, incluidos Vitivinícola, Financiero, Servicios, Petróleo, Minería, Hotelería, Gastronomía y Turismo. También cuenta con profesionales de diferentes disciplinas, como abogados, contadores, licenciados en Administración, licenciados en Marketing, enólogos e ingenieros industriales, entre otros.
 
-| ![images/fundacionCDM/fundacionCDM-img2.jpeg](/images/fundacionCDM/fundacionCDM-img3.jpeg "EL club en el Astroturismo") | ![images/fundacionCDM/fundacionCDM-img3.jpeg](/images/fundacionCDM/fundacionCDM-img4.jpeg "EL club en el Astroturismo") |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+![images/fundacionCDM/fundacionCDM-img2.jpeg](/images/fundacionCDM/fundacionCDM-img3.jpeg "EL club en el Astroturismo") ![images/fundacionCDM/fundacionCDM-img3.jpeg](/images/fundacionCDM/fundacionCDM-img4.jpeg "EL club en el Astroturismo")
 
 Querés leer más? ingresá a [la nota](https://ecocuyo.com/nota/147180/el-club-del-manager-se-convierte-en-fundacion-y-marca-un-hito-en-el-liderazgo-regional/).

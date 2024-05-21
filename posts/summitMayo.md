@@ -5,6 +5,8 @@ subtitle: "Llega la segunda edición de Summits a cargo del Club del Manager. "
 
 date: "2024-05-30"
 
+autor: "Federico Azeglio"
+
 type: "eventos"
 active: true
 ---
