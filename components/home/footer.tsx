@@ -6,6 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedinIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 
 const Footer: React.FC = () => {
   const [emailClub, setEmailClub] = useState("clubdelmanager@gmail.com");
@@ -77,6 +78,17 @@ const Footer: React.FC = () => {
               <EmailIcon />
             </svg>
           </a>
+
+          <button
+            onClick={() => {
+              signOut();
+            }}
+            className="block px-4 py-2 text-sm text-gray-300"
+            role="menuitem"
+            id="user-menu-item-2"
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </footer>

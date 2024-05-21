@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,8 +13,20 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
+import { FaGoogle } from "react-icons/fa";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { LiteralUnion, ClientSafeProvider } from "next-auth/react";
+import { profileEnd } from "console";
+
+// Definir manualmente el tipo de los proveedores si no están disponibles en la biblioteca
+type Providers = Record<string, ClientSafeProvider> | null;
 
 function ResponsiveAppBar() {
+  const { data: session } = useSession();
+  const profileImage = session?.user?.image;
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [providers, setProviders] = useState<Providers>(null);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -36,6 +49,15 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  useEffect(() => {
+    const setAuthProviders = async () => {
+      const res = await getProviders();
+      setProviders(res);
+    };
+    setAuthProviders();
+  }, []);
+
+  console.log(session);
   return (
     <AppBar
       position="static"
@@ -153,34 +175,81 @@ function ResponsiveAppBar() {
               justifyContent: "right", // Centra los elementos horizontalmente
             }}
           >
-            <Link href="/blog">
-              <Typography
-                className="text-lg font-semibold text-white"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Blog
-              </Typography>
-            </Link>
-            <Link href="/team">
-              <Typography
-                className="text-lg font-semibold px-8 text-white"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Directivos
-              </Typography>
-            </Link>
-            <Link href="/history">
-              <Typography
-                className="text-lg font-semibold text-white"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                ¿Quiénes somos?
-              </Typography>
-            </Link>
+            {!session && (
+              <Link href="/blog">
+                <Typography
+                  className="text-lg font-semibold text-white"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Blog
+                </Typography>
+              </Link>
+            )}
+            {!session && (
+              <Link href="/team">
+                <Typography
+                  className="text-lg font-semibold px-8 text-white"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Directivos
+                </Typography>
+              </Link>
+            )}
+            {!session && (
+              <Link href="/history">
+                <Typography
+                  className="text-lg font-semibold text-white"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  ¿Quiénes somos?
+                </Typography>
+              </Link>
+            )}
           </Box>
+          {!session && (
+            <div className=" md:block md:ml-6">
+              <div className="flex items-center">
+                {providers &&
+                  Object.values(providers).map((provider, index) => (
+                    <button
+                      onClick={() => signIn(provider.id)}
+                      key={index}
+                      className="flex items-center text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                    >
+                      <FaGoogle className="text-white mr-2" />
+                      <span>Ingresar</span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+          )}
+          {session && (
+            <div className=" md:block md:ml-6">
+              <div className="flex items-center">
+                <Image
+                  className="h-8 w-8 rounded-full"
+                  src={profileImage || ""}
+                  alt="profile"
+                  width={40}
+                  height={40}
+                />
+
+                <button
+                  onClick={() => {
+                    signOut();
+                  }}
+                  className="block px-4 py-2 text-sm text-gray-300"
+                  role="menuitem"
+                  id="user-menu-item-2"
+                >
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* por si queremos agregar login
           <Box sx={{ flexGrow: 0 }}>

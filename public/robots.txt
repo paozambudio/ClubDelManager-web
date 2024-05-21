@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://club-aeroespacial.vercel.app/
+Host: https://club-del-manager-web.vercel.app/
 
 # Sitemaps
-Sitemap: https://club-aeroespacial.vercel.app/sitemap.xml
+Sitemap: https://club-del-manager-web.vercel.app/sitemap.xml

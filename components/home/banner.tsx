@@ -29,9 +29,7 @@ const Banner: React.FC<BannerProps> = ({ altText }) => {
   return (
     <>
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
-        <h1 className="text-sm font-bold text-blue-500 sm:text-5xl md:text-6xl">
-          Club del Manager
-        </h1>
+        <h1 className="text-sm font-bold text-blue-500 sm:text-5xl md:text-6xl"></h1>
       </div>
       <div
         className="rounded-md bg-cover h-[15rem] rounded-30"
