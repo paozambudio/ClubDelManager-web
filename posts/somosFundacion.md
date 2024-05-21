@@ -5,6 +5,8 @@ subtitle: "El Club del Manager se convierte en Fundación y marca un hito en el 
 
 date: "2024-04-25"
 
+autor: "Eugenia Plaza"
+
 type: "eventos"
 
 active: true

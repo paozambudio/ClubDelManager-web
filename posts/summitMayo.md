@@ -1,7 +1,7 @@
 ---
 title: "Se viene el summit!!"
 
-subtitle: "Llega la segunda edición de Summits a cargo del Club del Manager. Escribir algo más acaaaaa y algo más."
+subtitle: "Llega la segunda edición de Summits a cargo del Club del Manager. "
 
 date: "2024-05-30"
 
