@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-      "target": "es2015", 
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -28,9 +27,18 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "components/blog/ServerComponent.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.js",
+    "**/*.jsx",
+    ".next/types/**/*.ts",
+    "components/blog/ServerComponent.js",
+    "models/Member.ts",
+    "app/members/add/page.jsx",
+    "app/members/[id]/page.jsx",
+    "app/api/members/route.js",
+    "app/api/members/[id]/route.js",
+    "app/members/page.jsx",
+    "app/layout.tsx",
+    "app/page.tsx"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -24,6 +24,10 @@ const MemberSchema = new Schema(
     otroAporte: String,
     fechaIngreso: Date,
     activo: Boolean,
+    squad: {
+      type: Schema.Types.ObjectId,
+      ref: "Member",
+    },
   },
   {
     timestamps: true,

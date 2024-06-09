@@ -24,7 +24,13 @@ type Providers = Record<string, ClientSafeProvider> | null;
 function ResponsiveAppBar() {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
+  const profileEmail = session?.user?.email;
+  //const profileURL = "/member/pao.zambudio@gmail.com";
+
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [providers, setProviders] = useState<Providers>(null);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -58,6 +64,7 @@ function ResponsiveAppBar() {
   }, []);
 
   console.log(session);
+
   return (
     <AppBar
       position="static"
@@ -68,7 +75,7 @@ function ResponsiveAppBar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div className=" md:flex mr-1">
+          <div className=" grid grid-cols-2 md:flex mr-1">
             <Link href="/">
               <Image src="/LogoPng.png" width={90} height={90} alt="Logo" />
             </Link>
@@ -227,26 +234,71 @@ function ResponsiveAppBar() {
             </div>
           )}
           {session && (
-            <div className=" md:block md:ml-6">
-              <div className="flex items-center">
-                <Image
-                  className="h-8 w-8 rounded-full"
-                  src={profileImage || ""}
-                  alt="profile"
-                  width={40}
-                  height={40}
-                />
+            <div className="flex items-center">
+              <div className="relative ml-3">
+                <div>
+                  <button
+                    type="button"
+                    className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    id="user-menu-button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+                  >
+                    <span className="absolute -inset-1.5"></span>
+                    <span className="sr-only">Open user menu</span>
+                    <Image
+                      className="h-8 w-8 rounded-full"
+                      src={profileImage || ""}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </button>
+                </div>
 
-                <button
-                  onClick={() => {
-                    signOut();
-                  }}
-                  className="block px-4 py-2 text-sm text-gray-300"
-                  role="menuitem"
-                  id="user-menu-item-2"
-                >
-                  Sign Out
-                </button>
+                {/* <!-- Profile dropdown --> */}
+                {isProfileMenuOpen && (
+                  <div
+                    id="user-menu"
+                    className=" absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="user-menu-button"
+                    onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+                  >
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      id="user-menu-item-0"
+                    >
+                      Your Profile
+                    </Link>
+                    <Link
+                      href="saved-properties"
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      id="user-menu-item-2"
+                    >
+                      Saved Properties
+                    </Link>
+                    <Link
+                      href=""
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      id="user-menu-item-2"
+                    >
+                      <button
+                        onClick={() => {
+                          signOut();
+                        }}
+                      >
+                        Sign Out
+                      </button>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           )}

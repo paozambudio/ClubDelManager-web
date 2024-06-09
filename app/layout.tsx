@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import AuthProvider from "../components/AuthProvider";
+import ToastProvider from "@/components/ToastProvider";
 
 export default function RootLayout({
   children,
@@ -31,10 +32,12 @@ export default function RootLayout({
         />
         <head />
         <body className="min-h-screen flex-col bg-gradient-to-r from-slate-300 to-slate-400">
-          <div className="mx-auto max-w-6xl max-h-6xl px-6">
-            {header}
-            {children}
-          </div>
+          <ToastProvider>
+            <div className="mx-auto max-w-6xl max-h-6xl px-6">
+              {header}
+              {children}
+            </div>
+          </ToastProvider>
           {footer}
         </body>
       </html>

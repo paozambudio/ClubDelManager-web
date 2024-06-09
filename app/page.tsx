@@ -7,6 +7,7 @@ import ResumeHistory from "../components/home/resumeHistory";
 import NumbersHome from "../components/home/numbersHome";
 import dbConnect from "../config/database";
 import { debug } from "console";
+import SpotifyDriveAccess from "@/components/homeMiembros/SpotifyDriveAccess";
 
 const HomePage = async () => {
   await dbConnect();
@@ -24,6 +25,8 @@ const HomePage = async () => {
         <GetNoticias />
 
         <ResumeHistory />
+
+        <SpotifyDriveAccess />
       </div>
     </>
   );

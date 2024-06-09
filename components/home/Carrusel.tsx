@@ -137,33 +137,35 @@ const Carrusel = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       clickNext();
-    }, 5000);
+    }, 3000);
     return () => {
       clearTimeout(timer);
     };
   }, [activeImage]);
   return (
-    <div className=" max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-      {images.map((elem, idx) => (
-        <div
-          key={idx}
-          className={`${
-            idx === activeImage
-              ? "flex w-full h-64 object-cover transition-all duration-500 ease-in-out"
-              : "hidden"
-          }`}
-        >
-          <Image
-            src={elem.src}
-            alt=""
-            width={800}
-            height={300}
-            layout="responsive"
-            className="relative z-10 object-cover w-full rounded-md h-64"
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className=" max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        {images.map((elem, idx) => (
+          <div
+            key={idx}
+            className={`${
+              idx === activeImage
+                ? "flex w-full h-64 object-cover transition-all duration-500 ease-in-out"
+                : "hidden"
+            }`}
+          >
+            <Image
+              src={elem.src}
+              alt=""
+              width={800}
+              height={300}
+              layout="responsive"
+              className="relative z-10 object-cover w-full rounded-md h-64"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -1,35 +1,68 @@
-import { GET } from "../app/api/members/route";
-//import { GetById } from "../app/api/members/[id]/route";
+//import { GET } from "@api/members";
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 async function fetchMembers() {
   try {
-    //const res = await fetch("http://localhost:3000/api/members");
-    const res = await GET();
-    if (!res.ok) {
-      throw new Error("Falló");
+    //handle the case where the domain is not available yet
+    if (!apiDomain) {
+      return [];
     }
-    const data = await res.json();
-    return data;
+    const res = await fetch(`${apiDomain}/members`);
+    //const res = await GET();
+    console.log("URL API", `${apiDomain}/members`);
+    //const data = await res.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    console.log("DESDE EL REQUESTS", data);
+    return res.json();
   } catch (error) {
     console.log(error);
+    return [];
   }
 }
 
-//Fetch single property
+// fetch single member
 async function fetchMember(id) {
   try {
-    //const res = await fetch("http://localhost:3000/api/members");
-    //const res = await GetById(id);
-    const res = await GET();
-    if (!res.ok) {
-      throw new Error("Falló");
+    if (!apiDomain) {
+      return null;
     }
-    const data = await res.json();
-    console.log(data);
-    return data;
+
+    const res = await fetch(`${apiDomain}/members/${id}`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
   } catch (error) {
     console.log(error);
+    return null;
   }
 }
 
-export { fetchMembers, fetchMember };
+// fetch single member
+async function fetchMemberbyEmail(email) {
+  try {
+    //handle the case where the domain is not available yet
+    console.log("Desde request", email);
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(`${apiDomain}/members/filtro/${email}`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    //console.log("desde request, el member es:", res.json());
+    console.log("no dio error desde request");
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export { fetchMembers, fetchMember, fetchMemberbyEmail };
