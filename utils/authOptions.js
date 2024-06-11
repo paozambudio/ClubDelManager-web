@@ -16,19 +16,17 @@ export const authOptions = {
       },
     }),
   ],
+
   callbacks: {
     //Invoked on successfull signin
-    async signIn({ profile, allowNew }) {
+    async signIn({ profile }) {
       //1. connect DB
       await connectDB();
       //2. check if the user exists
       const userExists = await User.findOne({ email: profile.email });
 
       //2. si sólo es para ingresar, y el usuario no se encuentra no dejarlo seguir
-      if (!allowNew && !userExists) {
-        console.log("Usuario no existe y no se puede registrar");
-        return false;
-      }
+
       //3. if not add user to DB
       if (!userExists) {
         //Truncate user name if too long
