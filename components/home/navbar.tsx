@@ -63,7 +63,7 @@ function ResponsiveAppBar() {
     setAuthProviders();
   }, []);
 
-  console.log(session);
+  console.log("SESION", session);
 
   return (
     <AppBar
@@ -80,7 +80,6 @@ function ResponsiveAppBar() {
               <Image src="/LogoPng.png" width={90} height={90} alt="Logo" />
             </Link>
           </div>
-
           <Box
             sx={{
               flexGrow: 1,
@@ -173,7 +172,6 @@ function ResponsiveAppBar() {
               </Box>
             </Menu>
           </Box>
-
           <Box
             className="text-lg font-semibold text-white"
             sx={{
@@ -216,23 +214,22 @@ function ResponsiveAppBar() {
               </Link>
             )}
           </Box>
-          {!session && (
-            <div className=" md:block md:ml-6">
-              <div className="flex items-center">
-                {providers &&
-                  Object.values(providers).map((provider, index) => (
-                    <button
-                      onClick={() => signIn(provider.id)}
-                      key={index}
-                      className="flex items-center text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                    >
-                      <FaGoogle className="text-white mr-2" />
-                      <span>Ingresar</span>
-                    </button>
-                  ))}
-              </div>
+
+          <div className=" md:block md:ml-6">
+            <div className="flex items-center">
+              {providers &&
+                Object.values(providers).map((provider, index) => (
+                  <button
+                    onClick={() => signIn(provider.id, false)}
+                    key={index}
+                    className="flex items-center txt-xs text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  >
+                    <span>Soy miembro</span>
+                  </button>
+                ))}
             </div>
-          )}
+          </div>
+
           {session && (
             <div className="flex items-center">
               <div className="relative ml-3">
@@ -265,13 +262,13 @@ function ResponsiveAppBar() {
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="user-menu-button"
-                    onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                   >
                     <Link
                       href="/profile"
                       className="block px-4 py-2 text-sm text-gray-700"
                       role="menuitem"
                       id="user-menu-item-0"
+                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                     >
                       Your Profile
                     </Link>
@@ -302,7 +299,6 @@ function ResponsiveAppBar() {
               </div>
             </div>
           )}
-
           {/* por si queremos agregar login
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

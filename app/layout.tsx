@@ -25,12 +25,7 @@ export default function RootLayout({
 
   return (
     <AuthProvider>
-      <html>
-        <meta
-          name="google-site-verification"
-          content="9dFJwNUMX40bhEsdoRcLJ5auqGKW-HF12DSvzxdWp10"
-        />
-        <head />
+      <html lang="en">
         <body className="min-h-screen flex-col bg-gradient-to-r from-slate-300 to-slate-400">
           <ToastProvider>
             <div className="mx-auto max-w-6xl max-h-6xl px-6">

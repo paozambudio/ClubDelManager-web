@@ -5,11 +5,15 @@ import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedinIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 
 const Footer: React.FC = () => {
-  const [emailClub, setEmailClub] = useState("clubdelmanager@gmail.com");
+  const [emailClub, setEmailClub] = useState("clubdelmanagermza@gmail.com");
 
   const copiarAlPortapapeles = (email: string) => {
     // Crear un elemento de entrada temporal
@@ -61,6 +65,70 @@ const Footer: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <InstagramIcon />
+            </svg>
+          </a>
+
+          <a
+            href="https://www.facebook.com/elclubdelmanager?mibextid=LQQJ4d&_rdr"
+            target="_blank"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            aria-label="Facebook"
+          >
+            <svg
+              className="w-7 h-7 fill-current"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <FacebookIcon />
+            </svg>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@ClubdelManager"
+            target="_blank"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            aria-label="YouTube"
+          >
+            <svg
+              className="w-7 h-7 fill-current"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <YouTubeIcon />
+            </svg>
+          </a>
+
+          <a
+            href="https://open.spotify.com/user/31v3jgx5cf2jzouv64bndnx4nffa?si=M2MUHefrTAyLAEjvmn056w&nd=1&dlsi=65aebeea81444292"
+            target="_blank"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            aria-label="Spotify"
+          >
+            <svg
+              className="w-7 h-7 fill-current"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <PodcastsIcon />
+            </svg>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@elclubdelmanager"
+            target="_blank"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            aria-label="TikTok"
+          >
+            <svg
+              className="w-7 h-7 fill-current"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <MusicNoteIcon />
             </svg>
           </a>
 

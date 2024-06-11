@@ -10,13 +10,14 @@ const MemberListForm = async () => {
 
   useEffect(() => {
     setMounted(true);
+    console.log("Entre al list de miembros");
 
     const fetchMembersData = async () => {
       try {
         const membersList = await fetchMembers();
 
         setMembers(membersList);
-        console.log(members.length);
+        //console.log(members.length);
       } catch (error) {
         console.log(error);
       } finally {
@@ -27,11 +28,14 @@ const MemberListForm = async () => {
   }, []);
 
   return (
-    mounted &&
-    !loading && (
+    mounted && (
       <div>
         <p>Miembros </p>
-        {}
+        {members.map((uno) => (
+          <p key={uno.id}>
+            {uno.nombre} {uno.apellido}
+          </p>
+        ))}
       </div>
     )
   );
