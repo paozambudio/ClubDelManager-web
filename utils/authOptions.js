@@ -30,13 +30,14 @@ export const authOptions = {
       //3. if not add user to DB
       if (!userExists) {
         //Truncate user name if too long
-        const username = profile.name.slice(0, 20);
+        /*const username = profile.name.slice(0, 20);
 
         await User.create({
           email: profile.email,
           username,
           image: profile.picture,
-        });
+        });*/
+        return false;
       }
 
       console.log("sestion en authoptions: ", profile);
