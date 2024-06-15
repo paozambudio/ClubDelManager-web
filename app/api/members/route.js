@@ -1,5 +1,6 @@
 import dbConnect from "@/config/database";
 import Member from "@/models/Member";
+import User from "@/models/User";
 
 const GET = async (request) => {
   try {
@@ -26,7 +27,21 @@ const POST = async (request) => {
     const userId = session.user.id;
     */
     const formData = await request.formData();
-    console.log(formData.get("nombre"));
+
+    //1. Guardar usuario
+    const userExists = await User.findOne({ email: formData.get("email") });
+
+    //3. if not add user to DB
+    if (!userExists) {
+      //Truncate user name if too long
+      const username = formData.get("nombre") + " " + formData.get("apellido");
+
+      await User.create({
+        email: formData.get("email"),
+        username,
+        //image: profile.picture,
+      });
+    }
 
     const memberData = {
       nombre: formData.get("nombre"),

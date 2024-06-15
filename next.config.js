@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
+  trailingSlash: true, // Añadido trailingSlash
+
   images: {
     remotePatterns: [
       {

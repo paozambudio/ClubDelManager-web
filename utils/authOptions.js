@@ -25,21 +25,27 @@ export const authOptions = {
       //2. check if the user exists
       const userExists = await User.findOne({ email: profile.email });
 
-      //2. si sólo es para ingresar, y el usuario no se encuentra no dejarlo seguir
+      //2. chequeo si estoy queriendo dar de alta
+      /*const isRegistering = req.query.registration === "true";
+      console.log("isRegistering", isRegistering);*/
 
       //3. if not add user to DB
       if (!userExists) {
         //Truncate user name if too long
-        const username = profile.name.slice(0, 20);
+        /*const username = profile.name.slice(0, 20);
 
         await User.create({
           email: profile.email,
           username,
           image: profile.picture,
-        });
+        });*/
+        return false;
       }
 
-      console.log("sestion en authoptions: ", profile);
+      /*if (!isRegistering && !userExists) {
+        return false;
+      }*/
+
       //4. return true to allow sign in
       return true;
     },

@@ -68,9 +68,6 @@ const MemberAddForm = () => {
               method="POST"
               encType="multipart/form-data"
             >
-              <h3 className="text-xl text-justify text-sky-600 font-semibold ">
-                Bienvenido/a {profileName} al Club del Manager
-              </h3>
               <h3 className="text-lg text-justify text-sky-600  mb-6">
                 Completá tus datos, por favor
               </h3>
@@ -118,7 +115,6 @@ const MemberAddForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  disabled
                   className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                   placeholder="Ingresá tu email"
                   value={profileEmail}
@@ -358,8 +354,7 @@ const MemberAddForm = () => {
               <div className="flex">
                 <div className="w-1/3"></div>
                 <div className="w-2/3">
-                  <Link href="/members">
-                    {" "}
+                  <Link href="/onBoarding">
                     <button
                       className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                       type="submit"

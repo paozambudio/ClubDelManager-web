@@ -214,21 +214,26 @@ function ResponsiveAppBar() {
               </Link>
             )}
           </Box>
-
-          <div className=" md:block md:ml-6">
-            <div className="flex items-center">
-              {providers &&
-                Object.values(providers).map((provider, index) => (
-                  <button
-                    onClick={() => signIn(provider.id)}
-                    key={index}
-                    className="flex items-center txt-xs text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >
-                    <span></span>
-                  </button>
-                ))}
+          {!session && (
+            <div className=" md:block md:ml-6">
+              <div className="flex items-center">
+                {providers &&
+                  Object.values(providers).map((provider, index) => (
+                    <button
+                      onClick={() =>
+                        signIn(provider.id, {
+                          callbackUrl: "/api/auth/callback/google",
+                        })
+                      }
+                      key={index}
+                      className="flex items-center txt-xs text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                    >
+                      <span>Soy Miembro</span>
+                    </button>
+                  ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {session && (
             <div className="flex items-center">
