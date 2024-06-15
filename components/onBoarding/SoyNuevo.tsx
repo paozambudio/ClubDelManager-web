@@ -126,7 +126,11 @@ const SoyNuevo = () => {
               <dd className="mt-2 text-base leading-7 text-gray-600">
                 Para evolucionar en servicios internos y externos, tenemos
                 células de trabajo multidisciplinarias con distintos objetivos.
-                <Link href="/squads" className="font-semibold text-purple-500">
+                <Link
+                  href="/squads"
+                  target="_blank"
+                  className="font-semibold text-purple-500"
+                >
                   {" "}
                   Conocelas{" "}
                 </Link>

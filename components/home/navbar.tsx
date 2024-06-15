@@ -220,11 +220,7 @@ function ResponsiveAppBar() {
                 {providers &&
                   Object.values(providers).map((provider, index) => (
                     <button
-                      onClick={() =>
-                        signIn(provider.id, {
-                          callbackUrl: "/api/auth/callback/google",
-                        })
-                      }
+                      onClick={() => signIn(provider.id)}
                       key={index}
                       className="flex items-center txt-xs text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                     >
