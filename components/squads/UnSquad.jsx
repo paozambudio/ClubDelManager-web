@@ -80,7 +80,7 @@ export default function SquadsList() {
       </Paper>
       <Box
         className="text-gray-600"
-        sx={{ height: 255, maxWidth: 700, width: "100%", p: 2 }}
+        sx={{ height: "100%", maxWidth: 700, width: "100%", p: 2 }}
       >
         {steps[activeStep].description}
       </Box>
