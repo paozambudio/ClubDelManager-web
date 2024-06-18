@@ -6,7 +6,7 @@ const GET = async (request) => {
   try {
     await dbConnect();
     const members = await Member.find({});
-    console.log("Desde la api", members);
+
     return new Response(JSON.stringify(members), {
       status: 200,
     });

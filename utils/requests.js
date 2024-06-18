@@ -7,15 +7,15 @@ async function fetchMembers() {
     if (!apiDomain) {
       return [];
     }
-    const res = await fetch(`${apiDomain}/members`);
+    //const res = await fetch(`${apiDomain}/members`);
+    const res = await fetch("http://127.0.0.1:8000/api/members/members/");
     //const res = await GET();
-    console.log("URL API", `${apiDomain}/members`);
+    //console.log("URL API", `${apiDomain}/members`);
     //const data = await res.json();
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
 
-    console.log("DESDE EL REQUESTS", data);
     return res.json();
   } catch (error) {
     console.log(error);
@@ -30,7 +30,7 @@ async function fetchMember(id) {
       return null;
     }
 
-    const res = await fetch(`${apiDomain}/members/${id}`);
+    const res = await fetch(`${apiDomain}/members/members/${id}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");

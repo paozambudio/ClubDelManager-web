@@ -12,6 +12,7 @@ const UserSchema = new Schema(
 
     email: {
       type: String,
+      unique: [true, "Email ya existente"],
       required: [true, "Se requiere el mail"],
     },
   },
