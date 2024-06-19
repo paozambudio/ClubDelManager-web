@@ -10,6 +10,8 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
+import Image from "react";
+
 import Typography from "@mui/material/Typography";
 import {
   Accessibility,

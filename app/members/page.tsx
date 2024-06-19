@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaPlus } from "react-icons/fa";
-import { fetchData } from "next-auth/client/_utils";
 
 const buscarMiembros = async () => {
   try {
@@ -22,7 +20,7 @@ const buscarMiembros = async () => {
 
 const MembersPage = () => {
   const [miembros, setMiembros] = useState([]);
-  const [filtro, setFiltro] = useState();
+  const [filtro, setFiltro] = useState("");
   const [miembrosFiltrados, setMiembrosFiltrados] = useState([]);
 
   useEffect(() => {
@@ -33,6 +31,28 @@ const MembersPage = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log("Filtro: ", filtro);
+    if (filtro === "Directivos") {
+      const miembrosConFiltro = miembros.filter(
+        (miembro) => miembro.board_member === true
+      );
+      setMiembrosFiltrados(miembrosConFiltro);
+    } else {
+      setMiembrosFiltrados(miembros);
+    }
+  }, [filtro, miembros]);
+
+  const handleBuscar = (e) => {
+    const { name, value } = e.target;
+
+    //si hay objetos dentro
+    const miembrosConFiltro = miembros.filter((uno) =>
+      uno.last_name.toLowerCase().includes(value)
+    );
+    setMiembrosFiltrados(miembrosConFiltro);
+  };
 
   return (
     <section className="container px-4 mx-auto">
@@ -52,11 +72,25 @@ const MembersPage = () => {
 
       <div className="mt-6 md:flex md:items-center md:justify-between">
         <div className="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
-          <button className="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300">
+          <button
+            className={`px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 hover:bg-gray-100 ${
+              filtro === ""
+                ? "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                : "text-gray-600 dark:text-gray-300"
+            }`}
+            onClick={() => setFiltro("")}
+          >
             Ver Todos
           </button>
 
-          <button className="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+          <button
+            className={`px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 hover:bg-gray-100 ${
+              filtro === "Directivos"
+                ? "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                : "text-gray-600 dark:text-gray-300"
+            }`}
+            onClick={() => setFiltro("Directivos")}
+          >
             Directivos
           </button>
         </div>
@@ -81,8 +115,9 @@ const MembersPage = () => {
 
           <input
             type="text"
-            placeholder="Buscar"
+            placeholder="Buscar por apellido"
             className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            onChange={handleBuscar}
           />
         </div>
       </div>
@@ -107,6 +142,14 @@ const MembersPage = () => {
                     >
                       Apellido
                     </th>
+                    {filtro === "Directivos" && (
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Cargo Directivo
+                      </th>
+                    )}
                     <th
                       scope="col"
                       className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
@@ -120,6 +163,7 @@ const MembersPage = () => {
                     >
                       E-Mail
                     </th>
+
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
@@ -129,7 +173,7 @@ const MembersPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                  {miembros.map((uno) => (
+                  {miembrosFiltrados.map((uno) => (
                     <tr key={uno.id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
@@ -141,6 +185,15 @@ const MembersPage = () => {
                       <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
                         {uno.last_name}
                       </td>
+                      {filtro === "Directivos" && (
+                        <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <div>
+                            <h4 className="text-gray-700 dark:text-gray-200">
+                              {uno.board_position}
+                            </h4>
+                          </div>
+                        </td>
+                      )}
                       <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
                         {uno.status_active && (
                           <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
@@ -160,6 +213,7 @@ const MembersPage = () => {
                           </h4>
                         </div>
                       </td>
+
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
                           <Link

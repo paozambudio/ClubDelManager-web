@@ -33,7 +33,15 @@ export default function HistoryPage() {
             <h1 className="text-4xl text-sky-600 font-bold tracking-tighter sm:text-5xl md:text-6xl/relaxed p-6">
               Nuestra evolución en el tiempo
             </h1>
-            <CustomizedTimeline />
+            <div>
+              <Image
+                className="align-middle flex"
+                src="/imgHistory/Linea_de_Tiempo.jpg"
+                width={800}
+                height={200}
+                alt="evolucion"
+              />
+            </div>
 
             <div className=" grid grid-cols-2">
               <div>

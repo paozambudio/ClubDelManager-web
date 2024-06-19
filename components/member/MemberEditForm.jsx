@@ -120,6 +120,7 @@ const MemberEditForm = () => {
       };
 
       console.log("Voy a actualizar: ", id);
+      console.log("Datos: ", formData);
 
       /*const res = await fetch(`/api/members/${id}`, {
         method: "PUT",

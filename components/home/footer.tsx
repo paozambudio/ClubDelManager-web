@@ -34,13 +34,15 @@ const Footer: React.FC = () => {
           <Image src="/LogoPng.png" width={60} height={60} alt="Logo" />
         </Link>
 
-        <p className="text-lg text-white px-8 font-bold">Club del Manager</p>
+        <p className="text-lg text-white px-8 font-">
+          Encontranos en nuestras redes:{" "}
+        </p>
 
         <div className="flex mt-4 -mx-2">
           <a
             href="https://www.linkedin.com/company/el-club-del-manager/posts/?feedView=all"
             target="_blank"
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500 group-hover:text-white"
             aria-label="LinkedIn"
           >
             <svg
@@ -52,10 +54,11 @@ const Footer: React.FC = () => {
               <LinkedinIcon />
             </svg>
           </a>
+
           <a
             href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500 group-hover:text-white"
             aria-label="Instagram"
           >
             <svg
@@ -89,6 +92,12 @@ const Footer: React.FC = () => {
             target="_blank"
             className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
             aria-label="YouTube"
+            onMouseOver={(e) =>
+              e.currentTarget.classList.add("hover:text-gray-500")
+            }
+            onMouseOut={(e) =>
+              e.currentTarget.classList.remove("hover:text-gray-500")
+            }
           >
             <svg
               className="w-7 h-7 fill-current"
@@ -103,8 +112,14 @@ const Footer: React.FC = () => {
           <a
             href="https://open.spotify.com/user/31v3jgx5cf2jzouv64bndnx4nffa?si=M2MUHefrTAyLAEjvmn056w&nd=1&dlsi=65aebeea81444292"
             target="_blank"
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500 group-hover:text-white"
             aria-label="Spotify"
+            onMouseOver={(e) =>
+              e.currentTarget.classList.add("hover:text-gray-500")
+            }
+            onMouseOut={(e) =>
+              e.currentTarget.classList.remove("hover:text-gray-500")
+            }
           >
             <svg
               className="w-7 h-7 fill-current"
