@@ -222,7 +222,7 @@ function ResponsiveAppBar() {
                     <button
                       onClick={() => signIn(provider.id)}
                       key={index}
-                      className="flex items-center txt-xs text-white bg-sky-600 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      className="flex items-center txt-xs text-bg-sky-600 border-sky-600 border-2 hover:bg-gray-600 hover:text-white rounded-md px-3 py-2"
                     >
                       <span>Soy Miembro</span>
                     </button>

@@ -8,20 +8,19 @@ import NumbersHome from "../components/home/numbersHome";
 import dbConnect from "../config/database";
 import { debug } from "console";
 import SpotifyDriveAccess from "@/components/homeMiembros/SpotifyDriveAccess";
+import Hero from "@/components/home/Hero";
+import NuestraPropuesta from "@/components/home/NuestraPropuesta";
 
 const HomePage = async () => {
   await dbConnect();
 
   return (
     <>
-      <Banner altText="Imagen de banner" />
+      {/* <Banner altText="Imagen de banner" /> */}
+      <Hero />
+      <NuestraPropuesta />
 
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
-        <NumbersHome
-          miembrosCount={70}
-          proyectosCount={15}
-          participacionCount={15}
-        />
         <GetNoticias />
 
         <ResumeHistory />

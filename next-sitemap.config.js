@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://club-del-manager-web.vercel.app/",
+  siteUrl: "https://www.elclubdelmanager.com.ar/",
   generateRobotsTxt: true, // (optional)
   // ...other options
 };

@@ -66,7 +66,7 @@ const NumbersHome: React.FC<CounterProps> = ({
             transition={{ duration: 0.1 }}
           >
             <p className="text-sky-500 text-center text-2xl">+ {miembros}</p>
-            <p className="text-teal-500 text-center ">Miembros actuales</p>
+            <p className="text-teal-500 text-center ">Miembros</p>
           </motion.div>
         </div>
       )}
@@ -79,8 +79,8 @@ const NumbersHome: React.FC<CounterProps> = ({
             }}
             transition={{ duration: 0.1 }}
           >
-            <p className="text-sky-500 text-center text-2xl">+ {proyectos}</p>
-            <p className="text-teal-500 text-center ">Proyectos realizados</p>
+            <p className="text-sky-500 text-center text-2xl"> {proyectos}</p>
+            <p className="text-teal-500 text-center ">Summit</p>
           </motion.div>
         </div>
       )}
@@ -94,11 +94,9 @@ const NumbersHome: React.FC<CounterProps> = ({
             }}
             transition={{ duration: 0.1 }}
           >
-            <p className="text-sky-500 text-center text-2xl">
-              + {participacion}
-            </p>
+            <p className="text-sky-500 text-center text-2xl">{participacion}</p>
             <p className="text-teal-500 text-center ">
-              Participación en eventos
+              Encuentros mensuales (2024)
             </p>
           </motion.div>
         </div>
