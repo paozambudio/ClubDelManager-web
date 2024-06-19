@@ -19,7 +19,37 @@ const buscarMiembros = async () => {
 };
 
 const MembersPage = () => {
-  const [miembros, setMiembros] = useState([]);
+  const [miembros, setMiembros] = useState([
+    {
+      id: "",
+      document_id: "",
+      first_name: "",
+      last_name: "",
+      phone: "",
+      email: "",
+      photo: "",
+      address_street: "",
+      address_number: "",
+      address_region: "",
+      address_state: "Mendoza",
+      address_country: "Argentina",
+      linkedin_url: "",
+      instagram_url: "",
+      profession: "",
+      company: "",
+      position: "",
+      lead_persons: false,
+      manager_position: false,
+      added_value: "",
+      teaching_skilss: false,
+      membership_reason: "",
+      board_member: false,
+      board_position: "",
+      birthdate: "1900-01-01",
+      startdate: "1900-01-01",
+      status_active: true,
+    },
+  ]);
   const [filtro, setFiltro] = useState("");
   const [miembrosFiltrados, setMiembrosFiltrados] = useState([]);
 
@@ -34,25 +64,25 @@ const MembersPage = () => {
 
   useEffect(() => {
     console.log("Filtro: ", filtro);
-    if (filtro === "Directivos") {
+    /* if (filtro === "Directivos") {
       const miembrosConFiltro = miembros.filter(
         (miembro) => miembro.board_member === true
       );
       setMiembrosFiltrados(miembrosConFiltro);
     } else {
       setMiembrosFiltrados(miembros);
-    }
+    } */
   }, [filtro, miembros]);
 
-  const handleBuscar = (e) => {
+  /* const handleBuscar = (e) => {
     const { name, value } = e.target;
 
-    //si hay objetos dentro
+    
     const miembrosConFiltro = miembros.filter((uno) =>
       uno.last_name.toLowerCase().includes(value)
     );
     setMiembrosFiltrados(miembrosConFiltro);
-  };
+  };  */
 
   return (
     <section className="container px-4 mx-auto">
@@ -117,7 +147,6 @@ const MembersPage = () => {
             type="text"
             placeholder="Buscar por apellido"
             className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            onChange={handleBuscar}
           />
         </div>
       </div>
@@ -173,8 +202,8 @@ const MembersPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                  {miembrosFiltrados.map((uno) => (
-                    <tr key={uno.id}>
+                  {miembros.map((uno) => (
+                    <tr key={uno.document_id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
                           <h2 className="font-medium text-black-800 dark:text-black ">
