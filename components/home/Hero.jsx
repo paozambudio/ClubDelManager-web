@@ -1,5 +1,6 @@
 "use client";
 //import imgPortada from "./imgHome/img1.jpeg";
+import Image from "next/image";
 const Hero = () => {
   return (
     <header>
@@ -10,10 +11,13 @@ const Hero = () => {
       <div class="container px-6 mx-auto">
         <div class="items-center lg:flex">
           <div class="flex items-center justify-center w-full h-56 lg:w-1/2">
-            <img
-              class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
+            <Image
               src="/imgHome/img1.jpeg"
-              alt="home"
+              alt=""
+              width={0}
+              height={0}
+              layout="responsive"
+              className="relative z-10 object-cover w-full rounded-md h-64"
             />
           </div>
           <div class="w-full lg:w-1/2 px-6 py-16 mx-auto">
