@@ -1,4 +1,5 @@
 "use client";
+//import imgPortada from "./imgHome/img1.jpeg";
 const Hero = () => {
   return (
     <header>
@@ -11,7 +12,7 @@ const Hero = () => {
           <div class="flex items-center justify-center w-full h-56 lg:w-1/2">
             <img
               class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
-              src="imgHome/img1.jpeg"
+              src="/imgHome/img1.jpeg"
               alt="home"
             />
           </div>
