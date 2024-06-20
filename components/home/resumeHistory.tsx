@@ -51,7 +51,7 @@ const ResumeHistory = () => {
         </div>
       )}
       {!session && (
-        <div className="block mx-auto md:w-1/2 items-center p-10">
+        <div className="block w-full md:w-1/2 mx-auto items-center p-4 md:p-10">
           <Carrusel />
         </div>
       )}
