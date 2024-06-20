@@ -1,3 +1,4 @@
+"use client";
 const Hero = () => {
   return (
     <header>
@@ -11,7 +12,7 @@ const Hero = () => {
             <img
               class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
               src="imgHome/img1.jpeg"
-              alt="glasses photo"
+              alt="home"
             />
           </div>
           <div class="w-full lg:w-1/2 px-6 py-16 mx-auto">
@@ -33,7 +34,15 @@ const Hero = () => {
                   Si querés ser parte, llená el formulario
                 </span>
 
-                <button class="w-full px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-sky-600 rounded-lg lg:w-auto lg:mx-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                <button
+                  class="w-full px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-sky-600 rounded-lg lg:w-auto lg:mx-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+                  onClick={() => {
+                    window.open(
+                      "https://forms.gle/2sHNbcHMedhV4kDs9",
+                      "_blank"
+                    );
+                  }}
+                >
                   Unite
                 </button>
               </div>
