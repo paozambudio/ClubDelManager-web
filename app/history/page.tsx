@@ -28,16 +28,19 @@ export default function HistoryPage() {
         ></div>
       </div>
 
-      <div className="flex flex-col max-w-6xl max-h-50 px-4 py-4 h-full bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">
-        <div className="w-full p-4 md:p-4 ">
+      <div className="flex flex-col max-w-6xl px-4 py-4 h-full bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">
+        <div className="w-full p-4">
           <span className="text-xl font-bold text-sky-600 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
             Nuestra Evolución en el tiempo
           </span>
         </div>
-        <div
-          className=" bg-cover bg-center bg-no-repeat min-h-96 h-full"
-          style={{ backgroundImage: "url('/imgHistory/Linea_de_Tiempo.jpg')" }}
-        ></div>
+        <div className="w-full h-full sm:h-80 md:h-96 lg:h-full xl:h-160 bg-cover bg-center bg-no-repeat">
+          <img
+            src="/imgHistory/Linea_de_Tiempo.jpeg"
+            alt="Línea de Tiempo"
+            className="w-full h-full object-cover rounded-b-lg"
+          />
+        </div>
       </div>
 
       <div className="flex flex-col max-w-6xl max-h-50 px-4 py-4 h-full bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">

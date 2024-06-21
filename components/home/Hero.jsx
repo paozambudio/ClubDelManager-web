@@ -11,11 +11,9 @@ const Hero = () => {
       <div class="container px-6 mx-auto">
         <div class="items-center lg:flex">
           <div class="flex items-center justify-center w-full h-56 lg:w-1/2">
-            <Image
+            <img
               src="/imgHome/img1.jpeg"
               alt=""
-              width={0}
-              height={0}
               layout="responsive"
               className="relative z-10 object-cover w-full rounded-md h-64"
             />
