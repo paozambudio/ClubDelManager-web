@@ -6,8 +6,8 @@ import CustomizedTimeline from "../../components/history/TimeLine";
 export default function HistoryPage() {
   return (
     <div className="w-full py-12 space-y-12 md:py-24 lg:space-y-16">
-      <div className="flex max-w-6xl px-4 py-4 bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">
-        <div className="w-1/3 p-4 md:p-4">
+      <div className="flex flex-col md:flex-row max-w-6xl px-4 py-4 bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">
+        <div className="w-full md:w-1/3 p-4">
           <span className="text-xl font-bold text-sky-600 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
             Sobre el club
           </span>
@@ -23,7 +23,7 @@ export default function HistoryPage() {
           </p>
         </div>
         <div
-          className="w-2/3 bg-cover bg-center bg-no-repeat"
+          className="w-full md:w-2/3 bg-cover bg-center bg-no-repeat min-h-64 h-auto md:h-auto"
           style={{ backgroundImage: "url('/imgHome/Img7.jpeg')" }}
         ></div>
       </div>
