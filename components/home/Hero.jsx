@@ -1,5 +1,4 @@
 "use client";
-//import imgPortada from "./imgHome/img1.jpeg";
 import Image from "next/image";
 const Hero = () => {
   return (
@@ -12,7 +11,7 @@ const Hero = () => {
         <div class="items-center lg:flex ">
           <div
             className="w-full md:w-2/3 bg-cover bg-center rounded-sm bg-no-repeat min-h-64 h-auto md:h-auto"
-            style={{ backgroundImage: "url('/imgHome/img1.jpeg')" }}
+            style={{ backgroundImage: "url('fondo.jpg')" }}
           ></div>
           <div class="w-full lg:w-1/2 px-6 py-16 mx-auto">
             <div class="lg:max-w-lg">

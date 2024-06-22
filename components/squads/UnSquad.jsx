@@ -88,7 +88,7 @@ export default function SquadsList() {
         Líder: {steps[activeStep].lead}
       </span>
       <MobileStepper
-        className="  px-4 py-3 bg-gray-200 rounded-md shadow-md dark:bg-gray-800"
+        className="  px-4 py-3 bg-gray-200 rounded-md shadow-md dark:bg-gray-200"
         variant="text"
         steps={maxSteps}
         position="static"

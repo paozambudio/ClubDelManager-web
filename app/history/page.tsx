@@ -11,7 +11,7 @@ export default function HistoryPage() {
           <span className="text-xl font-bold text-sky-600  hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
             Sobre el club
           </span>
-          <p className="mt-2 text-md text-gray-600 dark:text-gray-300">
+          <p className="mt-2 text-md text-gray-600 ">
             Marcados fuertemente luego del 2020, un grupo de Profesionales
             veíamos y sentíamos que no teníamos un espacio de intimidad para
             reflexionar, compartir y debatir sobre las problemáticas que vivimos
