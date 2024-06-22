@@ -152,7 +152,7 @@ function ResponsiveAppBar() {
                 >
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link href="/blog">
-                      <Typography textAlign="right">Blog</Typography>
+                      <Typography textAlign="right">Noticias</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
@@ -187,7 +187,7 @@ function ResponsiveAppBar() {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Blog
+                  Noticias
                 </Typography>
               </Link>
             )}

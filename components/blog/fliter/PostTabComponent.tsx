@@ -84,13 +84,6 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
             </div>
           ))}
       </ul>
-      <div className="inline-flex w-full mt-6 sm:w-auto">
-        <Link href="">
-          <button className="inline-flex items-center justify-center w-full px-6 py-2 font-medium text-white duration-300 bg-blue-400  rounded-lg hover:bg-blue-500  focus:ring focus:ring-gray-300 focus:ring-opacity-80">
-            Volver
-          </button>
-        </Link>
-      </div>
     </div>
   );
 };

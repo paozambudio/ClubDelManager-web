@@ -1,3 +1,5 @@
+import CardPropuesta from "./CardPropuesta";
+
 const NuestraPropuesta = () => {
   return (
     <section>
@@ -13,7 +15,7 @@ const NuestraPropuesta = () => {
         </p>
 
         <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 ">
+          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500  ">
             <span class="inline-block text-teal-600 dark:text-blue-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +33,7 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700 ">
               Espacios formativos
             </h1>
 
@@ -71,7 +73,7 @@ const NuestraPropuesta = () => {
             </p>
           </div>
 
-          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-x hover:bg-teal-500">
+          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500">
             <span class="inline-block text-teal-600 dark:text-blue-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

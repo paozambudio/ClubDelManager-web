@@ -57,7 +57,7 @@ const blogPage = () => {
             nombre="Federico"
             apellido="Azeglio"
             cargo="Presidente"
-            foto="./imgTeam/Presidente.jpg"
+            foto="/imgTeam/Presidente.webp"
             linkedinURL="linkedin.com/in/federicoazeglio"
           />
 
@@ -65,7 +65,7 @@ const blogPage = () => {
             nombre="Andrés"
             apellido="García"
             cargo="Vicepresidente"
-            foto="./imgTeam/VicePresidente.jpg"
+            foto="/imgTeam/VicePresidente.webp"
             linkedinURL="linkedin.com/in/andy-garcía-06539713"
           />
 
@@ -73,7 +73,7 @@ const blogPage = () => {
             nombre="Pablo"
             apellido="Iacobucci"
             cargo="Secretario"
-            foto="./imgTeam/Secretario.jpg"
+            foto="/imgTeam/Secretario.webp"
             linkedinURL="linkedin.com/in/pablo-iacobucci-azcarate-412a1620"
           />
 
@@ -81,7 +81,7 @@ const blogPage = () => {
             nombre="Franco"
             apellido="Maratta"
             cargo="Tesorero"
-            foto="./imgTeam/Tesorero.jpg"
+            foto="/imgTeam/Tesorero.webp"
             linkedinURL="linkedin.com/in/francomaratta"
           />
 
@@ -89,7 +89,7 @@ const blogPage = () => {
             nombre="Eugenia"
             apellido="Plaza"
             cargo="1er Vocal"
-            foto="./imgTeam/1Vocal.jpg"
+            foto="/imgTeam/1Vocal.webp"
             linkedinURL="linkedin.com/in/francomaratta"
           />
 
@@ -97,7 +97,7 @@ const blogPage = () => {
             nombre="Nicolás"
             apellido="Tarditi"
             cargo="2do Vocal"
-            foto="./imgTeam/2Vocal.jpg"
+            foto="/imgTeam/2Vocal.webp"
             linkedinURL="linkedin.com/in/francomaratta"
           />
 
@@ -105,7 +105,7 @@ const blogPage = () => {
             nombre="Mauricio"
             apellido="Guzmán"
             cargo="3er Vocal"
-            foto="./imgTeam/3Vocal.jpg"
+            foto="/imgTeam/3Vocal.webp"
             linkedinURL="linkedin.com/in/francomaratta"
           />
         </div>
