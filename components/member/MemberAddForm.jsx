@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const MemberAddForm = () => {
   const [mounted, setMounted] = useState(false);
@@ -118,7 +119,7 @@ const MemberAddForm = () => {
         body: formData,
       });*/
 
-      const res = await fetch(`http://127.0.0.1:8000/api/members/members/`, {
+      const res = await fetch(`${apiDomain}/members/members/`, {
         method: "POST",
 
         headers: {

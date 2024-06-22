@@ -2,12 +2,12 @@ const NuestraPropuesta = () => {
   return (
     <section>
       <div class="container px-6 py-2 mx-auto">
-        <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+        <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
           Sumate <br /> a nuestra increible{" "}
           <span class="underline decoration-blue-500">Propuesta</span>
         </h1>
 
-        <p class="mt-4 text-gray-500 xl:mt-6 dark:text-gray-300 font-mono font-semibold">
+        <p class="mt-4 text-gray-500 xl:mt-6 dark:text-gray-500 font-mono font-semibold">
           Si querés ir sólo vas a llegar rápido, pero en equipo llegamos más
           lejos!
         </p>
@@ -31,11 +31,11 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700">
               Espacios formativos
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-300">
+            <p class="text-gray-500 dark:text-gray-500">
               Espacios colaborativos, iterativos y dinámicos que nos permitan
               perfeccionar habilidades que nos ayuden a llevar a otro nivel
               nuestro liderazgo.
@@ -64,7 +64,7 @@ const NuestraPropuesta = () => {
               Networking
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-300">
+            <p class="text-gray-500 dark:text-gray-500">
               Los vínculos honestos y sinceros nutren nuestra vida profesional y
               nos hacen mejores profesionales generando puentes y abriendos
               puertas que seguramente nos dejen en un mejor estadio.
@@ -95,11 +95,11 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700">
               Dictado de Conferencias
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-300">
+            <p class="text-gray-500 dark:text-gray-500">
               Si pensamos en impacto que mejor poder hacerlo en aquellos que
               seran los lideres del mañana, y cuanto terreno ganaran con el
               testimonio de tantos lideres, con aciertos y errores, pero sobre

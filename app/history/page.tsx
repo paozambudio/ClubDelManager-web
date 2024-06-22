@@ -13,10 +13,10 @@ export default function HistoryPage() {
           </span>
           <p className="mt-2 text-md text-gray-600 ">
             Marcados fuertemente luego del 2020, un grupo de Profesionales
-            veíamos y sentíamos que no teníamos un espacio de intimidad para
-            reflexionar, compartir y debatir sobre las problemáticas que vivimos
-            diariamente como lideres de diferentes organizaciones, en una
-            sociedad que cambio rotundamente. <br /> <br />
+            sentíamos que no teníamos un espacio de intimidad para reflexionar,
+            compartir y debatir sobre las problemáticas que vivimos diariamente
+            como lideres de diferentes organizaciones, en una sociedad que
+            cambio rotundamente. <br /> <br />
             Impulsados por un espíritu gregario, colaborativo, con paradigmas
             generacionales similares fue que nos empezamos a agruparnos bajo
             esta fuerte necesidad y realidad.
@@ -31,7 +31,7 @@ export default function HistoryPage() {
       <div className="flex flex-col max-w-6xl px-4 py-4 h-full bg-gradient-to-r from-slate-200 to-slate-300 rounded-lg shadow-md dark:bg-gray-800">
         <div className="w-full p-4">
           <span className="text-xl font-bold text-sky-600  hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
-            Nuestra Evolución en el tiempo
+            TIME LINE
           </span>
         </div>
         <div className="w-full h-full sm:h-80 md:h-96 lg:h-full xl:h-160 bg-cover bg-center bg-no-repeat">

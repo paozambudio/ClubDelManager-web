@@ -22,7 +22,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <p class="mt-3 text-lg text-gray-600 dark:text-gray-400 font-sans">
+              <p class="mt-3 text-lg text-gray-600 dark:text-gray-600 font-sans">
                 El mundo no va a cambiar sólo, necesitamos contar con vos para
                 TRANSFORMAR EL LIDERAZGO!!
               </p>

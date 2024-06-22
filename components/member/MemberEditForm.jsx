@@ -6,6 +6,8 @@ import Link from "next/link";
 import { fetchMember } from "@/utils/requests";
 import { toast } from "react-toastify";
 
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
+
 const MemberEditForm = () => {
   const { id } = useParams();
   const router = useRouter();
@@ -127,16 +129,13 @@ const MemberEditForm = () => {
         body: formData,
       });*/
 
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/members/members/${id}/`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch(`${apiDomain}/members/members/${id}/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (res.status === 200) {
         notify("Registro actualizado", false);
