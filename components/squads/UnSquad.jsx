@@ -62,7 +62,7 @@ export default function SquadsList() {
     <Box sx={{ maxWidth: 700, flexGrow: 1 }}>
       <Paper
         square
-        className="  px-4 py-3 bg-gray-200 rounded-md shadow-md dark:bg-gray-800"
+        className="  px-4 py-3 bg-gray-200 rounded-md shadow-md dark:bg-gray-200"
         elevation={0}
         sx={{
           display: "flex",

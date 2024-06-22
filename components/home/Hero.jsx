@@ -9,15 +9,11 @@ const Hero = () => {
       </nav>
 
       <div class="container px-6 mx-auto">
-        <div class="items-center lg:flex">
-          <div class="flex items-center justify-center w-full h-56 lg:w-1/2">
-            <img
-              src="/imgHome/img1.jpeg"
-              alt=""
-              layout="responsive"
-              className="relative z-10 object-cover w-full rounded-md h-64"
-            />
-          </div>
+        <div class="items-center lg:flex ">
+          <div
+            className="w-full md:w-2/3 bg-cover bg-center rounded-sm bg-no-repeat min-h-64 h-auto md:h-auto"
+            style={{ backgroundImage: "url('/imgHome/img1.jpeg')" }}
+          ></div>
           <div class="w-full lg:w-1/2 px-6 py-16 mx-auto">
             <div class="lg:max-w-lg">
               <h1 class="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
