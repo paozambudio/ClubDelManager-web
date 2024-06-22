@@ -50,7 +50,7 @@ const MemberEditForm = () => {
       try {
         if (!id) return <h1>No se encontro información</h1>;
         const memberData = await fetchMember(id);
-
+        console.log("Registro para edición: ", memberData);
         setFields(memberData);
       } catch (error) {
         console.log(error);
@@ -67,7 +67,10 @@ const MemberEditForm = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    //const { name, value } = e.target;
+
+    const { name, value, type, checked } = e.target;
+    const actualValue = type === "checkbox" ? checked : value;
 
     //si hay objetos dentro
     if (name.includes(".")) {
@@ -82,7 +85,7 @@ const MemberEditForm = () => {
     } else {
       setFields((prevFields) => ({
         ...prevFields,
-        [name]: value,
+        [name]: actualValue,
       }));
     }
   };
@@ -502,7 +505,9 @@ const MemberEditForm = () => {
                         name="lead_persons"
                         type="checkbox"
                         value={fields.lead_persons}
+                        checked={fields.lead_persons}
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -522,7 +527,9 @@ const MemberEditForm = () => {
                         name="manager_position"
                         type="checkbox"
                         value={fields.manager_position}
+                        checked={fields.manager_position}
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -581,7 +588,9 @@ const MemberEditForm = () => {
                         name="board_member"
                         type="checkbox"
                         value={fields.board_member}
+                        checked={fields.board_member}
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -635,7 +644,7 @@ const MemberEditForm = () => {
                       className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                       type="button"
                     >
-                      Cancelar
+                      Volver
                     </button>
                   </Link>
 

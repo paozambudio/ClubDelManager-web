@@ -44,12 +44,12 @@ const blogPage = () => {
   return (
     <section className=" dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-sky-500 capitalize lg:text-3xl dark:text-white">
+        <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl dark:text-white">
           Nuestro Equipo Directivo
         </h1>
-        <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-          Dejamos un espacio para poner algo que consideremos importante en esta
-          sección.
+        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+          Líderes situacionales, en ejericio de la comisión directiva. Vigencia:
+          2024.
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">

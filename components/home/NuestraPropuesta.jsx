@@ -1,5 +1,3 @@
-import CardPropuesta from "./CardPropuesta";
-
 const NuestraPropuesta = () => {
   return (
     <section>

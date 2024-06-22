@@ -36,7 +36,7 @@ const MemberAddForm = () => {
     membership_reason: "",
     board_member: false,
     board_position: "",
-    birthdate: "1900-01-01",
+    birthdate: "1990-01-01",
     startdate: "1900-01-01",
     status_active: true,
   });
@@ -194,13 +194,12 @@ const MemberAddForm = () => {
                       Fecha de Nacimiento
                     </label>
                     <input
-                      type="date"
-                      id=""
-                      name=""
+                      type="text"
+                      id="birthdate"
+                      name="birthdate"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
-                      placeholder="Ingresá tu nombre"
-                      value=""
-                      onChange={handleChange}
+                      placeholder=""
+                      value={fields.birthdate}
                     />
                   </div>
                   <div>
