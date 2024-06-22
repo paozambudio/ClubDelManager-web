@@ -58,7 +58,11 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
               <div className="relative rounded-lg overflow-hidden">
                 <Link href={`/posts/${post.slug}`}>
                   <img
-                    src={post.imagen}
+                    src={
+                      post.imagen.startsWith("http")
+                        ? post.imagen
+                        : `/${post.imagen}`
+                    }
                     alt="Imagen de portada del blog"
                     className="relative z-10 object-cover w-full rounded-md h-96"
                   />
