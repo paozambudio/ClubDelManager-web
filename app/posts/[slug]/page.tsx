@@ -21,23 +21,21 @@ export const generateStaticParams = async () => {
 };
 
 const PostPage = (props: any) => {
-
   const slug = props.params.slug;
   const post = getPostContent(slug);
 
   return (
     <div className="mx-auto max-w-2xl px-6">
-
       <style>
         {`
           .prose * {
-            color: white !important;
+            color: black !important;
           }
         `}
       </style>
       <div className="my-12 text-center">
-        <h1 className="text-2xl text-white">{post.data.title}</h1>
-        <p className="text-white mt-2">{post.data.date}</p>
+        <h1 className="text-2xl text-black">{post.data.title}</h1>
+        <p className="text-black mt-2">{post.data.date}</p>
         <p className="text-white mt-2">Por: {post.data.autor}</p>
       </div>
 

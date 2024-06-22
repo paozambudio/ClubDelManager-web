@@ -37,11 +37,11 @@ const GetNoticias = () => {
         </Link>
       </div>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <ul className=" flex-col h-full grid grid-cols-1 md:grid-cols-2 gap-4">
         {latestPosts
           .filter((post) => post.active)
           .map((post) => (
-            <li key={post.slug}>
+            <li key={post.slug} className="flex-1 h-full">
               <PostPreview {...post} />
             </li>
           ))}

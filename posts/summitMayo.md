@@ -8,7 +8,7 @@ date: "2024-05-30"
 autor: "Federico Azeglio"
 
 type: "eventos"
-active: true
+active: false
 ---
 
 ## ¿Querés llevar tu liderazgo al siguiente nivel?

@@ -16,12 +16,16 @@ const PostPreview = (props: PostMetadata) => {
           <p className="mt-2 text-xs text-blue-400">
             {props.date} {props.active}
           </p>
-          <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
-            {props.title}
-          </h2>
-          <p className="t-2 text-xs text-gray-400 dark:text-gray-200 md:text-sm">
-            {props.subtitle}
-          </p>
+          <div className="h-16 overflow-hidden">
+            <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
+              {props.title}
+            </h2>
+          </div>
+          <div className="h-10 overflow-hidden">
+            <p className="t-2 text-xs text-gray-400 dark:text-gray-200 md:text-sm">
+              {props.subtitle}
+            </p>
+          </div>
         </div>
       </Link>
     </div>

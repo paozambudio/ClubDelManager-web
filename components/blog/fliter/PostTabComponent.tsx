@@ -16,13 +16,15 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
     uniqueTypes[-1] || null
   );
 
+  console.log("Posts: ", posts);
+
   return (
     <div className="relative rounded-lg overflow-hidden pt-4">
       <div className="flex justify-center mb-4">
-        <div className="grid grid-cols-3 gap-4 items-center p-1 border border-blue-500 dark:border-blue-400 rounded-xl">
+        <div className="grid grid-cols-4 gap-4 items-center p-1 border border-blue-500 dark:border-blue-400 rounded-xl">
           <button
             key={-1}
-            className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl ${
+            className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
               selectedType === null
                 ? "bg-blue-400 text-white"
                 : "text-white dark:hover:text-white"
@@ -35,7 +37,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
           {uniqueTypes.map((type, index) => (
             <button
               key={index}
-              className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl ${
+              className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
                 selectedType === type
                   ? "bg-blue-400 text-white"
                   : "text-white dark:hover:text-white"
@@ -62,12 +64,16 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
                   />
                   <div className="relative z-20 max-w-lg p-4 mx-auto -mt-16 bg-white rounded-md shadow dark:bg-gray-900">
                     <p className="mt-2 text-xs text-blue-400">{post.date}</p>
-                    <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
-                      {post.title}
-                    </h2>
-                    <p className="t-2 text-xs text-gray-400 dark:text-gray-200 md:text-sm">
-                      {post.subtitle}
-                    </p>
+                    <div className="h-16 overflow-hidden">
+                      <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
+                        {post.title}
+                      </h2>
+                    </div>
+                    <div className="h-10 overflow-hidden">
+                      <p className="t-2 text-xs text-gray-400 dark:text-gray-200 md:text-sm">
+                        {post.subtitle}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               </div>

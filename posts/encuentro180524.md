@@ -7,7 +7,7 @@ date: "2024-05-18"
 
 autor: "Eugenia Plaza"
 
-type: "Team Building"
+type: "Equipo"
 
 active: true
 ---

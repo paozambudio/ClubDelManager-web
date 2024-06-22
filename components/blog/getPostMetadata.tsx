@@ -23,7 +23,7 @@ const getPostMetadata = (): PostMetadata[] => {
     };
   });
 
-  return posts;
+  return posts.filter((post) => post.active === true);
 };
 
 export default getPostMetadata;
