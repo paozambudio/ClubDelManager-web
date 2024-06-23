@@ -54,8 +54,8 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
         {posts
           .filter((post) => selectedType === null || post.type === selectedType)
           .map((post, idx) => (
-            <div key={idx} className="mx-4 my-6">
-              <div className="relative rounded-lg overflow-hidden">
+            <div key={idx} className="mx-4 my-6 rounded-md shadow">
+              <div className="relative rounded-lg overflow-hidden ">
                 <Link href={`/posts/${post.slug}`}>
                   <img
                     src={
@@ -66,7 +66,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
                     alt="Imagen de portada del blog"
                     className="relative z-10 object-cover w-full rounded-md h-96"
                   />
-                  <div className="relative z-20 max-w-lg p-4 mx-auto -mt-16 bg-white rounded-md shadow dark:bg-gray-900">
+                  <div className="relative z-20 max-w-lg p-4 mx-auto -mt-16 bg-gray-100 rounded-md shadow dark:bg-gray-900">
                     <p className="mt-2 text-xs text-blue-400">{post.date}</p>
                     <div className="h-16 overflow-hidden">
                       <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
@@ -74,7 +74,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
                       </h2>
                     </div>
                     <div className="h-10 overflow-hidden">
-                      <p className="t-2 text-xs text-gray-400 dark:text-gray-200 md:text-sm">
+                      <p className="t-2 text-xs text-gray-700 dark:text-gray-200 md:text-sm">
                         {post.subtitle}
                       </p>
                     </div>

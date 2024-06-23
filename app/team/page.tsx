@@ -47,9 +47,8 @@ const blogPage = () => {
         <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl dark:text-white">
           Nuestro Equipo Directivo
         </h1>
-        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-          Líderes situacionales, en ejericio de la comisión directiva. Vigencia:
-          2024.
+        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 font-semibold dark:text-gray-300">
+          Líderes situacionales, en ejercicio de la comisión directiva.
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">

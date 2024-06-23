@@ -13,8 +13,8 @@ const NuestraPropuesta = () => {
         </p>
 
         <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500  ">
-            <span class="inline-block text-teal-600 dark:text-blue-400">
+          <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <span class="inline-block text-teal-600 group-hover:text-white dark:text-blue-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-8 h-8"
@@ -31,19 +31,19 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700 ">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize group-hover:text-white dark:text-gray-700 ">
               Espacios formativos
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-500">
+            <p class="text-gray-500 group-hover:text-white dark:text-gray-500">
               Espacios colaborativos, iterativos y dinámicos que nos permitan
               perfeccionar habilidades que nos ayuden a llevar a otro nivel
               nuestro liderazgo.
             </p>
           </div>
 
-          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500">
-            <span class="inline-block text-teal-600 dark:text-blue-400 ">
+          <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <span class="inline-block text-teal-600 dark:text-blue-400 group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-8 h-8"
@@ -60,19 +60,19 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
               Networking
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-500">
+            <p class="text-gray-500 dark:text-gray-500 group-hover:text-white">
               Los vínculos honestos y sinceros nutren nuestra vida profesional y
               nos hacen mejores profesionales generando puentes y abriendos
               puertas que seguramente nos dejen en un mejor estadio.
             </p>
           </div>
 
-          <div class="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500">
-            <span class="inline-block text-teal-600 dark:text-blue-400">
+          <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <span class="inline-block text-teal-600 dark:text-blue-400 group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-8 h-8"
@@ -95,11 +95,11 @@ const NuestraPropuesta = () => {
               </svg>
             </span>
 
-            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700">
+            <h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-gray-700 group-hover:text-white">
               Dictado de Conferencias
             </h1>
 
-            <p class="text-gray-500 dark:text-gray-500">
+            <p class="text-gray-500 dark:text-gray-500 group-hover:text-white">
               Si pensamos en impacto que mejor poder hacerlo en aquellos que
               seran los lideres del mañana, y cuanto terreno ganaran con el
               testimonio de tantos lideres, con aciertos y errores, pero sobre

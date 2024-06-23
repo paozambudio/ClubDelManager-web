@@ -11,7 +11,7 @@ interface MemberItemProps {
 
 export default function Member(Member: MemberItemProps) {
   return (
-    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-sky-500 dark:border-gray-700 dark:hover:border-transparent">
+    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group border-teal-600 hover:bg-teal-500 ">
       <img
         className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
         src={Member.foto}

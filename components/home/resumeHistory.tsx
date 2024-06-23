@@ -21,9 +21,9 @@ const ResumeHistory = () => {
             través de acciones formales y momentos de desarrollo grupal, con
             impacto en la sociedad.✨
           </p>
-          <div className=" grid-cols-2 inline-flex w-full mt-6 sm:w-auto">
+          <div className="flex w-full p-4 mt-6 sm:w-auto space-x-4">
             <Link href="/history">
-              <button className="inline-flex items-center justify-center  px-10 py-2 p-10 font-medium text-white duration-300 bg-sky-600  rounded-lg hover:bg-blue-500  focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+              <button className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
                 Leer más
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const ResumeHistory = () => {
             </Link>
 
             <Link href="/team">
-              <button className="p-10 inline-flex items-center justify-center px-6 py-2 font-medium text-white duration-300 bg-sky-600  rounded-lg hover:bg-blue-500  focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+              <button className="inline-flex items-center justify-center px-6 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
                 Comisión Directiva
               </button>
             </Link>
