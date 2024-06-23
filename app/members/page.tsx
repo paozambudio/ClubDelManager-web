@@ -1,26 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
-
-const buscarMiembros = async () => {
-  try {
-    //const res = await fetch(`http://127.0.0.1:8000/api/members/${filtro}/`);
-    //const res = await fetch("http://127.0.0.1:8000/api/members/members/");
-    const res = await fetch(`${apiDomain}/members/members/`);
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
-    }
-    console.log("Resultado", res);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching members:", error);
-    return [];
-  }
-};
+import { buscarMiembros } from "@/utils/requests";
 
 const MembersPage = () => {
   const [miembros, setMiembros] = useState([
@@ -195,53 +176,53 @@ const MembersPage = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                     >
                       Nombre
                     </th>
 
                     <th
                       scope="col"
-                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                     >
                       Apellido
                     </th>
                     {filtro === "Directivos" && (
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                       >
                         Cargo Directivo
                       </th>
                     )}
                     <th
                       scope="col"
-                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                     >
                       Estado
                     </th>
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                     >
                       E-Mail
                     </th>
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-300"
                     >
                       Editar
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 dark:text-white">
                   {miembrosFiltrados.map((uno) => (
                     <tr key={uno.document_id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
-                          <h2 className="font-medium text-black-800 dark:text-black ">
+                          <h2 className="font-medium text-black-800 ">
                             {uno.first_name}
                           </h2>
                         </div>
@@ -260,12 +241,12 @@ const MembersPage = () => {
                       )}
                       <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
                         {uno.status_active && (
-                          <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
+                          <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-600">
                             Activo
                           </div>
                         )}
                         {!uno.status_active && (
-                          <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                          <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-600">
                             Inactivo
                           </div>
                         )}
