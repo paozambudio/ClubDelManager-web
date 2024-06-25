@@ -1,12 +1,7 @@
-//import { GET } from "@api/members";
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
-
-//const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const buscarMiembros = async () => {
   try {
-    //const res = await fetch(`http://127.0.0.1:8000/api/members/${filtro}/`);
-    //const res = await fetch("http://127.0.0.1:8000/api/members/members/");
     const res = await fetch(`${apiDomain}/members/members/`);
 
     if (!res.ok) {
@@ -71,7 +66,7 @@ async function fetchMemberbyEmail(email) {
       return null;
     }
 
-    const res = await fetch(`${apiDomain}/members/filtro/${email}`);
+    const res = await fetch(`${apiDomain}/members/filter/?email=${email}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");

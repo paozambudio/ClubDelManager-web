@@ -265,23 +265,6 @@ function ResponsiveAppBar() {
                     aria-labelledby="user-menu-button"
                   >
                     <Link
-                      href="/profile"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      id="user-menu-item-0"
-                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
-                    >
-                      Your Profile
-                    </Link>
-                    <Link
-                      href="saved-properties"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      id="user-menu-item-2"
-                    >
-                      Saved Properties
-                    </Link>
-                    <Link
                       href=""
                       className="block px-4 py-2 text-sm text-gray-700"
                       role="menuitem"

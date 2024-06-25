@@ -64,7 +64,7 @@ export default function SpotifyDriveAccess() {
             <div className="flex items-center w-full px-4 py-2 rounded-lg bg-teal-600">
               <Link
                 className="flex items-center px-2 py-1 text-xs w-full font-semibold text-teal-700 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none"
-                href="https://open.spotify.com/playlist/..."
+                href="https://open.spotify.com/user/31v3jgx5cf2jzouv64bndnx4nffa?si=M2MUHefrTAyLAEjvmn056w"
                 target="_blank"
               >
                 <svg
