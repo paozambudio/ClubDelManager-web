@@ -24,7 +24,7 @@ export default function HistoryPage() {
         </div>
         <div
           className="w-full md:w-2/3 bg-cover bg-center bg-no-repeat min-h-64 h-auto md:h-auto"
-          style={{ backgroundImage: "url('/imgHome/Img7.jpeg')" }}
+          style={{ backgroundImage: "url('/imgHome/Img7.webp')" }}
         ></div>
       </div>
 
@@ -51,7 +51,7 @@ export default function HistoryPage() {
         </div>
         <div
           className=" bg-cover bg-center bg-no-repeat min-h-96 h-full"
-          style={{ backgroundImage: "url('/imgHome/img20.jpeg')" }}
+          style={{ backgroundImage: "url('/imgHome/img20.webp')" }}
         ></div>
       </div>
 
