@@ -16,8 +16,6 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
     uniqueTypes[-1] || null
   );
 
-  console.log("Posts: ", posts);
-
   return (
     <div className="relative rounded-lg overflow-hidden pt-4">
       <div className="flex justify-center mb-4">
