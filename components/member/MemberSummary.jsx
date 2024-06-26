@@ -98,7 +98,8 @@ const MemberSummary = () => {
               </div>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                 Nombre: {session.user?.name} &nbsp;&nbsp; <br />
-                Documento: {miembro.document_id} <br />
+                Última actividad con el CDM: 18 de Mayo 2024{" "}
+                {/* {miembro.document_id} */} <br />
                 Puntos Acumulados: <span className="font-semibold">1500</span>
                 <br />
                 <br />
