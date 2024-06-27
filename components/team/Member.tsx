@@ -1,5 +1,6 @@
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedinIcon from "@mui/icons-material/LinkedIn";
+import Link from "next/link";
 
 interface MemberItemProps {
   nombre: string;
@@ -27,11 +28,12 @@ export default function Member(Member: MemberItemProps) {
       </p>
 
       <div className="flex mt-3 -mx-2">
-        <a
-          href={Member.linkedinURL}
+        <Link
+          href={`https://www.linkedin.com/in/${Member.linkedinURL}`}
           target="_blank"
           className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
           aria-label="Linkedin"
+          rel="noopener noreferrer"
         >
           <svg
             className="w-7 h-7 fill-current"
@@ -41,23 +43,7 @@ export default function Member(Member: MemberItemProps) {
           >
             <LinkedinIcon />
           </svg>
-        </a>
-
-        <a
-          href="https://www.instagram.com/clubdelmanager?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
-          aria-label="Instagram"
-        >
-          <svg
-            className="w-7 h-7 fill-current"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <InstagramIcon />
-          </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

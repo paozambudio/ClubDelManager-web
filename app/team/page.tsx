@@ -57,7 +57,7 @@ const blogPage = () => {
             apellido="Azeglio"
             cargo="Presidente"
             foto="/imgTeam/Presidente.webp"
-            linkedinURL="linkedin.com/in/federicoazeglio"
+            linkedinURL="federicoazeglio"
           />
 
           <Member
@@ -65,7 +65,7 @@ const blogPage = () => {
             apellido="García"
             cargo="Vicepresidente"
             foto="/imgTeam/VicePresidente.webp"
-            linkedinURL="linkedin.com/in/andy-garcía-06539713"
+            linkedinURL="andy-garcía-06539713"
           />
 
           <Member
@@ -73,7 +73,7 @@ const blogPage = () => {
             apellido="Iacobucci"
             cargo="Secretario"
             foto="/imgTeam/Secretario.webp"
-            linkedinURL="linkedin.com/in/pablo-iacobucci-azcarate-412a1620"
+            linkedinURL="pablo-iacobucci-azcarate-412a1620"
           />
 
           <Member
@@ -81,7 +81,7 @@ const blogPage = () => {
             apellido="Maratta"
             cargo="Tesorero"
             foto="/imgTeam/Tesorero.webp"
-            linkedinURL="linkedin.com/in/francomaratta"
+            linkedinURL="francomaratta"
           />
 
           <Member
@@ -89,7 +89,7 @@ const blogPage = () => {
             apellido="Plaza"
             cargo="1er Vocal"
             foto="/imgTeam/1Vocal.webp"
-            linkedinURL="linkedin.com/in/francomaratta"
+            linkedinURL="eugenia-plaza-901a5b215"
           />
 
           <Member
@@ -97,7 +97,7 @@ const blogPage = () => {
             apellido="Tarditi"
             cargo="2do Vocal"
             foto="/imgTeam/2Vocal.webp"
-            linkedinURL="linkedin.com/in/francomaratta"
+            linkedinURL="nicolas-tarditi-420a41b"
           />
 
           <Member
@@ -105,7 +105,7 @@ const blogPage = () => {
             apellido="Guzmán"
             cargo="3er Vocal"
             foto="/imgTeam/3Vocal.webp"
-            linkedinURL="linkedin.com/in/francomaratta"
+            linkedinURL="mauricio-antonio-guzman-a0512036"
           />
         </div>
       </div>
