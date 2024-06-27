@@ -73,7 +73,7 @@ const blogPage = () => {
             apellido="Iacobucci"
             cargo="Secretario"
             foto="/imgTeam/Secretario.webp"
-            linkedinURL="pablo-iacobucci-azcarate-412a1620"
+            linkedinURL="pablo-iacobucci-412a1620"
           />
 
           <Member
