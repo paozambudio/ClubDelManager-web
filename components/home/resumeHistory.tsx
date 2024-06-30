@@ -15,7 +15,7 @@ const ResumeHistory = () => {
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
             ¿Querés <br />
             saber quiénes &nbsp;
-            <span class="underline decoration-blue-500">somos?</span>
+            <span className="underline decoration-blue-500">somos?</span>
           </h1>
           <p className="mt-4 text-gray-500">
             Somos Lideres de empresas de la región comprometidos con el
