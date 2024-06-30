@@ -4,16 +4,22 @@ import Link from "next/link";
 
 const GetNoticias = () => {
   const publicaciones = getPostMetadata();
-  const publicacionesOrdenadas = publicaciones.sort((a, b) => {
+  const publicacionesSinOpinion = publicaciones.filter(
+    (publi) => publi.type.toLowerCase() !== "opinion"
+  );
+
+  const publicacionesOrdenadas = publicacionesSinOpinion.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
   const latestPosts = publicacionesOrdenadas.slice(0, 2); // Mostrar solo los 3 primeros
 
   return (
     <>
-      <div className="container px-10 py-10 pt-10 mx-auto mt-6 md:flex md:items-center md:justify-between ">
-        <h1 className="text-2xl font-semibold text-sky-600 capitalize lg:text-3xl dark:text-white">
-          Enterate de las últimas novedades
+      <div className="container py-10 pt-10 align-top mx-auto mt-6 md:flex md:items-center md:justify-between ">
+        <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
+          Enterate <br />
+          de las últimas &nbsp;
+          <span className="underline decoration-blue-500">Novedades</span>
         </h1>
 
         <Link href="/blog">

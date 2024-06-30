@@ -7,7 +7,7 @@ date: "2024-05-25"
 
 autor: "María Victoria Moor"
 
-type: "Opinión"
+type: "Opinion"
 
 active: true
 ---

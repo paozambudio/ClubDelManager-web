@@ -25,18 +25,22 @@ const PostPage = (props: any) => {
   const post = getPostContent(slug);
 
   return (
-    <div className="mx-auto max-w-2xl px-6">
+    <div className="mx-auto max-w-xl px-8">
       <style>
         {`
           .prose * {
-            color: black !important;
+            color: gray !important;
           }
         `}
       </style>
       <div className="my-12 text-center">
-        <h1 className="text-2xl text-black">{post.data.title}</h1>
-        <p className="text-black mt-2">{post.data.date}</p>
-        <p className="text-white mt-2">Por: {post.data.autor}</p>
+        <h1 className="text-2xl text-gray-600">{post.data.title}</h1>
+        <p className="text-gray-600 mt-2">{post.data.subtitle}</p>
+        <div className="my-12 text-center">
+          <p className="text-white mt-2">
+            Fecha: {post.data.date} &nbsp;&nbsp; Por: {post.data.autor}
+          </p>
+        </div>
       </div>
 
       <article className="prose text-white">

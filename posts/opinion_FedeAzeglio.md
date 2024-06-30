@@ -7,7 +7,7 @@ date: "2024-06-05"
 
 autor: "Federico Azeglio"
 
-type: "Opinión"
+type: "Opinion"
 
 active: true
 ---

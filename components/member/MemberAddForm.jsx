@@ -449,48 +449,8 @@ const MemberAddForm = () => {
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      ¿Cuál es el desarrollo de tu liderazgo?
-                    </label>
-                    <select
-                      type="text"
-                      id=""
-                      name=""
-                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
-                      value=""
-                      onChange={handleChange}
-                    >
-                      <option value="0">0-Sin Experiencia</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5-Mucha Experiencia</option>
-                    </select>
-                  </div>
                 </div>
                 <div className="mb-4 grid grid-cols-2">
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="lead_persons"
-                        name="lead_persons"
-                        type="checkbox"
-                        value={fields.lead_persons}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label for="offers" className="font-medium text-gray-900">
-                        ¿Tenés personas a cargo?
-                      </label>
-                      <p className="text-gray-500">
-                        Situación actual o últimos 18 meses.
-                      </p>
-                    </div>
-                  </div>
-
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input
@@ -550,17 +510,38 @@ const MemberAddForm = () => {
                   </div>
                 </div>
                 <div className="mb-4 grid grid-cols-2">
+                  <div className="relative flex gap-x-3">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="board_member"
+                        name="board_member"
+                        type="checkbox"
+                        value={fields.board_member}
+                        checked={fields.board_member}
+                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="text-sm leading-6">
+                      <label for="offers" className="font-medium text-gray-900">
+                        ¿Tenés Cargo Directivo?
+                      </label>
+                      <p className="text-gray-500">
+                        Es decir, si sos parte de la comisión directiva del CDM.
+                      </p>
+                    </div>
+                  </div>
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Cargo Directivo
                     </label>
                     <input
                       type="text"
-                      id="board_member"
-                      name="board_member"
+                      id="board_position"
+                      name="board_position"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá si tenes cargo en el club"
-                      value={fields.board_member}
+                      value={fields.board_position}
                       onChange={handleChange}
                     />
                   </div>

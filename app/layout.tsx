@@ -5,6 +5,7 @@ import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import AuthProvider from "../components/AuthProvider";
 import ToastProvider from "@/components/ToastProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function RootLayout({
   children,

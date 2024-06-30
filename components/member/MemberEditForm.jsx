@@ -624,7 +624,7 @@ const MemberEditForm = () => {
                   htmlFor="images"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Images (Select up to 4 images)
+                  Foto
                 </label>
                 <input
                   type="file"

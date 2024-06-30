@@ -22,7 +22,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
         <div className="grid grid-cols-4 gap-4 items-center p-1 border border-blue-500 dark:border-blue-400 rounded-xl">
           <button
             key={-1}
-            className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
+            className={`px-2 py-1 text-base sm:text-md lg:text-lg font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
               selectedType === null
                 ? "bg-blue-400 text-white"
                 : "text-white dark:hover:text-white"
@@ -35,7 +35,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
           {uniqueTypes.map((type, index) => (
             <button
               key={index}
-              className={`px-2 py-1 text-base sm:text-lg lg:text-xl font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
+              className={`px-2 py-1 text-base sm:text-md lg:text-lg font-medium capitalize transition-colors duration-300 focus:outline-none hover:bg-blue-400 hover:text-white rounded-xl ${
                 selectedType === type
                   ? "bg-blue-400 text-white"
                   : "text-white dark:hover:text-white"
@@ -48,7 +48,7 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
           ))}
         </div>
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
+      <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
         {posts
           .filter((post) => selectedType === null || post.type === selectedType)
           .map((post, idx) => (
@@ -62,12 +62,12 @@ const PostTabComponent: React.FC<PostTabComponentProps> = ({ posts }) => {
                         : `/${post.imagen}`
                     }
                     alt="Imagen de portada del blog"
-                    className="relative z-10 object-cover w-full rounded-md h-96"
+                    className="relative z-10 object-cover w-full rounded-md h-48"
                   />
                   <div className="relative z-20 max-w-lg p-4 mx-auto -mt-16 bg-gray-100 rounded-md shadow dark:bg-gray-900">
                     <p className="mt-2 text-xs text-blue-400">{post.date}</p>
                     <div className="h-16 overflow-hidden">
-                      <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-lg">
+                      <h2 className="font-semibold text-gray-700 hover:underline dark:text-white md:text-sm">
                         {post.title}
                       </h2>
                     </div>
