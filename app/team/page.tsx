@@ -42,12 +42,12 @@ const blogPage = () => {
   };
 
   return (
-    <section className=" dark:bg-gray-900">
+    <section className="">
       <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl dark:text-white">
+        <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl ">
           Nuestro Equipo Directivo
         </h1>
-        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 font-semibold dark:text-gray-300">
+        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 font-semibold dark:text-gray-500">
           Líderes situacionales, en ejercicio de la comisión directiva.
         </p>
 

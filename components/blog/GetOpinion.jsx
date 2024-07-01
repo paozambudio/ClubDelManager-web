@@ -12,7 +12,7 @@ const GetOpinion = () => {
   const latestPosts = publicacionesOrdenadas.slice(0, 4);
 
   return (
-    <section className="bg-transparent dark:bg-gray-900">
+    <section className="bg-transparent ">
       <div className="container px-6 mx-auto ">
         <div className="lg:flex lg:-mx-6 h-99 ">
           <div className="lg:w-3/4 lg:px-6 ">
@@ -20,14 +20,14 @@ const GetOpinion = () => {
           </div>
 
           <div className="mt-8 py-8 lg:w-1/4 lg:mt-0 lg:px-2 overflow-y-auto ">
-            <h2>Opinión del Manager</h2>
+            <h2 className="font-semibold">Opinión del Manager</h2>
             {latestPosts
               .filter((post) => post.active)
               .map((post) => (
                 <div className="flex-1">
                   <a
                     href={`/posts/${post.slug}`}
-                    className="block mt-2 text-sm font-sans text-gray-500 hover:underline hover:text-gray-500 dark:text-gray-400 "
+                    className="block mt-2 text-sm font-sans text-gray-500 hover:underline hover:text-gray-500 dark:text-gray-500 "
                   >
                     <h3 className="text-sky-700 text-md capitalize font-normal">
                       {post.title}

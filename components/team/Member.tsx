@@ -19,16 +19,16 @@ export default function Member(Member: MemberItemProps) {
         alt=""
       />
 
-      <h1 className="mt-4 text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+      <h1 className="mt-4 text-xl font-semibold text-gray-700 capitalize  group-hover:text-white">
         {Member.nombre} {Member.apellido}
       </h1>
 
-      <div className="flex items-center mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+      <div className="flex items-center mt-2 text-gray-500 capitalize dark:text-gray-500 group-hover:text-gray-300">
         <p>{Member.cargo}</p>
         <Link
           href={`https://www.linkedin.com/in/${Member.linkedinURL}`}
           target="_blank"
-          className="ml-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+          className="ml-2 text-gray-600 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
           aria-label="Linkedin"
           rel="noopener noreferrer"
         >
