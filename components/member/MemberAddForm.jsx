@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import { saveUser } from "@/utils/requests";
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const MemberAddForm = () => {
@@ -118,6 +119,10 @@ const MemberAddForm = () => {
         method: "PUT",
         body: formData,
       });*/
+
+      //guardar usuario
+      console.log("Voy a guardar el usaurio");
+      saveUser(formData);
 
       const res = await fetch(`${apiDomain}/members/members/`, {
         method: "POST",

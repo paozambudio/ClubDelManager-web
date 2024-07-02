@@ -6,6 +6,7 @@ import Hero from "@/components/home/Hero";
 import NuestraPropuesta from "@/components/home/NuestraPropuesta";
 import MemberSummary from "@/components/member/MemberSummary";
 import GetOpinion from "@/components/blog/GetOpinion";
+import QrMember from "@/components/member/QrMember";
 
 const HomePage = async () => {
   await dbConnect();

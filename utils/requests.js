@@ -1,4 +1,5 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
+import dbConnect from "@/config/database";
 
 const buscarMiembros = async () => {
   try {
@@ -80,4 +81,38 @@ async function fetchMemberbyEmail(email) {
   }
 }
 
-export { buscarMiembros, fetchMembers, fetchMember, fetchMemberbyEmail };
+const saveUser = async (request) => {
+  try {
+    await dbConnect();
+
+    const formData = await request.formData();
+
+    //1. Guardar usuario
+    const userExists = await User.findOne({ email: formData.get("email") });
+
+    console.log("Usuario Existe: ", userExists);
+
+    //3. if not add user to DB
+    if (!userExists) {
+      //Truncate user name if too long
+      const username = formData.get("nombre") + "_" + formData.get("apellido");
+      console.log("Usuario: ", formData.get("email"));
+      await User.create({
+        email: formData.get("email"),
+        username,
+        //image: profile.picture,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return new Response("Someghing went wrong", { status: 500 });
+  }
+};
+
+export {
+  buscarMiembros,
+  fetchMembers,
+  fetchMember,
+  fetchMemberbyEmail,
+  saveUser,
+};

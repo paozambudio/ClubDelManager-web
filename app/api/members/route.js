@@ -31,11 +31,13 @@ const POST = async (request) => {
     //1. Guardar usuario
     const userExists = await User.findOne({ email: formData.get("email") });
 
+    console.log("Usuario Existe: ", userExists);
+
     //3. if not add user to DB
     if (!userExists) {
       //Truncate user name if too long
-      const username = formData.get("nombre") + " " + formData.get("apellido");
-
+      const username = formData.get("nombre") + "_" + formData.get("apellido");
+      console.log("Usuario: ", formData.get("email"));
       await User.create({
         email: formData.get("email"),
         username,
@@ -62,12 +64,12 @@ const POST = async (request) => {
     const newMember = new Member(memberData);
     await newMember.save();
 
-    return Response.redirect(
+    /* return Response.redirect(
       `${process.env.NEXT_PUBLIC_DOMAIN}/members/${newMember.id}`
-    );
-    /*return new Response(JSON.stringify({ message: "Success" }), {
+    ); */
+    return new Response(JSON.stringify({ message: "Success" }), {
       status: 200,
-    });*/
+    });
   } catch (error) {
     console.log(error);
     return new Response("Failed to add member", { status: 500 });
