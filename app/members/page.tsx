@@ -174,6 +174,12 @@ const MembersPage = () => {
                       scope="col"
                       className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 "
                     >
+                      Foto
+                    </th>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                    >
                       Nombre
                     </th>
 
@@ -216,6 +222,15 @@ const MembersPage = () => {
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {miembrosFiltrados.map((uno) => (
                     <tr key={uno.document_id}>
+                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                        {uno.photo && (
+                          <img
+                            src={uno.photo}
+                            alt="Miembro Foto"
+                            className="object-cover rounded-full w-12 h-12"
+                          />
+                        )}
+                      </td>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
                           <h2 className="font-medium text-black-800 ">

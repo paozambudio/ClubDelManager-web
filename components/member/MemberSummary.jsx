@@ -83,7 +83,7 @@ const MemberSummary = () => {
                   {miembros.length} Miembros
                 </span>
               </div>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-600">
                 Si querés conocer a cada uno de los miembros, hacé click &nbsp;
                 <Link
                   href="/members"
