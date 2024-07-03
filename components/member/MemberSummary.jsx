@@ -118,7 +118,7 @@ const MemberSummary = () => {
         )}
 
         {session && (
-          <div className="w-full max-w-sm px-4 py-3 m-10 bg-white rounded-md shadow-md dark:bg-gray-800">
+          <div className="w-full max-w-sm px-4 py-3 m-10 bg-white rounded-md shadow-md ">
             <div>
               <div className=" mt-4">
                 <p className="font-bold">

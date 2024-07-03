@@ -7,10 +7,10 @@ export default function SpotifyDriveAccess() {
   const { data: session } = useSession();
   return (
     <div className="flex flex-wrap justify-center">
-      <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 m-10">
+      <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg  m-10">
         {session && (
           <div className="px-4 py-2">
-            <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">
+            <h1 className="text-xl font-bold text-gray-800 uppercase ">
               NUESTRA BIBLIOTECA
             </h1>
             <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
@@ -46,7 +46,7 @@ export default function SpotifyDriveAccess() {
         )}
       </div>
 
-      <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 m-10">
+      <div className="max-w-sm overflow-hidden bg-white rounded-lg shadow-lg  m-10">
         {session && (
           <div className="px-4 py-2">
             <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">
