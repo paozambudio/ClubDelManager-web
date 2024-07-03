@@ -126,21 +126,21 @@ const MemberSummary = () => {
                   Fecha: {formattedDate} - Hora: {formattedTime} <br />
                   <br />
                 </p>
-                <div className="flex mt-4">
-                  <div className="w-1/2 fkex justify-center">
+                <div className="flex flex-col sm:flex-row mt-4">
+                  <div className="flex justify-center sm:w-1/2">
                     <Link href={memberEditUrl}>
                       <QRCodeSVG value={memberEditUrl} />
                     </Link>
                   </div>
-                  <div className="w-1/2 flex justify-center">
-                    {miembro.photo && (
+                  {miembro.photo && (
+                    <div className="flex justify-center sm:w-1/2 mt-4 sm:mt-0">
                       <img
-                        src={miembro.photo}
+                        src={`data:image/jpeg;base64,${miembro.photo}`}
                         alt="Miembro Foto"
-                        className="object-cover rounded-md w-36 h-36  mt-4"
+                        className="object-cover rounded-md w-36 h-36"
                       />
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
