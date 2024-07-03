@@ -135,7 +135,7 @@ const MemberSummary = () => {
                   {miembro.photo && (
                     <div className="flex justify-center sm:w-1/2 mt-4 sm:mt-0">
                       <img
-                        src={`data:image/jpeg;base64,${miembro.photo}`}
+                        src={miembro.photo}
                         alt="Miembro Foto"
                         className="object-cover rounded-md w-36 h-36"
                       />
