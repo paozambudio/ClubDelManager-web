@@ -227,7 +227,7 @@ const MembersPage = () => {
                           <img
                             src={uno.photo}
                             alt="Miembro Foto"
-                            className="object-cover rounded-full w-12 h-12"
+                            className="object-cover rounded-full w-12 h-12 sm:w-8 sm:h-8"
                           />
                         )}
                       </td>
