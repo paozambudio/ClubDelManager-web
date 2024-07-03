@@ -19,7 +19,7 @@ const NuestraPropuesta = () => {
           </p>
 
           <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group dark:hover:bg-blue-400">
               <span class="inline-block text-teal-600 group-hover:text-white dark:text-blue-400">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const NuestraPropuesta = () => {
               </p>
             </div>
 
-            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group dark:hover:bg-blue-400">
               <span class="inline-block text-teal-600 dark:text-blue-400 group-hover:text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const NuestraPropuesta = () => {
               </p>
             </div>
 
-            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group  ">
+            <div className="p-8 space-y-3 border-2 border-teal-600 dark:border-blue-300 rounded-xl hover:bg-teal-500 hover:border-transparent group dark:hover:bg-blue-400">
               <span class="inline-block text-teal-600 dark:text-blue-400 group-hover:text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

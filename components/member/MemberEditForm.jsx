@@ -194,7 +194,7 @@ const MemberEditForm = () => {
                 <h3 className="font-semibold">Datos Personales</h3>
                 <br />
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Nombre
@@ -226,7 +226,7 @@ const MemberEditForm = () => {
                     />
                   </div>
                 </div>
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Fecha de Nacimiento
@@ -263,7 +263,7 @@ const MemberEditForm = () => {
                 <h3 className="font-semibold">Datos de usuario</h3>
                 <br />
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="email"
@@ -303,7 +303,7 @@ const MemberEditForm = () => {
                 <h3 className="font-semibold">Domicilio</h3>
                 <br />
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Calle
@@ -335,7 +335,7 @@ const MemberEditForm = () => {
                     />
                   </div>
                 </div>
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Localidad
@@ -372,7 +372,7 @@ const MemberEditForm = () => {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Pais
@@ -400,7 +400,7 @@ const MemberEditForm = () => {
                 <h3 className="font-semibold">Redes Sociales</h3>
                 <br />
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Linkedin
@@ -439,7 +439,7 @@ const MemberEditForm = () => {
                   Datos Profesionales / Laborales
                 </h3>
                 <br />
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Profesión
@@ -472,7 +472,7 @@ const MemberEditForm = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Rol/Cargo
@@ -495,7 +495,7 @@ const MemberEditForm = () => {
                 <h3 className="font-semibold">Tu membresía en Club</h3>
                 <br />
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Fecha de Ingreso
@@ -513,7 +513,7 @@ const MemberEditForm = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Cual es tu área de mayor aporte para el propósito del club
@@ -545,7 +545,7 @@ const MemberEditForm = () => {
                     />
                   </div>
                 </div>
-                <div className="mb-4 grid grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input

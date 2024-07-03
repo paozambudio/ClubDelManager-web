@@ -34,29 +34,6 @@ const SoyNuevo = () => {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             <div className="relative pl-16">
               <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M20.52 3.492c-4.292-4.295-11.254-4.295-15.544 0-4.295 4.295-4.295 11.254 0 15.544 3.166 3.165 7.565 4.156 11.445 2.649l3.855 1.016a.974.974 0 0 0 1.212-1.212l-1.016-3.855c1.51-3.88.519-8.28-2.647-11.446zm-8.74 14.287c-3.934 0-7.132-3.199-7.132-7.132s3.199-7.132 7.132-7.132 7.132 3.199 7.132 7.132-3.199 7.132-7.132 7.132zm3.988-5.415c-.21-.104-1.238-.61-1.43-.681-.192-.071-.332-.104-.473.104-.137.21-.543.681-.666.82-.126.137-.244.155-.453.052-.21-.104-.89-.33-1.697-1.052-.627-.56-1.051-1.252-1.176-1.462-.125-.21-.014-.321.09-.426.092-.091.21-.244.31-.366.104-.125.137-.209.21-.314.07-.104.036-.197-.018-.29-.053-.093-.473-1.14-.647-1.558-.171-.415-.347-.358-.473-.365-.124-.007-.265-.009-.406-.009s-.382.054-.582.27c-.192.21-.761.743-.761 1.808 0 1.065.779 2.092.887 2.236.104.137 1.532 2.366 3.711 3.317.519.224.924.358 1.238.457.52.165.994.142 1.37.086.417-.062 1.28-.523 1.46-1.029.179-.505.179-.936.125-1.029-.053-.092-.192-.137-.402-.244z" />
-                  </svg>
-                </div>
-                Ingreso a nuestro Grupo de Difusión
-              </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600">
-                En{" "}
-                <Link href="" className="font-semibold text-teal-600">
-                  este link
-                </Link>
-                &nbsp; podrás acceder al grupo de Difusión del Club del Manager.
-                A través del mismo, podrás mantenerte actualizado.
-              </dd>
-            </div>
-            <div className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900">
                 <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600">
                   <svg
                     className="h-6 w-6 text-white"
@@ -81,6 +58,33 @@ const SoyNuevo = () => {
                 , y a partir de ahí, quedarás habilitado para registrar tu login
                 de google e ingresar a los beneficios, e información exclusiva
                 para los miembros.
+              </dd>
+            </div>
+            <div className="relative pl-16">
+              <dt className="text-base font-semibold leading-7 text-gray-900">
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                  <svg
+                    className="h-6 w-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.52 3.492c-4.292-4.295-11.254-4.295-15.544 0-4.295 4.295-4.295 11.254 0 15.544 3.166 3.165 7.565 4.156 11.445 2.649l3.855 1.016a.974.974 0 0 0 1.212-1.212l-1.016-3.855c1.51-3.88.519-8.28-2.647-11.446zm-8.74 14.287c-3.934 0-7.132-3.199-7.132-7.132s3.199-7.132 7.132-7.132 7.132 3.199 7.132 7.132-3.199 7.132-7.132 7.132zm3.988-5.415c-.21-.104-1.238-.61-1.43-.681-.192-.071-.332-.104-.473.104-.137.21-.543.681-.666.82-.126.137-.244.155-.453.052-.21-.104-.89-.33-1.697-1.052-.627-.56-1.051-1.252-1.176-1.462-.125-.21-.014-.321.09-.426.092-.091.21-.244.31-.366.104-.125.137-.209.21-.314.07-.104.036-.197-.018-.29-.053-.093-.473-1.14-.647-1.558-.171-.415-.347-.358-.473-.365-.124-.007-.265-.009-.406-.009s-.382.054-.582.27c-.192.21-.761.743-.761 1.808 0 1.065.779 2.092.887 2.236.104.137 1.532 2.366 3.711 3.317.519.224.924.358 1.238.457.52.165.994.142 1.37.086.417-.062 1.28-.523 1.46-1.029.179-.505.179-.936.125-1.029-.053-.092-.192-.137-.402-.244z" />
+                  </svg>
+                </div>
+                Ingreso a nuestro Grupo de Difusión
+              </dt>
+              <dd className="mt-2 text-base leading-7 text-gray-600">
+                En{" "}
+                <Link
+                  href="https://chat.whatsapp.com/IgGX8JsdX4i0qeNNanKPkx"
+                  className="font-semibold text-teal-600"
+                  target="_blank"
+                >
+                  este link
+                </Link>
+                &nbsp; podrás acceder al grupo de Difusión del Club del Manager.
+                A través del mismo, podrás mantenerte actualizado.
               </dd>
             </div>
             <div className="relative pl-16">

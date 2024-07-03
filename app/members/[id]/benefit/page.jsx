@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
+import { useParams } from "next/navigation";
 import { buscarMiembros, fetchMemberbyEmail } from "@/utils/requests";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { fetchMember } from "@/utils/requests";
 
 const MemberEditPage = () => {
+  const { id } = useParams();
   const { data: session } = useSession();
   const [miembro, setMiembro] = useState({
     id: "",
@@ -37,13 +40,19 @@ const MemberEditPage = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      console.log("Usuario en credenciales: ", session.user?.email);
-      const logueado = await fetchMemberbyEmail(session.user?.email);
-      console.log("Miembro logueado en credencial:", logueado);
-      if (logueado.length == 1) setMiembro(logueado[0]);
+    const fetchMemberData = async () => {
+      try {
+        if (!id) return <h1>No se encontro información</h1>;
+        const memberData = await fetchMember(id);
+        console.log("Registro para edición: ", memberData);
+        setFields(memberData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
-    fetchData();
+    fetchMemberData();
   }, []);
 
   /* useEffect(() => {
