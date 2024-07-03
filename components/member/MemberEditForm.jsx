@@ -491,76 +491,11 @@ const MemberEditForm = () => {
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      ¿Cuál es el desarrollo de tu liderazgo?
-                    </label>
-                    <select
-                      type="text"
-                      id=""
-                      name=""
-                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
-                      value=""
-                      onChange={handleChange}
-                    >
-                      <option value="0">0-Sin Experiencia</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5-Mucha Experiencia</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="mb-4 grid grid-cols-2">
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="lead_persons"
-                        name="lead_persons"
-                        type="checkbox"
-                        value={fields.lead_persons}
-                        checked={fields.lead_persons}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label for="offers" className="font-medium text-gray-900">
-                        ¿Tenés personas a cargo?
-                      </label>
-                      <p className="text-gray-500">
-                        Situación actual o últimos 18 meses.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="manager_position"
-                        name="manager_position"
-                        type="checkbox"
-                        value={fields.manager_position}
-                        checked={fields.manager_position}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label for="offers" className="font-medium text-gray-900">
-                        ¿Tenés cargo gerencial?
-                      </label>
-                      <p className="text-gray-500">
-                        Situación actual o últimos 18 meses.
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
               <div className="mb-4 bg-gray-200 border-4 border-gray-300 p-4">
-                <h3 className="font-semibold">Tu aporte al Club</h3>
+                <h3 className="font-semibold">Tu membresía en el Club</h3>
                 <br />
 
                 <div className="mb-4 grid grid-cols-2">
@@ -596,6 +531,20 @@ const MemberEditForm = () => {
                   </div>
                 </div>
                 <div className="mb-4 grid grid-cols-2">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      Fecha de Ingreso
+                    </label>
+                    <input
+                      type="date"
+                      id="startdate"
+                      name="startdate"
+                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
+                      placeholder="Ingresá fecha de ingreso"
+                      value={fields.startdate}
+                      onChange={handleChange}
+                    />
+                  </div>
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input

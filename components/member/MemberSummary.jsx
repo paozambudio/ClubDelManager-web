@@ -73,13 +73,13 @@ const MemberSummary = () => {
     <>
       <div className="flex flex-wrap justify-center">
         {session && (
-          <div className="w-full max-w-sm px-4 py-3 m-10 bg-white rounded-md shadow-md dark:bg-gray-800">
+          <div className="w-full max-w-sm px-4 py-3 m-10 bg-white rounded-md shadow-md ">
             <div>
               <div className="flex items-center justify-between">
-                <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
+                <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
                   Hoy Somos
                 </h1>
-                <span className="px-3 py-1 text-xs text-green-800 uppercase bg-teal-200 rounded-full dark:bg-teal-300 dark:text-green-900">
+                <span className="px-3 py-1 text-xs text-green-800 uppercase bg-teal-200 rounded-full">
                   {miembros.length} Miembros
                 </span>
               </div>
@@ -98,7 +98,7 @@ const MemberSummary = () => {
                 href={`/members/${miembro.id}/edit/`}
                 className="underline font-semibold text-sky-600 "
               >
-                <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
+                <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
                   Tus datos
                 </h1>
               </Link>
@@ -106,7 +106,7 @@ const MemberSummary = () => {
                 {session.user?.email}
               </span>
             </div>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            <p className="mt-2 text-sm text-gray-600 ">
               Nombre: {session.user?.name} &nbsp;&nbsp; <br />
               Última actividad con el CDM: 18 de Mayo 2024{" "}
               {/* {miembro.document_id} */} <br />
