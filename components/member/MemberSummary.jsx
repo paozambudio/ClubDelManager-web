@@ -122,8 +122,8 @@ const MemberSummary = () => {
             <div>
               <div className=" mt-4">
                 <p className="font-bold">
-                  Credencial <br />
-                  Fecha: {formattedDate} - Hora: {formattedTime} <br />
+                  Credencial para beneficios
+                  <br />
                   <br />
                 </p>
                 <div className="flex flex-col sm:flex-row mt-4">

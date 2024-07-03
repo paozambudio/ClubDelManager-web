@@ -125,10 +125,7 @@ const MemberEditForm = () => {
         linkedin_url: fields.linkedin_url,
         instagram_url: fields.instagram_url,
         company: fields.company,
-        lead_persons: fields.lead_persons,
-        manager_position: fields.manager_position,
         added_value: fields.added_value,
-        teaching_skilss: fields.teaching_skilss,
         membership_reason: fields.membership_reason,
         board_member: fields.board_member,
         board_position: fields.board_position,
@@ -495,8 +492,26 @@ const MemberEditForm = () => {
               </div>
 
               <div className="mb-4 bg-gray-200 border-4 border-gray-300 p-4">
-                <h3 className="font-semibold">Tu membresía en el Club</h3>
+                <h3 className="font-semibold">Tu membresía en Club</h3>
                 <br />
+
+                <div className="mb-4 grid grid-cols-2">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      Fecha de Ingreso
+                    </label>
+                    <input
+                      type="date"
+                      id="startdate"
+                      name="startdate"
+                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
+                      placeholder="Ingresá tu fecha al club"
+                      value={fields.startdate}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
 
                 <div className="mb-4 grid grid-cols-2">
                   <div>
@@ -531,20 +546,6 @@ const MemberEditForm = () => {
                   </div>
                 </div>
                 <div className="mb-4 grid grid-cols-2">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      Fecha de Ingreso
-                    </label>
-                    <input
-                      type="date"
-                      id="startdate"
-                      name="startdate"
-                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
-                      placeholder="Ingresá fecha de ingreso"
-                      value={fields.startdate}
-                      onChange={handleChange}
-                    />
-                  </div>
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input
