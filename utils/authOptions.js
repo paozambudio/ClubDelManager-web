@@ -1,6 +1,7 @@
 import connectDB from "../config/database";
 import User from "../models/User";
 import GoogleProvider from "next-auth/providers/google";
+import { fetchMemberbyEmail } from "./requests";
 
 export const authOptions = {
   providers: [
@@ -24,20 +25,21 @@ export const authOptions = {
       await connectDB();
       //2. check if the user exists
       const userExists = await User.findOne({ email: profile.email });
+      const memberExists = await fetchMemberbyEmail(profile.email);
 
+      console.log("Usuario", memberExists);
       //2. si sólo es para ingresar, y el usuario no se encuentra no dejarlo seguir
 
       //3. if not add user to DB
-      if (!userExists) {
+      if (!userExists && memberExists) {
         //Truncate user name if too long
-        /*const username = profile.name.slice(0, 20);
+        const username = profile.name.slice(0, 20);
 
         await User.create({
           email: profile.email,
           username,
           image: profile.picture,
-        });*/
-        return false;
+        });
       }
 
       console.log("sestion en authoptions: ", profile);

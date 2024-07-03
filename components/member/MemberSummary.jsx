@@ -54,6 +54,7 @@ const MemberSummary = () => {
     if (session) {
       const buscarEmail = async () => {
         const logueado = await fetchMemberbyEmail(session.user?.email);
+
         console.log("Miembro logueado:", logueado);
         if (logueado.length == 1) setMiembro(logueado[0]);
       };
@@ -119,15 +120,28 @@ const MemberSummary = () => {
         {session && (
           <div className="w-full max-w-sm px-4 py-3 m-10 bg-white rounded-md shadow-md dark:bg-gray-800">
             <div>
-              <div className="mt-4">
+              <div className=" mt-4">
                 <p className="font-bold">
                   Credencial <br />
                   Fecha: {formattedDate} - Hora: {formattedTime} <br />
                   <br />
                 </p>
-                <Link href={memberEditUrl}>
-                  <QRCodeSVG value={memberEditUrl} />
-                </Link>
+                <div className="flex mt-4">
+                  <div className="w-1/2 fkex justify-center">
+                    <Link href={memberEditUrl}>
+                      <QRCodeSVG value={memberEditUrl} />
+                    </Link>
+                  </div>
+                  <div className="w-1/2 flex justify-center">
+                    {miembro.photo && (
+                      <img
+                        src={miembro.photo}
+                        alt="Miembro Foto"
+                        className="object-cover rounded-md w-36 h-36  mt-4"
+                      />
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

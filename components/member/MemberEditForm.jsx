@@ -66,6 +66,20 @@ const MemberEditForm = () => {
     else toast(mensaje);
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFields((prev) => ({
+          ...prev,
+          photo: reader.result, // Guarda la imagen como base64
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleChange = (e) => {
     //const { name, value } = e.target;
 
@@ -121,6 +135,7 @@ const MemberEditForm = () => {
         birthdate: fields.birthdate,
         startdate: fields.startdate,
         status_active: fields.status_active,
+        photo: fields.photo,
         // Agrega otros campos según sea necesario
       };
 
@@ -626,13 +641,18 @@ const MemberEditForm = () => {
                 >
                   Foto
                 </label>
+                <img
+                  src={fields.photo}
+                  alt="Miembro Foto"
+                  className="object-cover w-48 h-48  mt-4"
+                />
                 <input
                   type="file"
                   id="foto"
                   name="foto"
                   className="border rounded w-full py-2 px-3"
                   accept="image/*"
-                  multiple
+                  onChange={handleImageChange}
                 />
               </div>
 

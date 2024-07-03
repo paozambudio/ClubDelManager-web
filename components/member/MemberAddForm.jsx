@@ -30,16 +30,14 @@ const MemberAddForm = () => {
     profession: "",
     company: "",
     position: "",
-    lead_persons: false,
-    manager_position: false,
     added_value: "",
-    teaching_skilss: false,
     membership_reason: "",
     board_member: false,
     board_position: "",
     birthdate: "1990-01-01",
     startdate: "1900-01-01",
     status_active: true,
+    photo: "",
   });
 
   useEffect(() => {
@@ -66,13 +64,19 @@ const MemberAddForm = () => {
       }));
     }
   };
-  const handleInteresesChange = (e) => {
-    /*const{value,checked} = e.target;
-    const updatedIntereses = [...fields.]*/
-  };
+
   const handleImageChange = (e) => {
-    const { files } = e.target;
-    //clone images array
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFields((prev) => ({
+          ...prev,
+          photo: reader.result, // Guarda la imagen como base64
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
   const notify = (mensaje, error) => {
     if (error) toast.error(mensaje);
@@ -100,16 +104,14 @@ const MemberAddForm = () => {
         linkedin_url: fields.linkedin_url,
         instagram_url: fields.instagram_url,
         company: fields.company,
-        lead_persons: fields.lead_persons,
-        manager_position: fields.manager_position,
         added_value: fields.added_value,
-        teaching_skilss: fields.teaching_skilss,
         membership_reason: fields.membership_reason,
         board_member: fields.board_member,
         board_position: fields.board_position,
         birthdate: fields.birthdate,
         startdate: fields.startdate,
         status_active: fields.status_active,
+        photo: fields.photo,
         // Agrega otros campos según sea necesario
       };
 
@@ -199,12 +201,13 @@ const MemberAddForm = () => {
                       Fecha de Nacimiento
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       id="birthdate"
                       name="birthdate"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder=""
                       value={fields.birthdate}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -455,32 +458,29 @@ const MemberAddForm = () => {
                     />
                   </div>
                 </div>
-                <div className="mb-4 grid grid-cols-2">
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="manager_position"
-                        name="manager_position"
-                        type="checkbox"
-                        value={fields.manager_position}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label for="offers" className="font-medium text-gray-900">
-                        ¿Tenés cargo gerencial?
-                      </label>
-                      <p className="text-gray-500">
-                        Situación actual o últimos 18 meses.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="mb-4 bg-gray-200 border-4 border-gray-300 p-4">
-                <h3 className="font-semibold">Tu aporte al Club</h3>
+                <h3 className="font-semibold">Tu membresía en Club</h3>
                 <br />
+
+                <div className="mb-4 grid grid-cols-2">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      Fecha de Ingreso
+                    </label>
+                    <input
+                      type="date"
+                      id="startdate"
+                      name="startdate"
+                      className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
+                      placeholder="Ingresá tu fecha al club"
+                      value={fields.startdate}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
 
                 <div className="mb-4 grid grid-cols-2">
                   <div>
@@ -558,7 +558,7 @@ const MemberAddForm = () => {
                   htmlFor="images"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Images (Select up to 4 images)
+                  Foto
                 </label>
                 <input
                   type="file"
@@ -566,7 +566,6 @@ const MemberAddForm = () => {
                   name="foto"
                   className="border rounded w-full py-2 px-3"
                   accept="image/*"
-                  multiple
                   onChange={handleImageChange}
                 />
               </div>
