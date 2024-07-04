@@ -7,6 +7,7 @@ import NuestraPropuesta from "@/components/home/NuestraPropuesta";
 import MemberSummary from "@/components/member/MemberSummary";
 import GetOpinion from "@/components/blog/GetOpinion";
 import QrMember from "@/components/member/QrMember";
+import BeneficiosCDM from "@/components/home/BeneficiosCDM";
 
 const HomePage = async () => {
   await dbConnect();
@@ -15,9 +16,12 @@ const HomePage = async () => {
     <>
       {/* <Banner altText="Imagen de banner" /> */}
       <Hero />
+
       <NuestraPropuesta />
+
       <MemberSummary />
       <SpotifyDriveAccess />
+      <BeneficiosCDM />
       <GetOpinion />
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
         <ResumeHistory />
