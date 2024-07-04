@@ -1,0 +1,27 @@
+---
+title: "Liderazgo de equipos remotos"
+
+subtitle: "Facundo Armentano es Acquisition Manager de Baubap, y miembro activo de El Club del Manager."
+
+date: "2024-07-01"
+
+autor: "Facundo Armentano"
+
+type: "Opinion"
+
+active: true
+---
+
+![/images/opinion_FacundoArmentano/opinion_FacundoArmentano-img1.jpg](/images/opinion_FacundoArmentano/opinion_FacundoArmentano-img1.jpg "Opinión del Manager")
+
+Cuando Fede Azeglio, Presidente de El Club del Manager, me pidió que escriba un artículo - de algo así como una página - sobre Liderazgo de Equipos remotos, lo primero que pensé fue <b>“¿Cuántas palabras debería tener el artículo?”</b>. Desistí de hacer esta pregunta para no quedar como un obsesivo. Pero bueno, así como una página depende de varios factores como pueden ser el tamaño de la tipografía, el interletrado, el interlineado, etc… El liderazgo, que si bien responde a una única esencia de inspirar el compromiso interno de los liderados para supeditar su voluntad y orientar sus acciones hacia un fin específico, consta de matices que cambian la ecuación. Estos matices pueden influir en las técnicas y herramientas utilizadas para los fines que se requieran, y en este punto vale mencionar que, liderar equipos remotos o presenciales, requiere ejercitar algunas adaptaciones.<br/>
+La pregunta que vino a mi mente y que omití de realizar, creo que es un rasgo muy relacionado con trabajar de forma remota. Para ejecutar cualquier tarea en esta modalidad, en la que trabajo desde hace unos 5 años, debo asegurarme de tener claridad de lo que me piden, ya que no cuento con la espontaneidad que brinda la presencialidad para simplemente voltear y preguntar al escritorio de al lado: “Che, ¿Así te parece bien?”, o comenzar según lo que entendí para luego preguntar durante el almuerzo si la idea que tenía va por el camino correcto. Por el contrario, en un entorno remoto, para obtener las aclaraciones pertinentes, debo enviar un mensaje escrito con el cuidado de redactarlo correctamente, aguardar a que esa persona me lea, y luego que priorice hacer la corrección del documento.<br/>
+Por tanto, lo que en un entorno de una oficina tradicional puede demorar segundos, en un entorno virtual puede en el peor de los casos tardar algunas horas en ocurrir. En consecuencia, uno de los pilares fundamentales en las culturas remotas debe ser la <b>comunicación</b>. Complementando, sumaría la <b>metodología de trabajo</b>, los <b>rituales</b>, y la <b>autonomía</b>.<br/>
+Los equipos remotos deben trabajar según una metodología que se adapte a su propósito de existir como tal, deben tener rituales de equipo y 1:1 entre manager y liderado, tener claridad de los canales de comunicación, y empoderar a las personas favoreciendo su autonomía. Como líder del equipo de Adquisición en Baubap, invierto el doble de tiempo en comunicar, consensuar y alinearme con el equipo, que el que destino a generar estrategias y planes. Busco asegurar que cada uno de los miembros del equipo tenga contexto de dónde está la organización, cómo está evolucionando el propósito de nuestro equipo y su contribución a la Misión de la organización, qué buscaremos en adelante y, en líneas generales, cómo considero que debemos hacerlo.
+Luego, confío en nuestro sistema.<br/>
+Los rituales grupales son, por un lado cápsulas de planificación donde desagregamos en intervalos de tiempo semanales nuestras tareas, desafíos, logros y aprendizajes, y por otro, reuniones diarias de 15 minutos para evaluar la performance de Marketing.<br/>
+En las instancias de 1:1, que tengo con cada uno semanalmente, busco nutrir y fortalecer nuestra relaciones interpersonales, a la vez de potenciar su autonomía abriendo el foro para preguntas y respuestas en un formato más extenso. También son momento de formación y aprendizaje, oportunidad de conversar de carrera y perspectiva del puesto, equipo y negocio. Con estos diálogos, busco ampliar la mirada de los miembros del equipo e ir formando un criterio que permita a las personas saber qué se espera de ellas y cómo responder a ciertos desafíos diarios sin estar consultando o aguardando una validación.<br/>
+Finalmente, pongo deliberadamente poco esfuerzo en “supervisar” activamente qué está haciendo cada miembro de mi equipo en el día a día, así como demuestro una intencionada molestia con las prácticas de micromanagement. Cada persona es responsable de gestionar su tiempo a fin de generar el mayor impacto posible en dirección al cumplimiento de la misión. El líder, es responsable de los resultados del equipo, y a su vez, de proveer el contexto, los medios y la orientación para que las cosas sucedan. Si las cosas no suceden toca revisitar los puntos anteriores, y si esta situación persiste, toca revisar si hace sentido que la persona continúe en el puesto.<br/>
+Mientras que la modalidad presencial garantiza una cierta cantidad de horas de presencia física en un determinado espacio, por mi parte busco colaborar en compañías donde mi trabajo y el de mi equipo no sean medidos bajo esa vara. Esto me ha permitido rodar y refinar el método anteriormente enunciado y liderar equipos diversos y exitosos, los cuales disfruto de formar parte, la mayor parte del tiempo, desde el cómodo setup de mi casa, a un Slack de distancia de los miembros de mi equipo, y a unos pasos de jugar con mis hijos o compartir un café con mi esposa.
+
+Querés leer más? ingresá a [Linkedin](https://www.linkedin.com/pulse/liderazgo-de-equipos-remotos-el-club-del-manager-g8d4f/).
