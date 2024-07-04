@@ -17,7 +17,6 @@ const MemberListForm = async () => {
         const membersList = await fetchMembers();
 
         setMembers(membersList);
-        //console.log(members.length);
       } catch (error) {
         console.log(error);
       } finally {

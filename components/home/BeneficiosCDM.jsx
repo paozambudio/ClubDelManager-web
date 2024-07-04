@@ -86,37 +86,41 @@ const BeneficiosCDM = () => {
   const totalPages = Math.ceil(beneficios.length / itemsPerPage);
 
   return (
-    <div className="transparent dark:bg-gray-900">
+    <div className="transparent">
       {session && (
-        <div className="container px-6 py-8 mx-auto justify-items-center">
-          <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">
+        <div className="container px-6 py-8 mx-auto justify-items-center flex-col">
+          <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl ">
             Beneficios de los miembros del Club
           </h1>
 
-          <div className="grid grid-cols-1 gap-2 mt-6 xl:mt-12 xl:gap-2 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 mt-6 xl:mt-12 xl:gap-2 md:grid-cols-2 lg:grid-cols-4 justify-start">
             {currentBeneficios.map((bene) => (
               <div
                 id={bene.id}
-                className="w-full p-8 space-y-2 text-center rounded-lg dark:border-gray-700 flex flex-col justify-center"
+                className="w-full p-8 space-y-2 text-center rounded-lg  flex flex-col justify-center"
                 style={{ height: "200px" }} // Ajusta la altura según tus necesidades
               >
-                <p className="text-gray-500 font-bold uppercase dark:text-gray-300">
-                  {bene.title}
-                </p>
-                <p className="text-gray-500 dark:text-gray-300">
-                  {bene.description}
-                </p>
+                <div className="flex flex-col items-center justify-start h-full">
+                  <p className="text-gray-500 font-bold uppercase justify-start">
+                    {bene.title}
+                  </p>
+                  <p className="text-gray-500 text-sm justify-start">
+                    {bene.description}
+                  </p>
+                  <br />
 
-                <h2 className="text-4xl font-semibold text-gray-700 uppercase dark:text-gray-700">
-                  {bene.descount}
-                </h2>
-
-                <img
-                  src={bene.src}
-                  className="mx-auto"
-                  height="8096"
-                  width="80"
-                />
+                  <h2 className="text-4xl font-semibold text-gray-700 uppercase">
+                    {bene.descount}
+                  </h2>
+                  <div className="flex flex-grow items-center justify-center">
+                    <img
+                      src={bene.src}
+                      className="mx-auto "
+                      height="80"
+                      width="80"
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -124,7 +128,7 @@ const BeneficiosCDM = () => {
           <div className="flex justify-between items-center mt-6">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
               disabled={currentPage === 1}
             >
               <svg
@@ -149,7 +153,7 @@ const BeneficiosCDM = () => {
               onClick={() =>
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
               disabled={currentPage === totalPages}
             >
               <svg
