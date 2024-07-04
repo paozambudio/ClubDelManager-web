@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { buscarMiembros } from "@/utils/requests";
 import { useSession } from "next-auth/react";
-import User from "@/models/User";
-import connectDB from "../../config/database";
+import LinkedinIcon from "@mui/icons-material/LinkedIn";
 
 const MembersPage = () => {
   const { data: session } = useSession();
+
+  // Estado para manejar la paginación
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // Número de tarjetas por página
 
   const [miembros, setMiembros] = useState([
     {
@@ -28,10 +31,7 @@ const MembersPage = () => {
       profession: "",
       company: "",
       position: "",
-      lead_persons: false,
-      manager_position: false,
       added_value: "",
-      teaching_skilss: false,
       membership_reason: "",
       board_member: false,
       board_position: "",
@@ -60,10 +60,7 @@ const MembersPage = () => {
       profession: "",
       company: "",
       position: "",
-      lead_persons: false,
-      manager_position: false,
       added_value: "",
-      teaching_skilss: false,
       membership_reason: "",
       board_member: false,
       board_position: "",
@@ -103,6 +100,16 @@ const MembersPage = () => {
     );
     setMiembrosFiltrados(miembrosConFiltro);
   };
+
+  // Paginación
+  const indexOfLastProject = currentPage * itemsPerPage;
+  const indexOfFirstProject = indexOfLastProject - itemsPerPage;
+  const currentMiembros = miembrosFiltrados.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
+  const totalPages = Math.ceil(miembrosFiltrados.length / itemsPerPage);
 
   return (
     <section className="container px-4 mx-auto">
@@ -213,6 +220,13 @@ const MembersPage = () => {
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
                     >
+                      Linkedin
+                    </th>
+
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                    >
                       E-Mail
                     </th>
 
@@ -225,7 +239,7 @@ const MembersPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
-                  {miembrosFiltrados.map((uno) => (
+                  {currentMiembros.map((uno) => (
                     <tr key={uno.document_id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         {uno.photo && (
@@ -267,6 +281,28 @@ const MembersPage = () => {
                           </div>
                         )}
                       </td>
+                      <td className="px-4 py-4 text-sm whitespace-nowrap">
+                        <div>
+                          <h4 className="text-gray-700 ">
+                            <a
+                              href={uno.linkedin_url}
+                              target="_blank"
+                              className="text-gray-700"
+                              aria-label="LinkedIn"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="w-6 h-6"
+                                viewBox="0 0 6 6"
+                                fill="currentColor"
+                              >
+                                <LinkedinIcon />
+                              </svg>
+                            </a>
+                          </h4>
+                        </div>
+                      </td>
+
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
                           <h4 className="text-gray-700 ">{uno.email}</h4>
@@ -311,16 +347,17 @@ const MembersPage = () => {
 
       <div className="mt-6 sm:flex sm:items-center sm:justify-between ">
         <div className="text-sm text-gray-500 dark:text-gray-400">
-          Página{" "}
+          Página
           <span className="font-medium text-gray-700 dark:text-gray-100">
-            1 de 10
+            {currentPage} de {totalPages}
           </span>
         </div>
 
         <div className="flex items-center mt-4 gap-x-4 sm:mt-0">
-          <a
-            href="#"
-            className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100"
+          <button
+            className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -337,14 +374,17 @@ const MembersPage = () => {
               />
             </svg>
 
-            <span>anterior</span>
-          </a>
+            <span>&nbsp;Anterior</span>
+          </button>
 
-          <a
-            href="#"
-            className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 "
+          <button
+            className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
           >
-            <span>Siguiente</span>
+            <span>&nbsp;Siguiente</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +400,7 @@ const MembersPage = () => {
                 d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
               />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </section>

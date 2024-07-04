@@ -27,8 +27,12 @@ export const authOptions = {
       const userExists = await User.findOne({ email: profile.email });
       const memberExists = await fetchMemberbyEmail(profile.email);
 
-      console.log("Usuario", memberExists);
+      console.log("Usuario: ", memberExists.length);
       //2. si sólo es para ingresar, y el usuario no se encuentra no dejarlo seguir
+      if (memberExists.length === 0) {
+        console.log("authoptions: ", memberExists);
+        return false;
+      }
 
       //3. if not add user to DB
       if (!userExists && memberExists) {
@@ -41,8 +45,6 @@ export const authOptions = {
           image: profile.picture,
         });
       }
-
-      console.log("sestion en authoptions: ", profile);
       //4. return true to allow sign in
       return true;
     },
