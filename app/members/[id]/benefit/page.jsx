@@ -44,27 +44,14 @@ const MemberEditPage = () => {
       try {
         if (!id) return <h1>No se encontro información</h1>;
         const memberData = await fetchMember(id);
-        console.log("Registro para edición: ", memberData);
-        setFields(memberData);
+
+        setMiembro(memberData);
       } catch (error) {
         console.log(error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchMemberData();
   }, []);
-
-  /* useEffect(() => {
-    if (session) {
-      const buscarEmail = async () => {
-        const logueado = await fetchMemberbyEmail(session.user?.email);
-        console.log("Miembro logueado:", logueado);
-        if (logueado.length == 1) setMiembro(logueado[0]);
-      };
-      buscarEmail();
-    }
-  }, [session]); */
 
   // Obtener fecha y hora actual
   const currentDate = new Date();
@@ -85,7 +72,10 @@ const MemberEditPage = () => {
       <br />
       <div className="p-6">
         <p className="mt-2 text-md text-gray-600 dark:text-gray-600">
-          Fecha/hora: {formattedDate} - {formattedTime} <br />
+          Fecha: {formattedDate} <br />
+        </p>
+        <p className="mt-2 text-md text-gray-600 dark:text-gray-600">
+          Documento: {miembro.document_id}
         </p>
         <p className="mt-2 text-md text-gray-600 dark:text-gray-600">
           Nombre: {miembro.first_name} &nbsp; {miembro.last_name}
