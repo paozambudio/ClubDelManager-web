@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { buscarMiembros } from "@/utils/requests";
 import { useSession } from "next-auth/react";
-import LinkedinIcon from "@mui/icons-material/LinkedIn";
 
 const MembersPage = () => {
   const { data: session } = useSession();

@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { fetchBeneficios } from "@/utils/requests";
 
 const beneficios = [
   {
@@ -88,19 +89,41 @@ const beneficios = [
 const BeneficiosCDM = () => {
   const { data: session } = useSession();
 
+  const [beneficiosData, setBeneficiosData] = useState([
+    {
+      id: 0,
+      tipo_beneficio: "",
+      titulo_beneficio: "",
+      descripcion_beneficio: "",
+      logo: "",
+      valor_descuento: 0,
+      unidad_descuento: "%",
+    },
+  ]);
+
   // Estado para manejar la paginación
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4; // Número de tarjetas por página
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchBeneficios();
+      setBeneficiosData(data);
+      console.log("beneficios en el front: ", data);
+      //setMiembrosFiltrados(data);
+    };
+    fetchData();
+  }, []);
+
   // Paginación
   const indexOfLastProject = currentPage * itemsPerPage;
   const indexOfFirstProject = indexOfLastProject - itemsPerPage;
-  const currentBeneficios = beneficios.slice(
+  const currentBeneficios = beneficiosData.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(beneficios.length / itemsPerPage);
+  const totalPages = Math.ceil(beneficiosData.length / itemsPerPage);
 
   return (
     <div className="transparent">
@@ -119,19 +142,19 @@ const BeneficiosCDM = () => {
               >
                 <div className="flex flex-col items-center justify-start h-full">
                   <p className="text-gray-500 font-bold uppercase justify-start">
-                    {bene.title}
+                    {bene.titulo_beneficio}
                   </p>
                   <p className="text-gray-500 text-sm justify-start">
-                    {bene.description}
+                    {bene.descripcion_beneficio}
                   </p>
                   <br />
 
                   <h2 className="text-4xl font-semibold text-gray-700 uppercase">
-                    {bene.descount}
+                    {bene.valor_descuento} &nbsp; {bene.unidad_descuento}
                   </h2>
                   <div className="flex flex-grow items-center justify-center">
                     <img
-                      src={bene.src}
+                      src={bene.logo}
                       className="mx-auto "
                       height="80"
                       width="80"
