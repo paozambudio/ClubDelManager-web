@@ -13,6 +13,7 @@ const MemberAddForm = () => {
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
   const profileEmail = session?.user?.email;
+
   const [fields, setFields] = useState({
     document_id: "",
     first_name: "",
@@ -138,15 +139,17 @@ const MemberAddForm = () => {
 
       if (res.status === 200 || res.status === 201) {
         notify("Registro actualizado", false);
+        window.location.replace("/members");
+        //router.push("/members"); // Redirige a la página de miembros
       } else if (res.status === 401 || res.status === 403) {
-        notify("Error: " + res.status, true);
+        notify("Error: " + res.mensaje, true);
       } else {
         console.log(res.status);
-        notify("Error: " + res.status, true);
+        notify("Error: " + res.mensaje, true);
       }
     } catch (error) {
       console.log(error);
-      notify("Error: " + error, true);
+      notify("Error: " + error.mensaje, true);
     }
   };
 
@@ -172,6 +175,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="first_name"
                       name="first_name"
+                      maxLength="30"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu nombre"
                       value={fields.first_name}
@@ -187,6 +191,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="last_name"
                       name="last_name"
+                      maxLength="30"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu apellido"
                       value={fields.last_name}
@@ -219,6 +224,7 @@ const MemberAddForm = () => {
                       type="number"
                       id="document_id"
                       name="document_id"
+                      maxLength="20"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá sólo números"
                       value={fields.document_id}
@@ -260,6 +266,7 @@ const MemberAddForm = () => {
                       type="number"
                       id="phone"
                       name="phone"
+                      maxLength="15"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu número de celular"
                       value={fields.phone}
@@ -379,6 +386,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="Linkedin_url"
                       name="Linkedin_url"
+                      maxLength="100"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu Linkedin"
                       value={fields.Linkedin_url}
@@ -394,6 +402,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="instagram_url"
                       name="instagram_url"
+                      maxLength="100"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu Instagram"
                       value={fields.instagram_url}
@@ -418,6 +427,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="profession"
                       name="profession"
+                      maxLength="50"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu profesión"
                       value={fields.profession}
@@ -433,6 +443,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="company"
                       name="company"
+                      maxLength="50"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu empresa"
                       value={fields.company}
@@ -451,6 +462,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="position"
                       name="position"
+                      maxLength="50"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu cargo actual"
                       value={fields.position}
@@ -545,6 +557,7 @@ const MemberAddForm = () => {
                       type="text"
                       id="board_position"
                       name="board_position"
+                      maxLength="30"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá si tenes cargo en el club"
                       value={fields.board_position}
@@ -586,7 +599,7 @@ const MemberAddForm = () => {
                     className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                     type="submit"
                   >
-                    Continuar
+                    Guardar
                   </button>
                 </div>
               </div>
