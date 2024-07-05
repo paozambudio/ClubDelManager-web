@@ -213,14 +213,13 @@ const MembersPage = () => {
                       scope="col"
                       className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
                     >
-                      Estado
+                      Empresa
                     </th>
-
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
                     >
-                      Linkedin
+                      Posición
                     </th>
 
                     <th
@@ -246,7 +245,11 @@ const MembersPage = () => {
                           <img
                             src={uno.photo}
                             alt="Miembro Foto"
-                            className="object-cover rounded-full w-12 h-12 sm:w-8 sm:h-8"
+                            className={`object-cover rounded-full w-12 h-12 sm:w-8 sm:h-8 border-4 ${
+                              uno.status_active
+                                ? "border-green-500"
+                                : "border-red-500"
+                            }`}
                           />
                         )}
                       </td>
@@ -269,8 +272,11 @@ const MembersPage = () => {
                           </div>
                         </td>
                       )}
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        {uno.status_active && (
+                      <td className="px-12 py-4 text-sm whitespace-nowrap">
+                        <div>
+                          <h4 className="text-gray-700 ">{uno.company}</h4>
+                        </div>
+                        {/* {uno.status_active && (
                           <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 ">
                             Activo
                           </div>
@@ -279,27 +285,11 @@ const MembersPage = () => {
                           <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 ">
                             Inactivo
                           </div>
-                        )}
+                        )} */}
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
-                          <h4 className="text-gray-700 ">
-                            <a
-                              href={uno.linkedin_url}
-                              target="_blank"
-                              className="text-gray-700"
-                              aria-label="LinkedIn"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-6 h-6"
-                                viewBox="0 0 6 6"
-                                fill="currentColor"
-                              >
-                                <LinkedinIcon />
-                              </svg>
-                            </a>
-                          </h4>
+                          <h2 className="text-gray-700 ">{uno.position}</h2>
                         </div>
                       </td>
 
