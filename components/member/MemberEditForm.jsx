@@ -169,7 +169,7 @@ const MemberEditForm = () => {
   return (
     mounted &&
     !loading && (
-      <section className="w-full  px-8 self- py-4 mt-16 bg-gray-400 rounded-lg shadow-lg dark:bg-gray-800">
+      <section className="w-full  px-8 self- py-4 mt-16 bg-gray-400 rounded-lg shadow-lg dark:bg-gray-400">
         <div className="">
           <div className="bg-gray-200 px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
             <form onSubmit={handleSubmit}>
@@ -179,12 +179,12 @@ const MemberEditForm = () => {
                 </h3>
                 Estado:
                 {fields.status_active && (
-                  <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
+                  <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 ">
                     Activo
                   </div>
                 )}
                 {!fields.status_active && (
-                  <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                  <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 ">
                     Inactivo
                   </div>
                 )}
@@ -585,44 +585,45 @@ const MemberEditForm = () => {
               </div>
 
               <div className="mb-4 bg-gray-200 border-4 border-gray-300">
-                <label
-                  htmlFor="images"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Foto
-                </label>
+                <div>
+                  <label
+                    for="image"
+                    class="block text-gray-700 font-semibold mb-2"
+                  >
+                    Foto
+                  </label>
+
+                  <input
+                    type="file"
+                    class="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-gray-200 border border-gray-200 rounded-lg file:bg-gray-400 file:text-white file:text-sm file:px-4 file:py-1 file:border-none file:rounded-md file:font-bold  placeholder-gray-400/70  focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                    onChange={handleImageChange}
+                  />
+                </div>
+
                 <img
                   src={fields.photo}
                   alt="Miembro Foto"
                   className="object-cover w-48 h-48  mt-4"
                 />
-                <input
-                  type="file"
-                  id="foto"
-                  name="foto"
-                  className="border rounded w-full py-2 px-3"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
               </div>
 
               <div className="flex">
                 <div className="w-1/3"></div>
-                <div className="w-2/3">
+                <div className="w-2/3 mb-4 gap-4">
                   <Link href="/members" className="">
                     <button
-                      className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                      className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
                       type="button"
                     >
                       Volver
                     </button>
                   </Link>
-
+                  &nbsp;&nbsp;
                   <button
-                    className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                    className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
                     type="submit"
                   >
-                    Continuar
+                    Guardar
                   </button>
                 </div>
               </div>

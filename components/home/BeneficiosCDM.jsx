@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { fetchBeneficios } from "@/utils/requests";
 
-const beneficios = [
+/* const beneficios = [
   {
     id: 1,
     src: "/img-logo-Beneficio/AgustinSaitta.png",
@@ -84,7 +84,7 @@ const beneficios = [
     descount: "15%",
     type: "Gastronomía",
   },
-];
+]; */
 
 const BeneficiosCDM = () => {
   const { data: session } = useSession();
@@ -100,6 +100,8 @@ const BeneficiosCDM = () => {
       unidad_descuento: "%",
     },
   ]);
+  const [tipos, setTipos] = useState([]);
+  const [selectedTipo, setSelectedTipo] = useState();
 
   // Estado para manejar la paginación
   const [currentPage, setCurrentPage] = useState(1);
@@ -109,8 +111,11 @@ const BeneficiosCDM = () => {
     const fetchData = async () => {
       const data = await fetchBeneficios();
       setBeneficiosData(data);
-      console.log("beneficios en el front: ", data);
-      //setMiembrosFiltrados(data);
+      const tipos_beneficio = Array.from(
+        new Set(data.map((bene) => bene.tipo_beneficio))
+      );
+      setTipos(tipos_beneficio);
+      console.log("Tipos de beneficios: ", tipos_beneficio);
     };
     fetchData();
   }, []);
@@ -125,39 +130,45 @@ const BeneficiosCDM = () => {
 
   const totalPages = Math.ceil(beneficiosData.length / itemsPerPage);
 
+  /* const handleChangeTipo(e)=>{
+    e.preventDefault();
+
+  } */
+
   return (
     <div className="transparent">
-      {session && (
-        <div className="container px-6 py-8 mx-auto justify-items-center flex-col">
-          <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl ">
-            Beneficios de los miembros del Club
+      {!session && (
+        <div className="container px-6 py-2 mx-auto justify-items-center flex-col">
+          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
+            Beneficios <br /> de los miembros&nbsp;
+            <span class="underline decoration-blue-500">Del Club</span>
           </h1>
 
           <div className="grid grid-cols-1 gap-4 mt-6 xl:mt-12 xl:gap-2 md:grid-cols-2 lg:grid-cols-4 justify-start">
             {currentBeneficios.map((bene) => (
               <div
-                id={bene.id}
-                className="w-full p-8 space-y-2 text-center rounded-lg  flex flex-col justify-center"
-                style={{ height: "200px" }} // Ajusta la altura según tus necesidades
+                key={bene.id}
+                className="w-full p-8 text-center rounded-lg flex flex-col"
               >
-                <div className="flex flex-col items-center justify-start h-full">
-                  <p className="text-gray-500 font-bold uppercase justify-start">
-                    {bene.titulo_beneficio}
-                  </p>
-                  <p className="text-gray-500 text-sm justify-start">
-                    {bene.descripcion_beneficio}
-                  </p>
-                  <br />
-
-                  <h2 className="text-4xl font-semibold text-gray-700 uppercase">
-                    {bene.valor_descuento} &nbsp; {bene.unidad_descuento}
-                  </h2>
-                  <div className="flex flex-grow items-center justify-center">
+                <div className="flex flex-col items-center justify-between flex-grow">
+                  <div className="mb-4">
+                    <p className="text-gray-500 font-bold uppercase">
+                      {bene.titulo_beneficio}
+                    </p>
+                    <p className="text-gray-500 text-sm">
+                      {bene.descripcion_beneficio}
+                    </p>
+                  </div>
+                  <div className="flex-grow flex flex-col justify-center">
+                    <h2 className="text-4xl font-semibold text-gray-700 uppercase">
+                      {bene.valor_descuento} {bene.unidad_descuento}
+                    </h2>
+                  </div>
+                  <div className="flex items-center justify-center mt-4">
                     <img
                       src={bene.logo}
-                      className="mx-auto "
-                      height="80"
-                      width="80"
+                      className="h-20 w-20 object-contain"
+                      alt="Logo"
                     />
                   </div>
                 </div>
@@ -188,6 +199,15 @@ const BeneficiosCDM = () => {
             </button>
             <span className="text-gray-600">
               Página {currentPage} de {totalPages}
+              {/* <select
+                type="text"
+                className="border rounded w-full py-2 px-3 mb-2 bg-gray-400"
+              >
+                <option value="0">(Todos los beneficios</option>
+                {tipos.map((tipo_beneficio, index) => (
+                  <option value={tipo_beneficio}>{tipo_beneficio}</option>
+                ))}
+              </select> */}
             </span>
             <button
               onClick={() =>

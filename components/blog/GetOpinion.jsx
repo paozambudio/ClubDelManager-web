@@ -13,7 +13,7 @@ const GetOpinion = () => {
 
   return (
     <section className="bg-transparent ">
-      <div className="container px-6 mx-auto ">
+      <div className="container px-6 py-2 mx-auto ">
         <div className="lg:flex lg:-mx-6 h-99 ">
           <div className="lg:w-3/4 lg:px-6 ">
             <GetNoticias />

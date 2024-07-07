@@ -11,7 +11,7 @@ const ResumeHistory = () => {
   return (
     <div className="flex flex-col md:flex-row items-center md:justify-between overflow-hidden mx-8 max-w-6xl w-full">
       {!session && (
-        <div className="max-w-xl py-12 md:w-1/2">
+        <div className="max-w-xl py-2 md:w-1/2">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
             ¿Querés <br />
             saber quiénes &nbsp;

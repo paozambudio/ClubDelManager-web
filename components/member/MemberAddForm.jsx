@@ -125,7 +125,7 @@ const MemberAddForm = () => {
 
       //guardar usuario
       console.log("Voy a guardar el usaurio");
-      saveUser(formData);
+      //saveUser(formData);
 
       const res = await fetch(`${apiDomain}/members/members/`, {
         method: "POST",
@@ -568,20 +568,20 @@ const MemberAddForm = () => {
               </div>
 
               <div className="mb-4 bg-gray-200 border-4 border-gray-300">
-                <label
-                  htmlFor="images"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Foto
-                </label>
-                <input
-                  type="file"
-                  id="foto"
-                  name="foto"
-                  className="border rounded w-full py-2 px-3"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
+                <div>
+                  <label
+                    for="image"
+                    class="block text-gray-700 font-semibold mb-2"
+                  >
+                    Foto
+                  </label>
+
+                  <input
+                    type="file"
+                    class="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-gray-200 border border-gray-200 rounded-lg file:bg-gray-400 file:text-white file:text-sm file:px-4 file:py-1 file:border-none file:rounded-md file:font-bold  placeholder-gray-400/70  focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                    onChange={handleImageChange}
+                  />
+                </div>
               </div>
 
               <div className="flex">
@@ -589,14 +589,15 @@ const MemberAddForm = () => {
                 <div className="w-2/3">
                   <Link href="/onBoarding">
                     <button
-                      className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                      className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
                       type="submit"
                     >
-                      Cancelar
+                      Volver
                     </button>
                   </Link>
+                  &nbsp;&nbsp;
                   <button
-                    className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                    className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
                     type="submit"
                   >
                     Guardar

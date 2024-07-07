@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
           <a
             href="https://open.spotify.com/user/31v3jgx5cf2jzouv64bndnx4nffa?si=M2MUHefrTAyLAEjvmn056w"
             target="_blank"
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500 group-hover:text-white"
+            className="mx-2 text-white "
             aria-label="Spotify"
           >
             <svg
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
           <a
             href="https://www.tiktok.com/@elclubdelmanager"
             target="_blank"
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            className="mx-2 text-white"
             aria-label="TikTok"
           >
             <svg
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
 
           <a
             href={`mailto:${emailClub}`}
-            className="mx-2 text-white dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+            className="mx-2 text-white"
             aria-label="Correo electrónico"
           >
             <svg

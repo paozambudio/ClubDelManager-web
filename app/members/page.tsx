@@ -136,7 +136,7 @@ const MembersPage = () => {
           </button>
 
           <button
-            className={`px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 hover:bg-gray-100 ${
+            className={`px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm  hover:bg-gray-100 ${
               filtro === "Directivos"
                 ? "bg-gray-100  text-gray-600 "
                 : "text-gray-600 "
@@ -203,7 +203,7 @@ const MembersPage = () => {
                     {filtro === "Directivos" && (
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                        className="px-4 py-3.5 text-sm font-normal  text-left rtl:text-right text-gray-500 "
                       >
                         Cargo Directivo
                       </th>
