@@ -78,4 +78,69 @@ async function fetchBeneficios() {
   }
 }
 
-export { buscarMiembros, fetchMember, fetchMemberbyEmail, fetchBeneficios };
+async function fetchEvents(id) {
+  try {
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(`${apiDomain}/members/members/${id}/events`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+async function puntajeTotal(id) {
+  try {
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(`${apiDomain}/members/members/${id}/total_score`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    console.log("puntaje desde request: ", res);
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+async function ultimaParticipacion(id) {
+  try {
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(
+      `${apiDomain}/members/members/${id}/ultima_participacion`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    console.log("puntaje desde request: ", res);
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+export {
+  buscarMiembros,
+  fetchMember,
+  fetchMemberbyEmail,
+  fetchBeneficios,
+  fetchEvents,
+  puntajeTotal,
+  ultimaParticipacion,
+};

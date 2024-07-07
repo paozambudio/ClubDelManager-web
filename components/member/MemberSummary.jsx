@@ -1,5 +1,10 @@
 "use client";
-import { buscarMiembros, fetchMemberbyEmail } from "@/utils/requests";
+import {
+  buscarMiembros,
+  fetchMemberbyEmail,
+  puntajeTotal,
+  ultimaParticipacion,
+} from "@/utils/requests";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -41,6 +46,9 @@ const MemberSummary = () => {
   });
 
   const [miembros, setMiembros] = useState([]);
+  const [scoreTotal, setScoreTotal] = useState(0);
+  const [participationLastDate, setParticipationLastDate] =
+    useState("01/01/2024");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,7 +64,13 @@ const MemberSummary = () => {
         const logueado = await fetchMemberbyEmail(session.user?.email);
 
         console.log("Miembro logueado:", logueado);
-        if (logueado.length == 1) setMiembro(logueado[0]);
+        if (logueado.length == 1) {
+          setMiembro(logueado[0]);
+          const score = await puntajeTotal(logueado[0].id);
+          setScoreTotal(score.total_score);
+          const lastDate = await ultimaParticipacion(logueado[0].id);
+          setParticipationLastDate(lastDate.ultima_participacion);
+        }
       };
       buscarEmail();
     }
@@ -93,6 +107,8 @@ const MemberSummary = () => {
                 </Link>
               </p>
             </div>
+            <br />
+            <br />
             <div className="flex items-center justify-between">
               <Link
                 href={`/members/${miembro.id}/edit/`}
@@ -108,9 +124,16 @@ const MemberSummary = () => {
             </div>
             <p className="mt-2 text-sm text-gray-600 ">
               Nombre: {session.user?.name} &nbsp;&nbsp; <br />
-              Última actividad con el CDM: 18 de Mayo 2024{" "}
-              {/* {miembro.document_id} */} <br />
-              Puntos Acumulados: <span className="font-semibold">1500</span>
+              Última partipación: {participationLastDate}
+              <br />
+              Puntos Acumulados:{" "}
+              <span className="font-semibold"> {scoreTotal} </span>
+              <Link
+                href={`/members/${miembro.id}/events/`}
+                className="underline  text-sky-600 "
+              >
+                Ver actividad
+              </Link>
               <br />
               <br />
             </p>
