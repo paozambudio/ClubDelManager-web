@@ -95,9 +95,11 @@ const BeneficiosCDM = () => {
       tipo_beneficio: "",
       titulo_beneficio: "",
       descripcion_beneficio: "",
+      descripcion_beneficio_largo: "",
       logo: "",
       valor_descuento: 0,
       unidad_descuento: "%",
+      beneficio_active: true,
     },
   ]);
   const [tipos, setTipos] = useState([]);
@@ -110,7 +112,7 @@ const BeneficiosCDM = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchBeneficios();
-      setBeneficiosData(data);
+      setBeneficiosData(data.filter((uno) => uno.beneficio_active));
       const tipos_beneficio = Array.from(
         new Set(data.map((bene) => bene.tipo_beneficio))
       );
@@ -148,7 +150,7 @@ const BeneficiosCDM = () => {
             {currentBeneficios.map((bene) => (
               <div
                 key={bene.id}
-                className="w-full p-8 text-center rounded-lg flex flex-col"
+                className="w-full p-8 text-center rounded-lg flex flex-col relative group"
               >
                 <div className="flex flex-col items-center justify-between flex-grow">
                   <div className="mb-4">
@@ -172,6 +174,12 @@ const BeneficiosCDM = () => {
                     />
                   </div>
                 </div>
+                <br />
+                {bene.descripcion_beneficio_largo && (
+                  <div className="hidden group-hover:block absolute w-48 px-5 py-3 text-xs text-center text-gray-100 -translate-x-1/2 bg-slate-500 rounded-lg bottom-8 left-1/2 shadow-lg">
+                    {bene.descripcion_beneficio_largo}
+                  </div>
+                )}
               </div>
             ))}
           </div>
