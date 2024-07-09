@@ -40,8 +40,12 @@ const BeneficiosCDM = () => {
     setLoading(true);
     try {
       const response = await axios.get(url);
+      setNextPageUrl(response.data.next);
+      setPrevPageUrl(response.data.previous);
+
       const data = response.data.results;
-      setBeneficiosData(data.filter((uno) => uno.beneficio_active));
+      setBeneficiosData(data);
+
       const tipos_beneficio = Array.from(
         new Set(data.map((bene) => bene.tipo_beneficio))
       );
@@ -65,23 +69,10 @@ const BeneficiosCDM = () => {
       fetchData(prevPageUrl);
     }
   };
-  /* const indexOfLastProject = currentPage * itemsPerPage;
-  const indexOfFirstProject = indexOfLastProject - itemsPerPage;
-  const currentBeneficios = beneficiosData.slice(
-    indexOfFirstProject,
-    indexOfLastProject
-  );
-
-  const totalPages = Math.ceil(beneficiosData.length / itemsPerPage); */
-
-  /* const handleChangeTipo(e)=>{
-    e.preventDefault();
-
-  } */
 
   return (
     <div className="transparent">
-      {session && (
+      {!session && (
         <div className="container px-6 py-2 mx-auto justify-items-center flex-col">
           <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
             Beneficios <br /> de los miembros&nbsp;
