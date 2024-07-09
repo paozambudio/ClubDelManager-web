@@ -139,7 +139,7 @@ const BeneficiosCDM = () => {
 
   return (
     <div className="transparent">
-      {session && (
+      {!session && (
         <div className="container px-6 py-2 mx-auto justify-items-center flex-col">
           <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
             Beneficios <br /> de los miembros&nbsp;

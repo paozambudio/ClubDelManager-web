@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { buscarMiembros } from "@/utils/requests";
 import { useSession } from "next-auth/react";
+import axios from "axios";
+
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const MembersPage = () => {
   const { data: session } = useSession();
@@ -40,6 +43,9 @@ const MembersPage = () => {
     },
   ]);
   const [filtro, setFiltro] = useState("");
+  const [nextPageUrl, setNextPageUrl] = useState(null);
+  const [prevPageUrl, setPrevPageUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [miembrosFiltrados, setMiembrosFiltrados] = useState([
     {
       id: "",
@@ -70,12 +76,7 @@ const MembersPage = () => {
   ]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await buscarMiembros();
-      setMiembros(data);
-      setMiembrosFiltrados(data);
-    };
-    fetchData();
+    fetchData(`${apiDomain}/members/members/`);
   }, []);
 
   useEffect(() => {
@@ -91,6 +92,26 @@ const MembersPage = () => {
     console.log("Miembros filtrados", miembrosFiltrados);
   }, [filtro, miembros]);
 
+  const fetchData = async (url: string) => {
+    setLoading(true);
+
+    /* const data = await buscarMiembros();
+
+    setMiembros(data);
+    setMiembrosFiltrados(data); */
+    try {
+      const response = await axios.get(url);
+      setMiembros(response.data.results);
+      setMiembrosFiltrados(response.data.results);
+      setNextPageUrl(response.data.next);
+      setPrevPageUrl(response.data.previous);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleBuscar = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -100,15 +121,27 @@ const MembersPage = () => {
     setMiembrosFiltrados(miembrosConFiltro);
   };
 
+  const handleNextPage = () => {
+    if (nextPageUrl) {
+      fetchData(nextPageUrl);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (prevPageUrl) {
+      fetchData(prevPageUrl);
+    }
+  };
+
   // Paginación
-  const indexOfLastProject = currentPage * itemsPerPage;
+  /* const indexOfLastProject = currentPage * itemsPerPage;
   const indexOfFirstProject = indexOfLastProject - itemsPerPage;
   const currentMiembros = miembrosFiltrados.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(miembrosFiltrados.length / itemsPerPage);
+  const totalPages = Math.ceil(miembrosFiltrados.length / itemsPerPage); */
 
   return (
     <section className="container px-4 mx-auto">
@@ -237,7 +270,7 @@ const MembersPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
-                  {currentMiembros.map((uno) => (
+                  {miembrosFiltrados.map((uno) => (
                     <tr key={uno.document_id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         {uno.photo && (
@@ -335,61 +368,61 @@ const MembersPage = () => {
       </div>
 
       <div className="mt-6 sm:flex sm:items-center sm:justify-between ">
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        {/*<div className="text-sm text-gray-500 dark:text-gray-400">
           Página
           <span className="font-medium text-gray-700 dark:text-gray-100">
             {currentPage} de {totalPages}
           </span>
-        </div>
+        </div> */}
 
         <div className="flex items-center mt-4 gap-x-4 sm:mt-0">
-          <button
-            className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-5 h-5 rtl:-scale-x-100"
+          {prevPageUrl && (
+            <button
+              className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
+              onClick={handlePrevPage}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 rtl:-scale-x-100"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                />
+              </svg>
 
-            <span>&nbsp;Anterior</span>
-          </button>
+              <span>&nbsp;Anterior</span>
+            </button>
+          )}
 
-          <button
-            className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-          >
-            <span>&nbsp;Siguiente</span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-5 h-5 rtl:-scale-x-100"
+          {nextPageUrl && (
+            <button
+              className="inline-flex items-center justify-center px-10 py-2 font-medium text-white duration-300 bg-sky-600 rounded-lg hover:bg-blue-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
+              onClick={handleNextPage}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </button>
+              <span>&nbsp;Siguiente</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 rtl:-scale-x-100"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </section>

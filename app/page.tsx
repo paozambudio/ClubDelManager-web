@@ -21,8 +21,9 @@ const HomePage = async () => {
 
       <MemberSummary />
       <SpotifyDriveAccess />
-      <BeneficiosCDM />
+
       <GetOpinion />
+      <BeneficiosCDM />
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
         <ResumeHistory />
       </div>
