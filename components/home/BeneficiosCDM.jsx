@@ -2,92 +2,15 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { fetchBeneficios } from "@/utils/requests";
+import axios from "axios";
 
-/* const beneficios = [
-  {
-    id: 1,
-    src: "/img-logo-Beneficio/AgustinSaitta.png",
-    title: "Agustín Saitta",
-    description: "Magia Mental & Boutique",
-    descount: "15%",
-    type: "Recreación",
-  },
-  {
-    id: 2,
-    src: "/img-logo-Beneficio/Bianco&Nero.png",
-    title: "Bianco & Nero",
-    description: "Pago en Efectivo",
-    descount: "15%",
-    type: "Gastronomía",
-  },
-  {
-    id: 3,
-    src: "/img-logo-Beneficio/CorazonDelSol.png",
-    title: "Corazón del Sol",
-    description: "Wine testing",
-    descount: "20%",
-    type: "Gastronomía",
-  },
-  {
-    id: 4,
-    src: "/img-logo-Beneficio/UNC.png",
-    title: "MBA UNC",
-    description: "Dto mensual/inscripción",
-    descount: "20% - 25%",
-    type: "Foramación y Capacitación",
-  },
-  {
-    id: 5,
-    src: "/img-logo-Beneficio/HDIM.png",
-    title: "Consultora HDIM",
-    description: "Para cursos abiertos",
-    descount: "20%",
-    type: "Foramación y Capacitación",
-  },
-  {
-    id: 6,
-    src: "/img-logo-Beneficio/SportClub.png",
-    title: "Gimnasio Sport Club",
-    description: "Dcto en abono mensual",
-    descount: "XX%",
-    type: "Recreación",
-  },
-  {
-    id: 7,
-    src: "/img-logo-Beneficio/SumaQ.png",
-    title: "SPA SUMAQ",
-    description: "  ",
-    descount: "XX%",
-    type: "Bienestar",
-  },
-  {
-    id: 8,
-    src: "/img-logo-Beneficio/FarmaciaDelPlata.png",
-    title: "Farmacias Del Plata",
-    description: "  ",
-    descount: "XX%",
-    type: "Bienestar",
-  },
-  {
-    id: 9,
-    src: "/img-logo-Beneficio/DonQuijote.png",
-    title: "Don Quijote",
-    description: "Cocina Española",
-    descount: "20%",
-    type: "Gastronomía",
-  },
-  {
-    id: 10,
-    src: "/img-logo-Beneficio/ElGallego.png",
-    title: "EL GALLEGO",
-    description: "La Barraca",
-    descount: "15%",
-    type: "Gastronomía",
-  },
-]; */
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const BeneficiosCDM = () => {
   const { data: session } = useSession();
+  const [nextPageUrl, setNextPageUrl] = useState(null);
+  const [prevPageUrl, setPrevPageUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [beneficiosData, setBeneficiosData] = useState([
     {
@@ -110,27 +33,46 @@ const BeneficiosCDM = () => {
   const itemsPerPage = 4; // Número de tarjetas por página
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchBeneficios();
+    fetchData(`${apiDomain}/members/beneficios/`);
+  }, []);
+
+  const fetchData = async (url) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(url);
+      const data = response.data.results;
       setBeneficiosData(data.filter((uno) => uno.beneficio_active));
       const tipos_beneficio = Array.from(
         new Set(data.map((bene) => bene.tipo_beneficio))
       );
       setTipos(tipos_beneficio);
-      console.log("Tipos de beneficios: ", tipos_beneficio);
-    };
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Paginación
-  const indexOfLastProject = currentPage * itemsPerPage;
+  const handleNextPage = () => {
+    if (nextPageUrl) {
+      fetchData(nextPageUrl);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (prevPageUrl) {
+      fetchData(prevPageUrl);
+    }
+  };
+  /* const indexOfLastProject = currentPage * itemsPerPage;
   const indexOfFirstProject = indexOfLastProject - itemsPerPage;
   const currentBeneficios = beneficiosData.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(beneficiosData.length / itemsPerPage);
+  const totalPages = Math.ceil(beneficiosData.length / itemsPerPage); */
 
   /* const handleChangeTipo(e)=>{
     e.preventDefault();
@@ -147,7 +89,7 @@ const BeneficiosCDM = () => {
           </h1>
 
           <div className="grid grid-cols-1 gap-4 mt-6 xl:mt-12 xl:gap-2 md:grid-cols-2 lg:grid-cols-4 justify-start">
-            {currentBeneficios.map((bene) => (
+            {beneficiosData.map((bene) => (
               <div
                 key={bene.id}
                 className="w-full p-8 text-center rounded-lg flex flex-col relative group"
@@ -185,60 +127,54 @@ const BeneficiosCDM = () => {
           </div>
 
           <div className="flex justify-between items-center mt-6">
-            <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
-              disabled={currentPage === 1}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            {prevPageUrl && (
+              <button
+                onClick={handlePrevPage}
+                className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <span className="text-gray-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/*  <span className="text-gray-600">
               Página {currentPage} de {totalPages}
-              {/* <select
-                type="text"
-                className="border rounded w-full py-2 px-3 mb-2 bg-gray-400"
+              
+            </span> */}
+
+            {nextPageUrl && (
+              <button
+                onClick={handleNextPage}
+                className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
               >
-                <option value="0">(Todos los beneficios</option>
-                {tipos.map((tipo_beneficio, index) => (
-                  <option value={tipo_beneficio}>{tipo_beneficio}</option>
-                ))}
-              </select> */}
-            </span>
-            <button
-              onClick={() =>
-                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-              }
-              className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-blue-500 disabled:opacity-50"
-              disabled={currentPage === totalPages}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       )}
