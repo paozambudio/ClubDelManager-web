@@ -8,8 +8,9 @@ const buscarMiembros = async () => {
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
-    console.log("Resultado", res);
+
     const data = await res.json();
+    console.log("Resultado en request", data);
     return data;
   } catch (error) {
     console.error("Error fetching members:", error);
@@ -23,9 +24,7 @@ async function fetchMember(id) {
     if (!apiDomain) {
       return null;
     }
-
     const res = await fetch(`${apiDomain}/members/members/${id}`);
-
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -40,7 +39,6 @@ async function fetchMember(id) {
 async function fetchMemberbyEmail(email) {
   try {
     //handle the case where the domain is not available yet
-    console.log("Desde request", email);
     if (!apiDomain) {
       return null;
     }
@@ -50,8 +48,6 @@ async function fetchMemberbyEmail(email) {
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    //console.log("desde request, el member es:", res.json());
-    console.log("no dio error desde request");
     return res.json();
   } catch (error) {
     console.log(error);

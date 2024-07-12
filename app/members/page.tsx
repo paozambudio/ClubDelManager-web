@@ -214,10 +214,7 @@ const MembersPage = () => {
               <table className="min-w-full divide-y divide-gray-200 ">
                 <thead className="bg-gray-50 ">
                   <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 "
-                    >
+                    <th scope="col" className="">
                       &nbsp;
                     </th>
                     <th
@@ -227,12 +224,6 @@ const MembersPage = () => {
                       Nombre
                     </th>
 
-                    <th
-                      scope="col"
-                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
-                    >
-                      Apellido
-                    </th>
                     {filtro === "Directivos" && (
                       <th
                         scope="col"
@@ -243,22 +234,15 @@ const MembersPage = () => {
                     )}
                     <th
                       scope="col"
-                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                      className="px-12 py-3.5 text-sm hidden md:table-cell font-normal text-left rtl:text-right text-gray-500 "
                     >
                       Empresa
                     </th>
                     <th
                       scope="col"
-                      className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                      className="px-12 py-3.5 text-sm hidden md:table-cell font-normal text-left rtl:text-right text-gray-500 "
                     >
                       Posición
-                    </th>
-
-                    <th
-                      scope="col"
-                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
-                    >
-                      E-Mail
                     </th>
 
                     <th
@@ -277,7 +261,7 @@ const MembersPage = () => {
                           <img
                             src={uno.photo}
                             alt="Miembro Foto"
-                            className={`object-cover rounded-full w-12 h-12 sm:w-8 sm:h-8 border-4 ${
+                            className={`object-cover rounded-full w-12 h-12 sm:border-1 border-2 ${
                               uno.status_active
                                 ? "border-green-500"
                                 : "border-red-500"
@@ -285,16 +269,15 @@ const MembersPage = () => {
                           />
                         )}
                       </td>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                      <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
                           <h2 className="font-medium text-black-800 ">
-                            {uno.first_name}
+                            {uno.first_name} &nbsp; {uno.last_name}
                           </h2>
+                          <h3 className="text-gray-500 ">{uno.email}</h3>
                         </div>
                       </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        {uno.last_name}
-                      </td>
+
                       {filtro === "Directivos" && (
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div>
@@ -304,7 +287,7 @@ const MembersPage = () => {
                           </div>
                         </td>
                       )}
-                      <td className="px-12 py-4 text-sm whitespace-nowrap">
+                      <td className="px-12 hidden md:table-cell py-4 text-sm whitespace-nowrap">
                         <div>
                           <h4 className="text-gray-700 ">{uno.company}</h4>
                         </div>
@@ -319,15 +302,9 @@ const MembersPage = () => {
                           </div>
                         )} */}
                       </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
+                      <td className="px-4 py-4 text-sm hidden md:table-cell whitespace-nowrap">
                         <div>
                           <h2 className="text-gray-700 ">{uno.position}</h2>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 ">{uno.email}</h4>
                         </div>
                       </td>
 

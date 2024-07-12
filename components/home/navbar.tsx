@@ -275,7 +275,7 @@ function ResponsiveAppBar() {
                           signOut();
                         }}
                       >
-                        Sign Out
+                        Cerrar Sesión
                       </button>
                     </Link>
                   </div>

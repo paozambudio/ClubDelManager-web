@@ -45,7 +45,37 @@ const MemberSummary = () => {
     status_active: true,
   });
 
-  const [miembros, setMiembros] = useState([]);
+  const [members, setMembers] = useState([
+    {
+      id: "",
+      document_id: "",
+      first_name: "",
+      last_name: "",
+      phone: "",
+      email: "",
+      photo: "",
+      address_street: "",
+      address_number: "",
+      address_region: "",
+      address_state: "Mendoza",
+      address_country: "Argentina",
+      linkedin_url: "",
+      instagram_url: "",
+      profession: "",
+      company: "",
+      position: "",
+      lead_persons: false,
+      manager_position: false,
+      added_value: "",
+      teaching_skilss: false,
+      membership_reason: "",
+      board_member: false,
+      board_position: "",
+      birthdate: "1900-01-01",
+      startdate: "1900-01-01",
+      status_active: true,
+    },
+  ]);
   const [scoreTotal, setScoreTotal] = useState(0);
   const [participationLastDate, setParticipationLastDate] =
     useState("01/01/2024");
@@ -53,7 +83,8 @@ const MemberSummary = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await buscarMiembros();
-      setMiembros(data);
+      setMembers(data);
+      console.log("Miembros: ", members);
     };
     fetchData();
   }, []);
@@ -63,11 +94,12 @@ const MemberSummary = () => {
       const buscarEmail = async () => {
         const logueado = await fetchMemberbyEmail(session.user?.email);
 
-        console.log("Miembro logueado:", logueado);
         if (logueado.length == 1) {
           setMiembro(logueado[0]);
+
           const score = await puntajeTotal(logueado[0].id);
           setScoreTotal(score.total_score);
+
           const lastDate = await ultimaParticipacion(logueado[0].id);
           setParticipationLastDate(lastDate.ultima_participacion);
         }
@@ -77,11 +109,6 @@ const MemberSummary = () => {
   }, [session]);
 
   const memberEditUrl = `${apiDomain}/members/${miembro.id}/benefit`;
-
-  // Obtener fecha y hora actual
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString();
-  const formattedTime = currentDate.toLocaleTimeString();
 
   return (
     <>
@@ -94,7 +121,7 @@ const MemberSummary = () => {
                   Hoy Somos
                 </h1>
                 <span className="px-3 py-1 text-xs text-green-800 uppercase bg-teal-200 rounded-full">
-                  {miembros.length} Miembros
+                  {members.length} Miembros
                 </span>
               </div>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-600">
