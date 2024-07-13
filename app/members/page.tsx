@@ -13,6 +13,7 @@ const MembersPage = () => {
   // Estado para manejar la paginación
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Número de tarjetas por página
+  const [totalMembers, setTotalMembers] = useState(0);
 
   const [miembros, setMiembros] = useState([
     {
@@ -94,14 +95,12 @@ const MembersPage = () => {
 
   const fetchData = async (url: string) => {
     setLoading(true);
-
-    /* const data = await buscarMiembros();
-
-    setMiembros(data);
-    setMiembrosFiltrados(data); */
     try {
       const response = await axios.get(url);
       setMiembros(response.data.results);
+
+      setTotalMembers(response.data.count);
+
       setMiembrosFiltrados(response.data.results);
       setNextPageUrl(response.data.next);
       setPrevPageUrl(response.data.previous);
@@ -151,7 +150,7 @@ const MembersPage = () => {
             <h2 className="text-lg font-medium text-sky-600 ">Hoy somos</h2>
 
             <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
-              {miembrosFiltrados.length} miembros
+              {totalMembers} miembros
             </span>
           </div>
         </div>

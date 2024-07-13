@@ -8,7 +8,6 @@ import {
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { QRCode } from "qrcode.react";
 import { QRCodeSVG } from "qrcode.react";
 const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
@@ -79,12 +78,14 @@ const MemberSummary = () => {
   const [scoreTotal, setScoreTotal] = useState(0);
   const [participationLastDate, setParticipationLastDate] =
     useState("01/01/2024");
+  const [totalMembers, setTotalMembers] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await buscarMiembros();
+      /*const data = await buscarMiembros();
       setMembers(data);
-      console.log("Miembros: ", members);
+      setTotalMembers(data.length);
+      console.log("Miembros: ", members);*/
     };
     fetchData();
   }, []);
@@ -118,11 +119,8 @@ const MemberSummary = () => {
             <div>
               <div className="flex items-center justify-between">
                 <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
-                  Hoy Somos
+                  Conocenos!
                 </h1>
-                <span className="px-3 py-1 text-xs text-green-800 uppercase bg-teal-200 rounded-full">
-                  {members.length} Miembros
-                </span>
               </div>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-600">
                 Si querés conocer a cada uno de los miembros, hacé click &nbsp;

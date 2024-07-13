@@ -8,6 +8,7 @@ import MemberSummary from "@/components/member/MemberSummary";
 import GetOpinion from "@/components/blog/GetOpinion";
 import QrMember from "@/components/member/QrMember";
 import BeneficiosCDM from "@/components/home/BeneficiosCDM";
+import CalendarCDM from "@/components/homeMiembros/CalendarCDM";
 
 const HomePage = async () => {
   await dbConnect();
@@ -21,7 +22,7 @@ const HomePage = async () => {
 
       <MemberSummary />
       <SpotifyDriveAccess />
-
+      <CalendarCDM />
       <GetOpinion />
       <BeneficiosCDM />
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
