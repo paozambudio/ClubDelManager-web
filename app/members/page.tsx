@@ -117,6 +117,8 @@ const MembersPage = () => {
     const miembrosConFiltro = miembros.filter((uno) =>
       uno.last_name.toLowerCase().includes(value)
     );
+    /*fetchData(`${apiDomain}/members/members/?filter/last_name=${value}`);
+    console.log("Con filtro en apellido: ", miembros);*/
     setMiembrosFiltrados(miembrosConFiltro);
   };
 
@@ -145,14 +147,32 @@ const MembersPage = () => {
   return (
     <section className="container px-4 mx-auto">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <div>
-          <div className="flex items-center gap-x-3">
-            <h2 className="text-lg font-medium text-sky-600 ">Hoy somos</h2>
+        <div className="flex items-center gap-x-3 ">
+          <h2 className="text-lg font-medium text-sky-600 ">Hoy somos</h2>
+          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+            {totalMembers} miembros
+          </span>
+          &nbsp;&nbsp;
+          <Link href="/members/add">
+            <button className="flex items-center justify-center w-1/2 px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
 
-            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
-              {totalMembers} miembros
-            </span>
-          </div>
+              <span>Nuevo</span>
+            </button>
+          </Link>
         </div>
       </div>
 

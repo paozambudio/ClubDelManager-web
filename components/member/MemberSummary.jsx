@@ -42,6 +42,8 @@ const MemberSummary = () => {
     birthdate: "1900-01-01",
     startdate: "1900-01-01",
     status_active: true,
+    accepted_terms: false,
+    accepted_terms_date: "1900-01-01",
   });
 
   const [members, setMembers] = useState([
@@ -73,6 +75,8 @@ const MemberSummary = () => {
       birthdate: "1900-01-01",
       startdate: "1900-01-01",
       status_active: true,
+      accepted_terms: false,
+      accepted_terms_date: "1900-01-01",
     },
   ]);
   const [scoreTotal, setScoreTotal] = useState(0);
@@ -132,7 +136,7 @@ const MemberSummary = () => {
                 </Link>
               </p>
             </div>
-            <br />
+
             <br />
             <div className="flex items-center justify-between">
               <Link
@@ -151,6 +155,23 @@ const MemberSummary = () => {
               Nombre: {session.user?.name} &nbsp;&nbsp; <br />
               Última partipación: {participationLastDate}
               <br />
+              <span className="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  className="w-5 h-5 text-teal-600 font-bold"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Reglamento Interno ({miembro.accepted_terms_date})
+              </span>
               Puntos Acumulados:{" "}
               <span className="font-semibold"> {scoreTotal} </span>
               <Link
@@ -159,7 +180,6 @@ const MemberSummary = () => {
               >
                 Ver actividad
               </Link>
-              <br />
               <br />
             </p>
           </div>

@@ -70,14 +70,38 @@ const BeneficiosCDM = () => {
     }
   };
 
+  const handleChangeTipoBeneficio = () => {};
+
   return (
     <div className="transparent">
       {!session && (
         <div className="container px-6 py-2 mx-auto justify-items-center flex-col">
-          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
-            Beneficios <br /> de los miembros&nbsp;
-            <span class="underline decoration-blue-500">Del Club</span>
-          </h1>
+          <span className="cols cols-2">
+            <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-gray-800">
+              Beneficios <br /> de los miembros&nbsp;
+              <span class="underline decoration-blue-500">Del Club</span>
+            </h1>
+            {/* <div>
+              <label className="block text-gray-700 font-semibold mb-2">
+                Seleccione categoría
+              </label>
+              <select
+                type="text"
+                id=""
+                name=""
+                className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
+                value={selectedTipo}
+                onChange={handleChangeTipoBeneficio}
+              >
+                <option value="Otra">(Todas)</option>
+                {tipos.map((uno) => (
+                  <option value={uno.tipo_beneficio}>
+                    {uno.tipo_beneficio}
+                  </option>
+                ))}
+              </select>
+            </div> */}
+          </span>
 
           <div className="grid grid-cols-1 gap-4 mt-6 xl:mt-12 xl:gap-2 md:grid-cols-2 lg:grid-cols-4 justify-start">
             {beneficiosData.map((bene) => (

@@ -29,9 +29,9 @@ const NuestraPropuesta = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokelinecap="round"
+                    strok-linejoin="round"
+                    strokewidth="2"
                     d="M12 6l-2-2m0 0l-2 2m2-2v12m-2-10h8a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-8a2 2 0 012-2h8m-8 10v2a2 2 0 002 2h8a2 2 0 002-2v-2m-10-10h10"
                   />
                 </svg>
@@ -58,9 +58,9 @@ const NuestraPropuesta = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokelinecap="round"
+                    strokelinejoin="round"
+                    strokewidth="2"
                     d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 2c-2.21 0-4 1.79-4 4v1h8v-1c0-2.21-1.79-4-4-4zm6-4a2 2 0 100-4 2 2 0 000 4zm-2 1a2 2 0 00-2 2v1h4v-1a2 2 0 00-2-2zm-10 0a2 2 0 100-4 2 2 0 000 4zm-2 1a2 2 0 00-2 2v1h4v-1a2 2 0 00-2-2z"
                   />
                 </svg>
@@ -87,15 +87,15 @@ const NuestraPropuesta = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokelinecap="round"
+                    strokelinejoin="round"
+                    strokewidth="2"
                     d="M12 4a2 2 0 100 4 2 2 0 000-4zm-6 8v2a4 4 0 004 4h4a4 4 0 004-4v-2m-5-2l-1 1m1-1l1 1m-1-1v3"
                   />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokelinecap="round"
+                    strokelinejoin="round"
+                    strokewidth="2"
                     d="M8 12h8m-4 0v3m0-3a4 4 0 014 4v1h-8v-1a4 4 0 014-4z"
                   />
                 </svg>

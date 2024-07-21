@@ -159,7 +159,6 @@ const Carrusel = () => {
               alt=""
               width={800}
               height={300}
-              layout="responsive"
               className="relative z-10 object-cover w-full rounded-md h-64"
             />
           </div>

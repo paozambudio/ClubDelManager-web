@@ -40,6 +40,8 @@ const MemberEditForm = () => {
     birthdate: "1900-01-01",
     startdate: "1900-01-01",
     status_active: true,
+    ccepted_terms: false,
+    accepted_terms_date: "1900-01-01",
   });
   const [loading, setLoading] = useState(true);
 
@@ -104,6 +106,15 @@ const MemberEditForm = () => {
     }
   };
 
+  const getFormattedDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, "0"); // Meses de 0 a 11, por lo que sumamos 1
+    const day = today.getDate().toString().padStart(2, "0"); // Añade un 0 al inicio si el día es menor a 10
+
+    return `${year}-${month}-${day}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -133,6 +144,8 @@ const MemberEditForm = () => {
         startdate: fields.startdate,
         status_active: fields.status_active,
         photo: fields.photo,
+        accepted_terms: fields.accepted_terms,
+        accepted_terms_date: fields.accepted_terms ? getFormattedDate() : "",
         // Agrega otros campos según sea necesario
       };
 
@@ -154,6 +167,7 @@ const MemberEditForm = () => {
 
       if (res.status === 200) {
         notify("Registro actualizado", false);
+        window.location.replace("/");
       } else if (res.status === 401 || res.status === 403) {
         notify("Permission denied", true);
       } else {
@@ -607,21 +621,46 @@ const MemberEditForm = () => {
                 />
               </div>
 
+              <div className="mb-4 bg-gray-200 border-4 border-gray-300">
+                <div className="relative flex gap-x-3">
+                  <div className="flex h-6 items-center">
+                    <input
+                      id="accepted_terms"
+                      name="accepted_terms"
+                      type="checkbox"
+                      value={fields.accepted_terms}
+                      checked={fields.accepted_terms}
+                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="text-sm leading-6">
+                    <label for="offers" className="font-medium text-gray-900">
+                      Acepto el REGLAMENTO INTERNO
+                    </label>
+                    <p className="text-gray-500">
+                      Estoy de acuerdo con lo expresado en el Reglamento
+                      Interno. Si aún no lo leiste, accedé acá:&nbsp;&nbsp;
+                      <span className="font-bold text-sky-700">
+                        <Link
+                          href="https://drive.google.com/file/d/163hz5BscOmTtWqP-M9S90xF0VA4pczVV/view?usp=sharing"
+                          target="_blank"
+                        >
+                          REGLAMENTO INTERNO
+                        </Link>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex">
                 <div className="w-1/3"></div>
                 <div className="w-2/3 mb-4 gap-4">
-                  <Link href="/members" className="">
-                    <button
-                      className="bg-sky-600  hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
-                      type="button"
-                    >
-                      Volver
-                    </button>
-                  </Link>
-                  &nbsp;&nbsp;
                   <button
-                    className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
+                    className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline disabled:bg-slate-300"
                     type="submit"
+                    disabled={!fields.accepted_terms}
                   >
                     Guardar
                   </button>
