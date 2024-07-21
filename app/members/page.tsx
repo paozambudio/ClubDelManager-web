@@ -78,29 +78,24 @@ const MembersPage = () => {
 
   useEffect(() => {
     fetchData(`${apiDomain}/members/members/`);
+    setMiembros(miembrosFiltrados);
   }, []);
 
   useEffect(() => {
     console.log("Filtro: ", filtro);
     if (filtro === "Directivos") {
-      const miembrosConFiltro = miembros.filter(
-        (miembro) => miembro.board_member === true
-      );
-      setMiembrosFiltrados(miembrosConFiltro);
+      fetchData(`${apiDomain}/members/members/board-members/`);
     } else {
-      setMiembrosFiltrados(miembros);
+      fetchData(`${apiDomain}/members/members/`);
     }
     console.log("Miembros filtrados", miembrosFiltrados);
-  }, [filtro, miembros]);
+  }, [filtro]);
 
   const fetchData = async (url: string) => {
     setLoading(true);
     try {
       const response = await axios.get(url);
-      setMiembros(response.data.results);
-
       setTotalMembers(response.data.count);
-
       setMiembrosFiltrados(response.data.results);
       setNextPageUrl(response.data.next);
       setPrevPageUrl(response.data.previous);
@@ -114,12 +109,16 @@ const MembersPage = () => {
   const handleBuscar = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    const miembrosConFiltro = miembros.filter((uno) =>
-      uno.last_name.toLowerCase().includes(value)
+    fetchData(
+      `${apiDomain}/members/members/filter-by-last-name/?last_name=${value}`
     );
+
+    /* const miembrosConFiltro = miembros.filter((uno) =>
+      uno.last_name.toLowerCase().includes(value)
+    ); */
     /*fetchData(`${apiDomain}/members/members/?filter/last_name=${value}`);
     console.log("Con filtro en apellido: ", miembros);*/
-    setMiembrosFiltrados(miembrosConFiltro);
+    //setMiembrosFiltrados(miembrosConFiltro);
   };
 
   const handleNextPage = () => {
@@ -133,16 +132,6 @@ const MembersPage = () => {
       fetchData(prevPageUrl);
     }
   };
-
-  // Paginación
-  /* const indexOfLastProject = currentPage * itemsPerPage;
-  const indexOfFirstProject = indexOfLastProject - itemsPerPage;
-  const currentMiembros = miembrosFiltrados.slice(
-    indexOfFirstProject,
-    indexOfLastProject
-  );
-
-  const totalPages = Math.ceil(miembrosFiltrados.length / itemsPerPage); */
 
   return (
     <section className="container px-4 mx-auto">

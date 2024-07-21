@@ -26,6 +26,7 @@ export const authOptions = {
       //2. check if the user exists
       const userExists = await User.findOne({ email: profile.email });
       const memberExists = await fetchMemberbyEmail(profile.email);
+      console.log("Estoy validando usuario: ", profile.email);
 
       console.log("Usuario: ", memberExists.length);
       //2. si sólo es para ingresar, y el usuario no se encuentra no dejarlo seguir
