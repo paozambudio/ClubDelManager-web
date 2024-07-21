@@ -172,7 +172,7 @@ const MemberSummary = () => {
                 </svg>
                 Reglamento Interno ({miembro.accepted_terms_date})
               </span>
-              Puntos Acumulados:{" "}
+              Puntos Acumulados:
               <span className="font-semibold"> {scoreTotal} </span>
               <Link
                 href={`/members/${miembro.id}/events/`}
