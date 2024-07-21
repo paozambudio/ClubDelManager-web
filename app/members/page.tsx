@@ -276,17 +276,18 @@ const MembersPage = () => {
                   {miembrosFiltrados.map((uno) => (
                     <tr key={uno.document_id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        {uno.photo && (
-                          <img
-                            src={uno.photo}
-                            alt="Miembro Foto"
-                            className={`object-cover rounded-full w-12 h-12 sm:border-1 border-2 ${
-                              uno.status_active
-                                ? "border-green-500"
-                                : "border-red-500"
-                            }`}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          className="w-5 h-5"
+                        >
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill={` ${uno.status_active ? "green" : "#ff0000"}`}
                           />
-                        )}
+                        </svg>
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
