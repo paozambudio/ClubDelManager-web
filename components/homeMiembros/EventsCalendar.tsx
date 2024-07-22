@@ -1,4 +1,4 @@
-"Use Client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -6,6 +6,8 @@ import moment from "moment";
 import "moment/locale/es"; // Importa la localización en español
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
+import { Modal, Box, Typography, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 const localizer = momentLocalizer(moment);
@@ -41,13 +43,17 @@ interface CalendarEvent {
   title: string;
   start: Date;
   end: Date;
+  location: string;
   desc: string;
 }
 
 const EventsCalendar = () => {
-  const [events, setEvents] = useState([]);
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [currentView, setCurrentView] = useState("month");
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -62,13 +68,12 @@ const EventsCalendar = () => {
             .local()
             .toDate();
           return {
-            ...uno,
-            title:
-              uno.event_name + " - " + uno.location + " | " + uno.description,
+            title: uno.event_name,
             start: eventDate,
             end: eventDate,
-            desc: uno.description, // Incluye la descripción en el evento
-          };
+            location: "Lugar: " + uno.location,
+            desc: "Detalle: " + uno.description,
+          } as CalendarEvent;
         });
 
         setEvents(fetchedEvents);
@@ -85,18 +90,20 @@ const EventsCalendar = () => {
     setCurrentDate(date);
   };
 
-  const handleView = (view: View) => {
-    console.log("View changed to:", view);
-    setCurrentView(view);
+  // const handleView = (view: View) => {
+  //   console.log("View changed to:", view);
+  //   setCurrentView(view);
+  // };
+
+  const handleEventClick = (event: CalendarEvent) => {
+    setSelectedEvent(event);
+    setModalIsOpen(true);
   };
 
-  // Custom event component to show tooltips
-  const EventTooltip = ({ event }: { event: CalendarEvent }) => (
-    <div className="custom-tooltip">
-      {event.title}
-      <div className="tooltip-content">{event.desc}</div>
-    </div>
-  );
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setSelectedEvent(null);
+  };
 
   return (
     <div>
@@ -111,36 +118,56 @@ const EventsCalendar = () => {
         date={currentDate}
         messages={messages} // Agrega los mensajes personalizados
         components={{
-          event: EventTooltip, // Usa el componente personalizado para mostrar tooltips
+          event: ({ event }) => (
+            <span onClick={() => handleEventClick(event)}>{event.title}</span>
+          ),
         }}
       />
-      <style jsx>{`
-        .custom-tooltip {
-          position: relative;
-          display: inline-block;
-        }
-        .tooltip-content {
-          visibility: hidden;
-          width: 220px;
-          background-color: green;
-          color: #fff;
-          text-align: center;
-          border-radius: 6px;
-          padding: 10px; /* Ajusta el padding si es necesario */
-          font-size: 16px; /* Cambia el tamaño de la fuente aquí */
-          position: absolute;
-          z-index: 1;
-          bottom: 125%; /* Ajusta si es necesario */
-          left: 50%;
-          margin-left: -110px; /* Ajusta si es necesario */
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-        .custom-tooltip:hover .tooltip-content {
-          visibility: visible;
-          opacity: 1;
-        }
-      `}</style>
+
+      <Modal
+        open={modalIsOpen}
+        onClose={closeModal}
+        aria-labelledby="event-modal-title"
+        aria-describedby="event-modal-description"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            border: "1px solid #000",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          {selectedEvent && (
+            <div>
+              <Box display="flex" justifyContent="flex-end">
+                <IconButton onClick={closeModal}>
+                  <CloseIcon />
+                </IconButton>
+              </Box>
+              <Typography
+                id="event-modal-title"
+                fontWeight="bold"
+                variant="h6"
+                component="h2"
+              >
+                {selectedEvent.title}
+              </Typography>
+              <Typography id="event-modal-description" sx={{ mt: 2 }}>
+                {selectedEvent.location}
+              </Typography>
+              <Typography id="event-modal-description" sx={{ mt: 2 }}>
+                {selectedEvent.desc}
+              </Typography>
+            </div>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };
