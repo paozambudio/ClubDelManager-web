@@ -21,6 +21,7 @@ const HomePage = async () => {
       <NuestraPropuesta />
 
       <MemberSummary />
+      <EventsSummary />
       <SpotifyDriveAccess />
       <GetOpinion />
       <BeneficiosCDM />
