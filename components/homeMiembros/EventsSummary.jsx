@@ -47,7 +47,7 @@ const EventsSummary = () => {
   return (
     <div className="flex flex-wrap justify-center">
       {session && (
-        <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
+        <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md  ">
           <div>
             <div className="flex items-center justify-between">
               <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
@@ -56,7 +56,10 @@ const EventsSummary = () => {
             </div>
             <div>
               {eventos.slice(0, 2).map((uno, index) => (
-                <div key={index} className="mt-2 text-sm text-gray-600">
+                <div
+                  key={index}
+                  className="mt-2 text-sm text-gray-600 dark:text-gray-600"
+                >
                   <strong>{uno.event_name}</strong> - {uno.event_date} -{" "}
                   {uno.location}
                   <p>{uno.description}</p>
@@ -64,7 +67,6 @@ const EventsSummary = () => {
               ))}
             </div>
           </div>
-          <br />
           <br />
           <span className="underline font-semibold text-sky-600">
             <Link href="/calendarCDM">Ver todos</Link>

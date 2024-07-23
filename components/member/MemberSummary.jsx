@@ -176,7 +176,7 @@ const MemberSummary = () => {
               <span className="font-semibold"> {scoreTotal} </span>
               <Link
                 href={`/members/${miembro.id}/events/`}
-                className="underline  text-sky-600 "
+                className="underline font-semibold text-sky-600"
               >
                 Ver actividad
               </Link>
