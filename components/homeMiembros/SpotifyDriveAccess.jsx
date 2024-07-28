@@ -2,6 +2,7 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import SpotifyEmbed from "./Podcast";
 
 export default function SpotifyDriveAccess() {
   const { data: session } = useSession();
@@ -56,6 +57,10 @@ export default function SpotifyDriveAccess() {
               Accedé a todos los PODCASTS desde Spotify. Encontrarás material
               audivisual de muchísimo valor para nuestro día a día.
             </p>
+            {/* <div>
+              <br />
+              <SpotifyEmbed episodeUrl="https://open.spotify.com/episode/6qoyDi86HwkUVeNrDBNwZB?si=1296634da0144b83" />
+            </div> */}
           </div>
         )}
 

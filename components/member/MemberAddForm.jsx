@@ -622,10 +622,21 @@ const MemberAddForm = () => {
                       Interno. Si aún no lo leiste, accedé acá:&nbsp;&nbsp;
                       <span className="font-bold text-sky-700">
                         <Link
-                          href="https://drive.google.com/file/d/163hz5BscOmTtWqP-M9S90xF0VA4pczVV/view?usp=sharing"
+                          href="https://drive.google.com/file/d/1JQ3-SFUPN92FOZV-z1PuRIF5F_ARq5jJ/view?usp=sharing"
                           target="_blank"
                         >
                           REGLAMENTO INTERNO
+                        </Link>
+                      </span>
+                    </p>
+                    <p className="text-gray-500">
+                      Accedé al &nbsp;
+                      <span className="font-bold text-sky-700">
+                        <Link
+                          href="https://docs.google.com/document/d/1KQAGI5iAFhEMwGLeXWV80eCaejMxhoLn/edit?usp=sharing&ouid=111634404605466111368&rtpof=true&sd=true"
+                          target="_blank"
+                        >
+                          Acuerdo de Confidencialidad
                         </Link>
                       </span>
                     </p>
