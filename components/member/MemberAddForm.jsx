@@ -400,12 +400,12 @@ const MemberAddForm = () => {
                     </label>
                     <input
                       type="text"
-                      id="Linkedin_url"
-                      name="Linkedin_url"
+                      id="linkedin_url"
+                      name="linkedin_url"
                       maxLength="100"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
                       placeholder="Ingresá tu Linkedin"
-                      value={fields.Linkedin_url}
+                      value={fields.linkedin_url}
                       onChange={handleChange}
                       required
                     />
