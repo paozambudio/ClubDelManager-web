@@ -55,6 +55,28 @@ async function fetchMemberbyEmail(email) {
   }
 }
 
+// fetch single member
+async function fetchMemberbyDoc(document_id) {
+  try {
+    //handle the case where the domain is not available yet
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(
+      `${apiDomain}/members/filter/?document_id=${document_id}`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
 async function fetchBeneficios() {
   try {
     if (!apiDomain) {
@@ -139,4 +161,5 @@ export {
   fetchEvents,
   puntajeTotal,
   ultimaParticipacion,
+  fetchMemberbyDoc,
 };

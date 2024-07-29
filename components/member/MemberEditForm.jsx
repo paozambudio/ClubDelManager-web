@@ -636,17 +636,27 @@ const MemberEditForm = () => {
                   </div>
                   <div className="text-sm leading-6">
                     <label for="offers" className="font-medium text-gray-900">
-                      Acepto el REGLAMENTO INTERNO
+                      Acepto el REGLAMENTO INTERNO y ACUERDO DE CONFIDENCIALIDAD
                     </label>
                     <p className="text-gray-500">
-                      Estoy de acuerdo con lo expresado en el Reglamento
-                      Interno. Si aún no lo leiste, accedé acá:&nbsp;&nbsp;
-                      <span className="font-bold text-sky-700">
+                      Estoy de acuerdo con lo expresado en el Reglamento Interno
+                      y en el Acuerdo de Confidencialidad. Si aún no los leiste,
+                      accedé acá:&nbsp;&nbsp;
+                      <span className="font-bold text-sky-700 underline">
                         <Link
-                          href="https://drive.google.com/file/d/163hz5BscOmTtWqP-M9S90xF0VA4pczVV/view?usp=sharing"
+                          href="https://drive.google.com/file/d/1JQ3-SFUPN92FOZV-z1PuRIF5F_ARq5jJ/view?usp=sharing"
                           target="_blank"
                         >
-                          REGLAMENTO INTERNO
+                          Reglamento Interno
+                        </Link>
+                      </span>
+                      &nbsp; y &nbsp;
+                      <span className="font-bold text-sky-700 underline">
+                        <Link
+                          href="https://docs.google.com/document/d/1KQAGI5iAFhEMwGLeXWV80eCaejMxhoLn/edit?usp=sharing&ouid=111634404605466111368&rtpof=true&sd=true"
+                          target="_blank"
+                        >
+                          Acuerdo de Confidencialidad
                         </Link>
                       </span>
                     </p>

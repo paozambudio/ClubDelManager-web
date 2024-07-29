@@ -39,24 +39,6 @@ const MemberEventPage = () => {
     }
   };
 
-  /* useEffect(() => {
-    const fetchEventsData = async () => {
-      try {
-        if (!id) return <h1>No se encontro información</h1>;
-
-        const eventsData = await fetchEvents(id);
-        setEvents(eventsData);
-
-        const score = await puntajeTotal(id);
-        console.log("Puntaje total: ", score);
-        setScoreTotal(score.total_score);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchEventsData();
-  }, []); */
-
   return (
     <div className="items-center justify-center border-2 border-sky-600 ">
       <span className=" ">
