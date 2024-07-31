@@ -3,7 +3,6 @@ import React from "react";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { fetchMemberbyDoc } from "@/utils/requests";
-
 import axios from "axios";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
@@ -29,12 +28,9 @@ const Event_Member_Page = () => {
     participants: [],
   });
 
-  const [nextPageUrl, setNextPageUrl] = useState(null);
-  const [prevPageUrl, setPrevPageUrl] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const [event, setEvent] = useState();
-  const [document, setDocument] = useState();
+  const [document, setDocument] = useState("");
+  const [rtdoAsignar, setRtdoAsignar] = useState("");
   const [miembro, setMiembro] = useState({
     id: "",
     document_id: "",
@@ -69,17 +65,15 @@ const Event_Member_Page = () => {
 
   useEffect(() => {
     fetchEvents(`${apiDomain}/members/events/${id}`);
+    setRtdoAsignar("");
   }, [id]);
 
   const fetchEvents = async (url) => {
     setLoading(true);
     try {
       const response = await axios.get(url);
-      setEvent(response.data);
       setUnEvento(response.data);
-
-      console.log("Participants total: ", response.data.participants.length);
-      console.log("Evento", response.data);
+      console.log("Evento: ", response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
     } finally {
@@ -88,35 +82,30 @@ const Event_Member_Page = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDocument(value);
+    setDocument(e.target.value);
+    setRtdoAsignar("");
   };
+
   const buscarDoc = async (document_id) => {
     const member = await fetchMemberbyDoc(document_id);
-
-    if (member.length == 1) {
-      setMiembro(member[0]);
-      console.log("Miembro en buscar: ", miembro);
+    if (member.length === 1) {
+      return member[0];
     }
+    return null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      console.log("Datos: ", document);
-
-      buscarDoc(document);
-
-      if (miembro) {
-        console.log("Miembro: ", miembro);
+      const foundMember = await buscarDoc(document);
+      if (foundMember) {
         const formData = {
-          member_id: miembro.id,
-          event_id: event.id,
+          member_id: foundMember.id,
+          event_id: unEvento.id,
         };
 
         const res = await fetch(
-          `${apiDomain}/members/assign_member_to_event//`,
+          `${apiDomain}/members/assign_member_to_event/`,
           {
             method: "POST",
             headers: {
@@ -127,16 +116,13 @@ const Event_Member_Page = () => {
         );
 
         if (res.status === 200) {
-          notify("Registro actualizado", false);
-          window.location.replace("events/{id}");
-        } else if (res.status === 401 || res.status === 403) {
-          notify("Permission denied", true);
+          window.location.replace(`/events/${id}/`);
+          setRtdoAsignar("Miembro agregado");
         } else {
-          console.log(res.status);
-          notify("Something went wrong", true);
+          setRtdoAsignar("Error al agregar miembro");
         }
       } else {
-        notify("El miembro no existe", true);
+        setRtdoAsignar("El miembro no existe");
       }
     } catch (error) {
       console.log(error);
@@ -144,32 +130,55 @@ const Event_Member_Page = () => {
   };
 
   return (
-    <div className="items-center justify-center  ">
-      <h2>Evento: {unEvento.event_name} </h2>
-      <h1>Participantes Registrados: {unEvento.participants.length}</h1>
+    <div className="flex flex-col md:flex-row items-center justify-center">
+      <div className="w-full max-w-sm px-4 py-3 m-2 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md">
+        <h2 className="mt-2 text-md text-teal-600 capitalize dark:text-gray-600 font-bold">
+          {unEvento.event_name}{" "}
+        </h2>
+        <h2 className="mt-2 text-md text-gray-600 dark:text-gray-600">
+          <b>Lugar:</b> {unEvento.location}
+        </h2>
+        <h2 className="mt-2 text-md text-gray-600 dark:text-gray-600">
+          <b>+ Info:</b> {unEvento.description}
+        </h2>
+        <br />
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="block text-gray-700 font-semibold mb-2">
-            Ingresá tu DNI:
-          </label>
-          <input
-            type="text"
-            id="document_id"
-            name="document_id"
-            className="border rounded  py-2 px-3 mb-2 bg-gray-100"
-            placeholder="Ingresá tu DNI"
-            onChange={handleChange}
-            required
-          />
-          <button
-            className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline disabled:bg-slate-300"
-            type="submit"
-          >
-            Registrar
-          </button>
+        <div className="flex items-center justify-start">
+          <h1 className="mt-2 text-md text-sky-600 dark:text-sky-600 font-bold">
+            Participantes Registrados &nbsp;
+          </h1>
+          <div className="bg-sky-600 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl">
+            {unEvento.participants.length}
+          </div>
         </div>
-      </form>
+      </div>
+      <div className="w-full max-w-sm px-4 py-3 m-2 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="mt-2 text-sm text-gray-600 dark:text-gray-600">
+              Registrá tu ingreso al evento:
+            </label>
+            <input
+              type="text"
+              id="document_id"
+              name="document_id"
+              className="border rounded py-2 px-3 mb-2 bg-gray-100"
+              placeholder="Ingresá tu DNI"
+              onChange={handleChange}
+              required
+            />
+            <button
+              className="bg-sky-600 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline disabled:bg-slate-300"
+              type="submit"
+            >
+              Registrar
+            </button>
+            <h2 className="mt-2 text-sm text-red-600 dark:text-red-600">
+              {rtdoAsignar}
+            </h2>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
