@@ -1,4 +1,3 @@
-import GetNoticias from "../components/blog/GetNoticias";
 import ResumeHistory from "../components/home/resumeHistory";
 import dbConnect from "../config/database";
 import SpotifyDriveAccess from "@/components/homeMiembros/SpotifyDriveAccess";
@@ -6,7 +5,6 @@ import Hero from "@/components/home/Hero";
 import NuestraPropuesta from "@/components/home/NuestraPropuesta";
 import MemberSummary from "@/components/member/MemberSummary";
 import GetOpinion from "@/components/blog/GetOpinion";
-import QrMember from "@/components/member/QrMember";
 import BeneficiosCDM from "@/components/home/BeneficiosCDM";
 import EventsSummary from "@/components/homeMiembros/EventsSummary";
 

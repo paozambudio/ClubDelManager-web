@@ -69,7 +69,7 @@ const EventsSummary = () => {
           </div>
           <br />
           <span className="underline font-semibold text-sky-600">
-            <Link href="/calendarCDM">Ver todos</Link>
+            <Link href="/events">Ver todos</Link>
           </span>
         </div>
       )}
