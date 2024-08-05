@@ -121,6 +121,33 @@ const MembersPage = () => {
     //setMiembrosFiltrados(miembrosConFiltro);
   };
 
+  const handleExportar = async () => {
+    try {
+      // Solicitud GET para descargar el archivo
+      const response = await axios.get(
+        `${apiDomain}/members/exportar-miembros/`,
+        {
+          responseType: "blob", // Necesario para manejar archivos binarios
+        }
+      );
+
+      // Crear un URL de objeto para el archivo descargado
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+
+      // Crear un enlace y simular un clic para descargar el archivo
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "members.xlsx"); // Nombre del archivo a descargar
+      document.body.appendChild(link);
+      link.click();
+
+      // Limpiar URL de objeto
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error exporting members:", error);
+    }
+  };
+
   const handleNextPage = () => {
     if (nextPageUrl) {
       fetchData(nextPageUrl);
@@ -136,14 +163,27 @@ const MembersPage = () => {
   return (
     <section className="container px-4 mx-auto">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <div className="flex items-center gap-x-3 ">
-          <h2 className="text-lg font-medium text-sky-600 ">Hoy somos</h2>
-          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+        <div className="flex flex-col sm:flex-row items-center gap-x-3 gap-y-2">
+          <h2 className="text-lg font-medium text-sky-600">Hoy somos</h2>
+          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
             {totalMembers} miembros
           </span>
-          &nbsp;&nbsp;
+          <button
+            className="flex items-center justify-center  sm:w-auto px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600"
+            onClick={handleExportar}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              className="w-5 h-5"
+              fill="currentColor"
+            >
+              <path d="M384 121.941V456c0 30.928-25.072 56-56 56H56c-30.928 0-56-25.072-56-56V56c0-30.928 25.072-56 56-56h201.941c14.891 0 29.129 5.891 39.6 16.371l70.059 70.059c10.48 10.472 16.4 24.709 16.4 39.6zM224 136V48H56c-4.411 0-8 3.589-8 8v400c0 4.411 3.589 8 8 8h272c4.411 0 8-3.589 8-8V144H248c-13.255 0-24-10.745-24-24zm-98.907 98.209l29.05 43.572 29.785-43.578c3.037-4.437 7.975-7.203 13.372-7.203h28.084c5.262 0 8.316 5.947 5.393 10.206l-41.301 61.87 42.503 62.94c2.861 4.235-.153 10.045-5.398 10.045H197.3c-5.401 0-10.342-2.772-13.376-7.229L154.162 328.9l-29.69 43.491c-3.037 4.437-7.975 7.229-13.372 7.229H82.806c-5.262 0-8.316-5.811-5.393-10.045l42.506-62.94-41.302-61.87c-2.922-4.259.131-10.206 5.393-10.206h28.084c5.401 0 10.339 2.766 13.378 7.203z" />
+            </svg>
+            <span>Exportar</span>
+          </button>
           <Link href="/members/add">
-            <button className="flex items-center justify-center w-1/2 px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+            <button className="flex items-center justify-center w-full sm:w-auto px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -158,7 +198,6 @@ const MembersPage = () => {
                   d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-
               <span>Nuevo</span>
             </button>
           </Link>
