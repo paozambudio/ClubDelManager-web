@@ -32,6 +32,7 @@ export default function RootLayout({
             <div className="mx-auto max-w-6xl max-h-6xl px-6">
               {header}
               {children}
+              <SpeedInsights />
             </div>
           </ToastProvider>
           {footer}
