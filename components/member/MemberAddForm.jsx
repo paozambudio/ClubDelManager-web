@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { saveUser } from "@/utils/requests";
+import InputMask from "react-input-mask";
+
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const MemberAddForm = () => {
@@ -16,6 +18,7 @@ const MemberAddForm = () => {
 
   const [fields, setFields] = useState({
     document_id: "",
+    cuil: "",
     first_name: "",
     last_name: "",
     phone: "",
@@ -111,6 +114,7 @@ const MemberAddForm = () => {
         position: fields.position,
         phone: fields.phone,
         document_id: fields.document_id,
+        cuil: fields.cuil,
         address_street: fields.address_street,
         address_number: fields.address_number,
         address_region: fields.address_region,
@@ -217,7 +221,7 @@ const MemberAddForm = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
                   <div>
                     <label className="block text-gray-700 font-semibold mb-2">
                       Fecha de Nacimiento
@@ -247,6 +251,28 @@ const MemberAddForm = () => {
                       onChange={handleChange}
                       required
                     />
+                  </div>
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      CUIL
+                    </label>
+                    <InputMask
+                      mask="99-99999999-9"
+                      value={fields.cuil}
+                      onChange={handleChange}
+                    >
+                      {(inputProps) => (
+                        <input
+                          {...inputProps}
+                          type="text"
+                          id="cuil"
+                          name="cuil"
+                          className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
+                          placeholder="nn-nnnnnnnn-n"
+                          required
+                        />
+                      )}
+                    </InputMask>
                   </div>
                 </div>
               </div>
