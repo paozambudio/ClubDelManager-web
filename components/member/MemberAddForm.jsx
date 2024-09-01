@@ -74,6 +74,22 @@ const MemberAddForm = () => {
     console.log("campos: ", fields);
   };
 
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "email" && value != "") {
+      // Validar si el email termina en @gmail.com
+      const isValidGmail = value.endsWith("@gmail.com");
+
+      if (!isValidGmail) {
+        notify(
+          "Por favor, ingrese un correo de Gmail válido (terminado en @gmail.com)"
+        );
+        e.target.focus(); // Volver a enfocar el campo de email si no es válido
+      }
+    }
+  };
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -287,16 +303,17 @@ const MemberAddForm = () => {
                       htmlFor="email"
                       className="block text-gray-700 font-semibold mb-2"
                     >
-                      Correo electrónico
+                      Correo electrónico <b>(gmail)</b>
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       className="border rounded w-full py-2 px-3 mb-2 bg-gray-100"
-                      placeholder="Ingresá tu email"
+                      placeholder="tu.email@gmail.com"
                       value={profileEmail}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       required
                     />
                   </div>

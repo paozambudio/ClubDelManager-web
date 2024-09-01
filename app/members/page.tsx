@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { buscarMiembros } from "@/utils/requests";
+import { fetchMemberbyEmail } from "@/utils/requests";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 
@@ -44,6 +44,7 @@ const MembersPage = () => {
     },
   ]);
   const [filtro, setFiltro] = useState("");
+  const [filtroContains, setFiltroContains] = useState("");
   const [nextPageUrl, setNextPageUrl] = useState(null);
   const [prevPageUrl, setPrevPageUrl] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -76,9 +77,45 @@ const MembersPage = () => {
     },
   ]);
 
+  const [miembroLogueado, setMiembroLogueado] = useState({
+    id: "",
+    document_id: "",
+    first_name: "",
+    last_name: "",
+    phone: "",
+    email: "",
+    photo: "",
+    address_street: "",
+    address_number: "",
+    address_region: "",
+    address_state: "Mendoza",
+    address_country: "Argentina",
+    linkedin_url: "",
+    instagram_url: "",
+    profession: "",
+    company: "",
+    position: "",
+    added_value: "",
+    membership_reason: "",
+    board_member: false,
+    board_position: "",
+    birthdate: "1900-01-01",
+    startdate: "1900-01-01",
+    status_active: true,
+    isAdmin: false,
+  });
+
+  const buscarMail = async () => {
+    if (session) {
+      const memberExist = await fetchMemberbyEmail(session.user?.email);
+      setMiembroLogueado(memberExist);
+    }
+  };
+
   useEffect(() => {
     fetchData(`${apiDomain}/members/members/`);
     setMiembros(miembrosFiltrados);
+    buscarMail();
   }, []);
 
   useEffect(() => {
@@ -112,13 +149,10 @@ const MembersPage = () => {
     fetchData(
       `${apiDomain}/members/members/filter-by-last-name/?last_name=${value}`
     );
-
-    /* const miembrosConFiltro = miembros.filter((uno) =>
-      uno.last_name.toLowerCase().includes(value)
+    /* console.log("Filtro: ", filtroContains);
+    fetchData(
+      `${apiDomain}/members/members/filter-by-${filtroContains}/?${filtroContains}=${value}`
     ); */
-    /*fetchData(`${apiDomain}/members/members/?filter/last_name=${value}`);
-    console.log("Con filtro en apellido: ", miembros);*/
-    //setMiembrosFiltrados(miembrosConFiltro);
   };
 
   const handleExportar = async () => {
@@ -160,6 +194,23 @@ const MembersPage = () => {
     }
   };
 
+  /* const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const txtBuscarRef = useRef(null);
+
+  const cambioFiltro = (filtro: string) => {
+    setFiltroContains(filtro);
+    // Asigna el foco al campo txtBuscar
+    setIsOpen(!isOpen);
+    if (txtBuscarRef.current) {
+      txtBuscarRef.current.focus();
+    }
+  }; */
+
   return (
     <section className="container px-4 mx-auto">
       <div className="sm:flex sm:items-center sm:justify-between">
@@ -168,6 +219,22 @@ const MembersPage = () => {
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
             {totalMembers} miembros
           </span>
+          {miembroLogueado.isAdmin && (
+            <button
+              className="flex items-center justify-center  sm:w-auto px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600"
+              onClick={handleExportar}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                className="w-5 h-5"
+                fill="currentColor"
+              >
+                <path d="M384 121.941V456c0 30.928-25.072 56-56 56H56c-30.928 0-56-25.072-56-56V56c0-30.928 25.072-56 56-56h201.941c14.891 0 29.129 5.891 39.6 16.371l70.059 70.059c10.48 10.472 16.4 24.709 16.4 39.6zM224 136V48H56c-4.411 0-8 3.589-8 8v400c0 4.411 3.589 8 8 8h272c4.411 0 8-3.589 8-8V144H248c-13.255 0-24-10.745-24-24zm-98.907 98.209l29.05 43.572 29.785-43.578c3.037-4.437 7.975-7.203 13.372-7.203h28.084c5.262 0 8.316 5.947 5.393 10.206l-41.301 61.87 42.503 62.94c2.861 4.235-.153 10.045-5.398 10.045H197.3c-5.401 0-10.342-2.772-13.376-7.229L154.162 328.9l-29.69 43.491c-3.037 4.437-7.975 7.229-13.372 7.229H82.806c-5.262 0-8.316-5.811-5.393-10.045l42.506-62.94-41.302-61.87c-2.922-4.259.131-10.206 5.393-10.206h28.084c5.401 0 10.339 2.766 13.378 7.203z" />
+              </svg>
+              <span>Exportar</span>
+            </button>
+          )}
           {/* <button
             className="flex items-center justify-center  sm:w-auto px-5 py-2 font-semibold text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 gap-x-2 hover:bg-sky-600 dark:hover:bg-blue-500 dark:bg-blue-600"
             onClick={handleExportar}
@@ -226,31 +293,58 @@ const MembersPage = () => {
             Directivos
           </button>
         </div>
-
-        <div className="relative flex items-center mt-4 md:mt-0">
-          <span className="absolute">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-5 h-5 mx-3 text-gray-400 "
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </span>
-
-          <input
+        <div className="flex cols col-2 ">
+          {/* <select
             type="text"
-            placeholder="Buscar por apellido"
-            className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5    focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            onChange={handleBuscar}
-          />
+            id=""
+            name=""
+            className="border rounded w-full py-2 px-3 mb-2 bg-gray-200 text-gray-400 font-sans text-md"
+            value={filtroContains}
+            onChange={cambioFiltro}
+          >
+            <option key="Todos" value="Todos">
+              (Seleccionar filtro)
+            </option>
+
+            <option key="last_name" value="last_name">
+              Apellido
+            </option>
+
+            <option key="position" value="position">
+              Posición / Cargo
+            </option>
+
+            <option key="company" value="company">
+              Empresa
+            </option>
+          </select> */}
+
+          <div className="relative flex items-center mt-4 md:mt-0">
+            <span className="absolute">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 mx-3 text-gray-400 "
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </span>
+
+            <input
+              type="text"
+              // ref={txtBuscarRef}
+              placeholder="Ingresar apellido"
+              className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5    focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              onChange={handleBuscar}
+            />
+          </div>
         </div>
       </div>
 
