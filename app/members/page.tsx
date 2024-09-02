@@ -108,6 +108,7 @@ const MembersPage = () => {
   const buscarMail = async () => {
     if (session) {
       const memberExist = await fetchMemberbyEmail(session.user?.email);
+      console.log("Miembro logueado", memberExist);
       setMiembroLogueado(memberExist);
     }
   };
