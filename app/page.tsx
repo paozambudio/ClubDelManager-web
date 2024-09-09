@@ -7,6 +7,7 @@ import MemberSummary from "@/components/member/MemberSummary";
 import GetOpinion from "@/components/blog/GetOpinion";
 import BeneficiosCDM from "@/components/home/BeneficiosCDM";
 import EventsSummary from "@/components/homeMiembros/EventsSummary";
+import Organizaciones from "@/components/home/Organizaciones";
 
 const HomePage = async () => {
   await dbConnect();
@@ -17,6 +18,8 @@ const HomePage = async () => {
       <Hero />
 
       <NuestraPropuesta />
+
+      <Organizaciones />
 
       <MemberSummary />
 
