@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface NewsItem {
@@ -67,4 +67,4 @@ export default function Noticias() {
       </div>
     </div>
   );
-}
+} */
