@@ -15,6 +15,7 @@ const ConsultasPagos = () => {
   const [anio, setAnio] = useState(obtenerMesAnioActual().anio);
   const [data, setData] = useState(null); // Para almacenar los datos de la respuesta
   const [error, setError] = useState(null); // Para almacenar cualquier error
+  const [filter, setFilter] = useState("all"); // Estado del filtro ('all', 'paid', 'unpaid')
 
   // Manejar cambios en el combo del mes
   const handleMesChange = (e) => {
@@ -59,6 +60,13 @@ const ConsultasPagos = () => {
   useEffect(() => {
     consultarPagos(mes, anio);
   }, [mes, anio]); // Dependencias
+
+  // Filtrar la lista de miembros según el filtro seleccionado
+  const filteredMembers = membersStatus.filter((member) => {
+    if (filter === "paid") return member.has_paid;
+    if (filter === "unpaid") return !member.has_paid;
+    return true; // 'all'
+  });
 
   return (
     <div className="container px-6 py-10 mx-auto">
@@ -115,6 +123,45 @@ const ConsultasPagos = () => {
       </div>
 
       <br />
+
+      {/* Grupo de Radio Buttons para el filtro */}
+      <div style={styles.radioFrame}>
+        <label style={styles.radioLabel}>
+          <input
+            type="radio"
+            name="paymentFilter"
+            value="all"
+            checked={filter === "all"}
+            onChange={() => setFilter("all")}
+            style={styles.radioInput}
+          />
+          Todos
+        </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label style={styles.radioLabel}>
+          <input
+            type="radio"
+            name="paymentFilter"
+            value="paid"
+            checked={filter === "paid"}
+            onChange={() => setFilter("paid")}
+            style={styles.radioInput}
+          />
+          Solo los que cancelaron
+        </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label style={styles.radioLabel}>
+          <input
+            type="radio"
+            name="paymentFilter"
+            value="unpaid"
+            checked={filter === "unpaid"}
+            onChange={() => setFilter("unpaid")}
+            style={styles.radioInput}
+          />
+          Solo los pendientes
+        </label>
+      </div>
       <br />
       <div>
         <br />
@@ -143,27 +190,29 @@ const ConsultasPagos = () => {
             </tr>
           </thead>
           <tbody class="bg-silver-800 text-gray-600 divide-y divide-gray-200">
-            {membersStatus.map(({ first_name, last_name, has_paid }, index) => (
-              <tr>
-                <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                  {first_name}
-                </td>
-                <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                  {last_name}
-                </td>
-                <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                  {has_paid ? (
-                    <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                      Pagado
-                    </div>
-                  ) : (
-                    <div class="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-800">
-                      Pendiente
-                    </div>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {filteredMembers.map(
+              ({ first_name, last_name, has_paid }, index) => (
+                <tr>
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    {first_name}
+                  </td>
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    {last_name}
+                  </td>
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    {has_paid ? (
+                      <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
+                        Cancelado
+                      </div>
+                    ) : (
+                      <div class="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                        Pendiente
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
@@ -178,3 +227,21 @@ const ConsultasPagos = () => {
 };
 
 export default ConsultasPagos;
+
+const styles = {
+  radioFrame: {
+    padding: "10px",
+    borderRadius: "10px",
+    border: "1px solid #f9f9f9",
+
+    display: "inline-block",
+    marginBottom: "20px",
+  },
+  radioLabel: {
+    marginRight: "20px",
+    fontSize: "16px",
+  },
+  radioInput: {
+    marginRight: "8px",
+  },
+};
