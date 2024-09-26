@@ -158,7 +158,7 @@ const ConsultasPagos = () => {
                     </div>
                   ) : (
                     <div class="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60 dark:bg-gray-800">
-                      No Pagado
+                      Pendiente
                     </div>
                   )}
                 </td>
