@@ -6,6 +6,7 @@ import Footer from "../components/home/footer";
 import AuthProvider from "../components/AuthProvider";
 import ToastProvider from "@/components/ToastProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -35,6 +36,7 @@ export default function RootLayout({
               <SpeedInsights />
             </div>
           </ToastProvider>
+          <FloatingWhatsAppButton />
           {footer}
         </body>
       </html>

@@ -54,6 +54,17 @@ const Organizaciones = () => {
               </div>
             </div>
           </div>
+          <div className="w-full text-center rounded-lg flex flex-col relative group">
+            <div className="flex flex-col items-center justify-between flex-grow">
+              <div className="flex items-center justify-center mt-4">
+                <img
+                  src="/img-logo-organizaciones/logo-lodo.png"
+                  className="h-40 w-40 object-contain"
+                  alt="Espacio LODO"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

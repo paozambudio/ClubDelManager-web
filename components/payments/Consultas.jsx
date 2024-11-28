@@ -1,8 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { fetchIsAdminByEmail } from "@/utils/requests";
+import { isatty } from "tty";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 const ConsultasPagos = () => {
+  const { data: session } = useSession();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (session) {
+      const buscarIsAdmin = async () => {
+        setIsAdmin(await fetchIsAdminByEmail(session.user?.email));
+        console.log("¿Es admin?", isAdmin);
+      };
+      buscarIsAdmin();
+    }
+  }, [session]);
+
   const obtenerMesAnioActual = () => {
     const fecha = new Date();
     const mes = String(fecha.getMonth() + 1).padStart(2, "0");
@@ -55,121 +71,129 @@ const ConsultasPagos = () => {
 
   return (
     <div className="container px-4 py-6 mx-auto">
-      <h1 className="text-lg font-semibold text-sky-800 lg:text-3xl">
-        Pago de membresía
-      </h1>
-      <br />
-      <h2 className="text-gray-600">Seleccione el período a consultar</h2>
+      {!isAdmin ? (
+        <h1>NO TIENE PERMISOS PARA INGRESAR</h1>
+      ) : (
+        <>
+          <h1 className="text-lg font-semibold text-sky-800 lg:text-3xl">
+            Pago de membresía
+          </h1>
+          <br />
+          <h2 className="text-gray-600">Seleccione el período a consultar</h2>
 
-      <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
-        <select
-          value={mes}
-          onChange={handleMesChange}
-          className="border bg-gray-100 text-gray-500 px-3 py-2 rounded-lg w-full md:w-auto"
-        >
-          <option value="01">Enero</option>
-          <option value="02">Febrero</option>
-          <option value="03">Marzo</option>
-          <option value="04">Abril</option>
-          <option value="05">Mayo</option>
-          <option value="06">Junio</option>
-          <option value="07">Julio</option>
-          <option value="08">Agosto</option>
-          <option value="09">Septiembre</option>
-          <option value="10">Octubre</option>
-          <option value="11">Noviembre</option>
-          <option value="12">Diciembre</option>
-        </select>
+          <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
+            <select
+              value={mes}
+              onChange={handleMesChange}
+              className="border bg-gray-100 text-gray-500 px-3 py-2 rounded-lg w-full md:w-auto"
+            >
+              <option value="01">Enero</option>
+              <option value="02">Febrero</option>
+              <option value="03">Marzo</option>
+              <option value="04">Abril</option>
+              <option value="05">Mayo</option>
+              <option value="06">Junio</option>
+              <option value="07">Julio</option>
+              <option value="08">Agosto</option>
+              <option value="09">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
 
-        <input
-          type="number"
-          value={anio}
-          onChange={handleAnioChange}
-          className="border bg-gray-100 text-gray-500 px-3 py-2 rounded-lg w-full md:w-auto"
-          placeholder="aaaa"
-        />
+            <input
+              type="number"
+              value={anio}
+              onChange={handleAnioChange}
+              className="border bg-gray-100 text-gray-500 px-3 py-2 rounded-lg w-full md:w-auto"
+              placeholder="aaaa"
+            />
 
-        <div className="text-gray-600">
-          <div>
-            Pagaron cuota: <b>{paidCount}</b>
+            <div className="text-gray-600">
+              <div>
+                Pagaron cuota: <b>{paidCount}</b>
+              </div>
+              <div>
+                Adeudan cuota: <b>{unpaidCount}</b>
+              </div>
+            </div>
           </div>
-          <div>
-            Adeudan cuota: <b>{unpaidCount}</b>
+
+          {/* Grupo de Radio Buttons */}
+          <div className="p-4 border rounded-lg bg-gray-100 mb-4">
+            <label className="mr-4">
+              <input
+                type="radio"
+                name="paymentFilter"
+                value="all"
+                checked={filter === "all"}
+                onChange={() => setFilter("all")}
+                className="mr-2"
+              />
+              Todos
+            </label>
+            <label className="mr-4">
+              <input
+                type="radio"
+                name="paymentFilter"
+                value="paid"
+                checked={filter === "paid"}
+                onChange={() => setFilter("paid")}
+                className="mr-2"
+              />
+              Solo los que pagaron
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="paymentFilter"
+                value="unpaid"
+                checked={filter === "unpaid"}
+                onChange={() => setFilter("unpaid")}
+                className="mr-2"
+              />
+              Solo los pendientes
+            </label>
           </div>
-        </div>
-      </div>
 
-      {/* Grupo de Radio Buttons */}
-      <div className="p-4 border rounded-lg bg-gray-100 mb-4">
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="paymentFilter"
-            value="all"
-            checked={filter === "all"}
-            onChange={() => setFilter("all")}
-            className="mr-2"
-          />
-          Todos
-        </label>
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="paymentFilter"
-            value="paid"
-            checked={filter === "paid"}
-            onChange={() => setFilter("paid")}
-            className="mr-2"
-          />
-          Solo los que pagaron
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="paymentFilter"
-            value="unpaid"
-            checked={filter === "unpaid"}
-            onChange={() => setFilter("unpaid")}
-            className="mr-2"
-          />
-          Solo los pendientes
-        </label>
-      </div>
-
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-4 py-2 text-left text-gray-500">Nombre</th>
-              <th className="px-4 py-2 text-left text-gray-500">Apellido</th>
-              <th className="px-4 py-2 text-left text-gray-500">Estado</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200 text-gray-600">
-            {filteredMembers.map(
-              ({ first_name, last_name, has_paid }, index) => (
-                <tr key={index}>
-                  <td className="px-4 py-2">{first_name}</td>
-                  <td className="px-4 py-2">{last_name}</td>
-                  <td className="px-4 py-2">
-                    {has_paid ? (
-                      <span className="px-2 py-1 text-sm text-emerald-600 bg-emerald-100 rounded-full">
-                        Cancelado
-                      </span>
-                    ) : (
-                      <span className="px-2 py-1 text-sm text-red-600 bg-red-100 rounded-full">
-                        Pendiente
-                      </span>
-                    )}
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200 ">
+              <thead className="bg-gray-100 rounded-lg">
+                <tr>
+                  <th className="px-4 py-2 text-left text-gray-500">Nombre</th>
+                  <th className="px-4 py-2 text-left text-gray-500">
+                    Apellido
+                  </th>
+                  <th className="px-4 py-2 text-left text-gray-500">Estado</th>
                 </tr>
-              )
-            )}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody className="divide-y divide-gray-300 text-gray-600">
+                {filteredMembers.map(
+                  ({ first_name, last_name, has_paid }, index) => (
+                    <tr key={index}>
+                      <td className="px-4 py-2 capitalize">{first_name}</td>
+                      <td className="px-4 py-2 capitalize">{last_name}</td>
+                      <td className="px-4 py-2">
+                        {has_paid ? (
+                          <span className="px-2 py-1 text-sm text-emerald-600 bg-emerald-100 rounded-full">
+                            Cancelado
+                          </span>
+                        ) : (
+                          <span className="px-2 py-1 text-sm text-red-600 bg-red-100 rounded-full">
+                            Pendiente
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
 
-      {error && <div>Error: {error}</div>}
+          {error && <div>Error: {error}</div>}
+        </>
+      )}
     </div>
   );
 };

@@ -109,6 +109,70 @@ const blogPage = () => {
           />
         </div>
       </div>
+
+      <div className="container px-6 py-10 mx-auto">
+        <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl ">
+          Nuestro Comité Ejecutivo
+        </h1>
+
+        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+          <Member
+            nombre="Diego"
+            apellido="Montivero"
+            cargo=""
+            foto="/imgTeam/Presidente.webp"
+            linkedinURL="federicoazeglio"
+          />
+
+          <Member
+            nombre="Roberto"
+            apellido="Burgos"
+            cargo=""
+            foto="/imgTeam/VicePresidente.webp"
+            linkedinURL="andy-garcía-06539713"
+          />
+        </div>
+      </div>
+
+      <div className="container px-6 py-10 mx-auto">
+        <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl ">
+          Nuestros Coordinadores de Células
+        </h1>
+
+        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+          <Member
+            nombre="Eugenia "
+            apellido="Plaza"
+            cargo="Célula de Eventos"
+            foto="/imgTeam/1Vocal.webp"
+            linkedinURL="eugenia-plaza-901a5b215"
+          />
+
+          <Member
+            nombre="Marisa"
+            apellido="Sanchez"
+            cargo="Célula Contenidos"
+            foto="/imgTeam/VicePresidente.webp"
+            linkedinURL="andy-garcía-06539713"
+          />
+
+          <Member
+            nombre="Diego"
+            apellido="Molinuevo"
+            cargo="Célula Summit"
+            foto="/imgTeam/VicePresidente.webp"
+            linkedinURL="andy-garcía-06539713"
+          />
+
+          <Member
+            nombre="Paola"
+            apellido="Zambudio"
+            cargo="Célula Plataforma Digital y Beneficios"
+            foto="/imgTeam/VicePresidente.webp"
+            linkedinURL="andy-garcía-06539713"
+          />
+        </div>
+      </div>
     </section>
   );
 };

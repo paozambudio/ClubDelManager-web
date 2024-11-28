@@ -55,6 +55,31 @@ async function fetchMemberbyEmail(email) {
   }
 }
 
+async function fetchIsAdminByEmail(email) {
+  try {
+    // Verificar si el dominio de la API está disponible
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(
+      `${apiDomain}/members/filter/?email=${encodeURIComponent(email)}`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await res.json();
+
+    // Si el miembro fue encontrado, devolver solo el campo isAdmin; de lo contrario, devolver null
+    return data.length > 0 ? data[0].isAdmin : false;
+  } catch (error) {
+    console.error("Error fetching isAdmin status:", error);
+    return null;
+  }
+}
+
 // fetch single member
 async function fetchMemberbyDoc(document_id) {
   try {
@@ -162,4 +187,5 @@ export {
   puntajeTotal,
   ultimaParticipacion,
   fetchMemberbyDoc,
+  fetchIsAdminByEmail,
 };

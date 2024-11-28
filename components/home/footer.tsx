@@ -34,9 +34,7 @@ const Footer: React.FC = () => {
           <Image src="/LogoPng.png" width={60} height={60} alt="Logo" />
         </Link>
 
-        <p className="text-lg text-white px-8 font-">
-          Encontranos en nuestras redes:{" "}
-        </p>
+        <p className="text-lg text-white px-8 font-">Seguinos en las redes: </p>
 
         <div className="flex mt-4 -mx-2">
           <a
