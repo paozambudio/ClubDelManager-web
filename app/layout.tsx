@@ -34,9 +34,9 @@ export default function RootLayout({
               {header}
               {children}
               <SpeedInsights />
+              <FloatingWhatsAppButton />
             </div>
           </ToastProvider>
-          <FloatingWhatsAppButton />
           {footer}
         </body>
       </html>

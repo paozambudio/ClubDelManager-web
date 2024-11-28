@@ -47,9 +47,6 @@ const blogPage = () => {
         <h1 className="text-2xl font-semibold text-center text-sky-600 capitalize lg:text-3xl ">
           Nuestro Equipo Directivo
         </h1>
-        <p className="max-w-2xl text-xl mx-auto my-6 text-center text-gray-500 font-semibold dark:text-gray-500">
-          Líderes situacionales, en ejercicio de la comisión directiva.
-        </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
           <Member
@@ -120,16 +117,16 @@ const blogPage = () => {
             nombre="Diego"
             apellido="Montivero"
             cargo=""
-            foto="/imgTeam/Presidente.webp"
-            linkedinURL="federicoazeglio"
+            foto="/imgTeam/DiegoMontivero.webp"
+            linkedinURL="diegomontivero"
           />
 
           <Member
             nombre="Roberto"
             apellido="Burgos"
             cargo=""
-            foto="/imgTeam/VicePresidente.webp"
-            linkedinURL="andy-garcía-06539713"
+            foto="/imgTeam/RobertoBurgos.webp"
+            linkedinURL=""
           />
         </div>
       </div>
@@ -152,24 +149,24 @@ const blogPage = () => {
             nombre="Marisa"
             apellido="Sanchez"
             cargo="Célula Contenidos"
-            foto="/imgTeam/VicePresidente.webp"
-            linkedinURL="andy-garcía-06539713"
+            foto="/imgTeam/MarisaSanchez.webp"
+            linkedinURL="marisa-sánchez-3914b228"
           />
 
           <Member
             nombre="Diego"
             apellido="Molinuevo"
             cargo="Célula Summit"
-            foto="/imgTeam/VicePresidente.webp"
-            linkedinURL="andy-garcía-06539713"
+            foto="/imgTeam/DiegoMolinuevo.webp"
+            linkedinURL="diego-martin-molinuevo-94798528"
           />
 
           <Member
             nombre="Paola"
             apellido="Zambudio"
             cargo="Célula Plataforma Digital y Beneficios"
-            foto="/imgTeam/VicePresidente.webp"
-            linkedinURL="andy-garcía-06539713"
+            foto="/imgTeam/PaolaZambudio.webp"
+            linkedinURL="paola-zambudio-10b9024"
           />
         </div>
       </div>
