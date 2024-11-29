@@ -42,6 +42,9 @@ export default function PaymentSummary() {
   const [copied, setCopied] = useState(false);
 
   const { data: session } = useSession();
+
+  console.log("Sesion en payments: ", session);
+
   const [miembro, setMiembro] = useState({
     id: "",
     document_id: "",
@@ -78,6 +81,7 @@ export default function PaymentSummary() {
     if (session) {
       const fetchData = async () => {
         const logueado = await fetchMemberbyEmail(session.user?.email);
+        console.log("Usuario en payments: ", logueado[0]);
 
         if (logueado.length == 1) {
           setMiembro(logueado[0]);
