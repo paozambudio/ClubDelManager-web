@@ -25,7 +25,7 @@ const HomePage = async () => {
       <MemberSummary />
 
       {/* <PaymentSummary /> */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <SpotifyDriveAccess />
         <EventsSummary />
       </div>
