@@ -77,7 +77,7 @@ export default function PaymentSummary() {
     accepted_terms_date: "1900-01-01",
   });
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log("Sesión antes de buscar los pagos", session);
     if (session) {
       const fetchData = async () => {
@@ -91,10 +91,17 @@ export default function PaymentSummary() {
       fetchData();
     }
   }, []);
-
+ */
   useEffect(() => {
     const fetchPaymentData = async () => {
       try {
+        const logueado = await fetchMemberbyEmail(session?.user?.email);
+        console.log("Usuario en payments: ", logueado[0]);
+
+        if (logueado.length == 1) {
+          setMiembro(logueado[0]);
+        }
+
         const response = await fetch(
           `${apiDomain}/members/members/${miembro.id}/payments`
         );
@@ -113,7 +120,7 @@ export default function PaymentSummary() {
     };
 
     fetchPaymentData();
-  }, [miembro]);
+  }, [session]);
 
   if (isLoading) {
     return (
