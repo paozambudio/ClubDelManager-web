@@ -78,6 +78,7 @@ export default function PaymentSummary() {
   });
 
   useEffect(() => {
+    console.log("Sesión antes de buscar los pagos", session);
     if (session) {
       const fetchData = async () => {
         const logueado = await fetchMemberbyEmail(session.user?.email);
