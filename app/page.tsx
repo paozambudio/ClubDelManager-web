@@ -25,9 +25,10 @@ const HomePage = async () => {
       <MemberSummary />
 
       {/* <PaymentSummary /> */}
-
-      <SpotifyDriveAccess />
-      <EventsSummary />
+      <div className="flex flex-col gap-4">
+        <SpotifyDriveAccess />
+        <EventsSummary />
+      </div>
       <GetOpinion />
       <BeneficiosCDM />
       <div className="mx-auto max-w-5xl px-6 pt-6 flex flex-col justify-center items-center">
