@@ -102,6 +102,8 @@ export default function PaymentSummary() {
           setMiembro(logueado[0]);
         }
 
+        console.log("Miembro en payments: ", miembro);
+
         const response = await fetch(`${apiDomain}/members/members/1/payments`);
         if (!response.ok) {
           throw new Error("Debe iniciar sesión");
@@ -145,7 +147,7 @@ export default function PaymentSummary() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="flex flex-wrap justify-center">
       {session && (
         <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
           <h1 className="mt-2 text-lg font-semibold text-gray-800 ">

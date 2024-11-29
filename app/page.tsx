@@ -24,7 +24,7 @@ const HomePage = async () => {
 
       <MemberSummary />
 
-      <PaymentSummary />
+      {/* <PaymentSummary /> */}
 
       <SpotifyDriveAccess />
       <EventsSummary />
