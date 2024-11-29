@@ -8,6 +8,7 @@ import GetOpinion from "@/components/blog/GetOpinion";
 import BeneficiosCDM from "@/components/home/BeneficiosCDM";
 import EventsSummary from "@/components/homeMiembros/EventsSummary";
 import Organizaciones from "@/components/home/Organizaciones";
+import PaymentSummary from "@/components/homeMiembros/PaymentSummary";
 
 const HomePage = async () => {
   await dbConnect();
