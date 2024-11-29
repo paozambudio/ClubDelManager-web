@@ -136,43 +136,28 @@ export default function PaymentSummary() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
-        <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
-          Resumen de Pagos
-        </h1>
+      {session && (
+        <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
+          <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
+            Resumen de Pagos
+          </h1>
 
-        <div className="space-y-6">
-          <div>
-            <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-600">
-              Total Pagado ({new Date().getFullYear()})
-            </p>
-            <div className="text-xl font-bold text-gray-900">
-              ${paymentData.total_paid_this_year}
+          <div className="space-y-6">
+            <div>
+              <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-600">
+                Total Pagado ({new Date().getFullYear()})
+              </p>
+              <div className="text-xl font-bold text-gray-900">
+                ${paymentData.total_paid_this_year}
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-sm font-medium text-gray-900 mb-2">
-              Últimos Períodos Pagados
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {paymentData.payments
-                .sort((a, b) => {
-                  // Convertimos el formato "MM-YYYY" a un objeto Date para ordenarlo correctamente
-                  const [monthA, yearA] = a.payment_period
-                    .split("-")
-                    .map(Number);
-                  const [monthB, yearB] = b.payment_period
-                    .split("-")
-                    .map(Number);
-
-                  const dateA = new Date(yearA, monthA - 1); // Meses en JavaScript son 0-indexados
-                  const dateB = new Date(yearB, monthB - 1);
-
-                  return dateA - dateB; // Orden ascendente
-                })
-                .slice(-4)
-                .map((payment) => (
+            <div>
+              <h3 className="text-sm font-medium text-gray-900 mb-2">
+                Últimos Períodos Pagados
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {paymentData.payments.slice(-4).map((payment) => (
                   <span
                     key={payment.payment_period}
                     className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-sky-200 text-gray-700"
@@ -180,30 +165,33 @@ export default function PaymentSummary() {
                     {payment.payment_period}
                   </span>
                 ))}
+              </div>
+            </div>
+
+            <div className="text-sm font-medium text-gray-900 mb-2 w-full">
+              <span className="flex items-center font-semibold gap-2">
+                <SquareCheckBig className="h-5 w-5 text-red-500" />
+                Importante
+              </span>
+
+              <p className="flex items-center gap-3 m-2">
+                Transferiar al Alias:{" "}
+                <span className="font-semibold text-gray-600">
+                  elclubdelmanager
+                </span>
+                <Copy
+                  className="h-4 w-4 cursor-pointer text-gray-400"
+                  onClick={handleCopy}
+                />
+              </p>
+
+              {copied && (
+                <span className="text-xs text-red-500">¡Copiado!</span>
+              )}
             </div>
           </div>
-
-          <div className="text-sm font-medium text-gray-900 mb-2 w-full">
-            <span className="flex items-center font-semibold gap-2">
-              <SquareCheckBig className="h-5 w-5 text-red-500" />
-              Importante
-            </span>
-
-            <p className="flex items-center gap-3 m-2">
-              Transferiar al Alias:{" "}
-              <span className="font-semibold text-gray-600">
-                elclubdelmanager
-              </span>
-              <Copy
-                className="h-4 w-4 cursor-pointer text-gray-400"
-                onClick={handleCopy}
-              />
-            </p>
-
-            {copied && <span className="text-xs text-red-500">¡Copiado!</span>}
-          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
