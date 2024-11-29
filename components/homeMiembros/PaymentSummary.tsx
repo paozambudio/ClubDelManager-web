@@ -102,9 +102,7 @@ export default function PaymentSummary() {
           setMiembro(logueado[0]);
         }
 
-        const response = await fetch(
-          `${apiDomain}/members/members/${miembro.id}/payments`
-        );
+        const response = await fetch(`${apiDomain}/members/members/1/payments`);
         if (!response.ok) {
           throw new Error("Debe iniciar sesión");
         }
