@@ -21,13 +21,22 @@ const HomePage = async () => {
       <NuestraPropuesta />
 
       <Organizaciones />
-      <div className="flex flex-col md:flex-row gap-2">
-        <MemberSummary />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-4">
+          <MemberSummary />
+        </div>
 
         {/* <PaymentSummary /> */}
 
-        <SpotifyDriveAccess />
-        <EventsSummary />
+        {/* Segunda columna con SpotifyDriveAccess */}
+        <div className="flex flex-col gap-4">
+          <SpotifyDriveAccess />
+        </div>
+
+        {/* Tercera columna con EventsSummary */}
+        <div className="flex flex-col gap-4">
+          <EventsSummary />
+        </div>
       </div>
       <GetOpinion />
       <BeneficiosCDM />
