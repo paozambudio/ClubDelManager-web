@@ -119,7 +119,7 @@ const MemberSummary = () => {
     <>
       <div className="flex flex-wrap justify-center">
         {session && (
-          <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
+          <div className="w-full max-w-sm px-4 py-2 m-5 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
             <div>
               <div className="flex items-center justify-between">
                 <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
@@ -172,23 +172,23 @@ const MemberSummary = () => {
                 </svg>
                 Reglamento Interno ({miembro.accepted_terms_date})
               </span>
-              Puntos Acumulados:
+              {/* Puntos Acumulados:
               <span className="font-semibold"> {scoreTotal} </span>
               <Link
                 href={`/members/${miembro.id}/events/`}
                 className="underline font-semibold text-sky-600"
               >
                 Ver actividad
-              </Link>
-              <br />
+              </Link> 
+              <br />*/}
             </p>
           </div>
         )}
 
         {session && (
-          <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
+          <div className="w-full max-w-sm px-4 py-2 m-5 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md ">
             <div>
-              <div className=" mt-4">
+              <div className=" mt-2">
                 <p className="font-bold">
                   Credencial para beneficios
                   <br />
