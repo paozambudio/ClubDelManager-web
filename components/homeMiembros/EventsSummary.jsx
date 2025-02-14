@@ -47,7 +47,7 @@ const EventsSummary = () => {
   return (
     <div className="flex flex-wrap justify-center">
       {session && (
-        <div className="w-full max-w-sm px-4 py-3 m-10 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md  ">
+        <div className="w-full max-w-sm px-4 py-2 m-5 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md  ">
           <div>
             <div className="flex items-center justify-between">
               <h1 className="mt-2 text-lg font-semibold text-gray-800 ">
