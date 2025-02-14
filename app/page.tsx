@@ -21,11 +21,11 @@ const HomePage = async () => {
       <NuestraPropuesta />
 
       <Organizaciones />
-
-      <MemberSummary />
-
-      {/* <PaymentSummary /> */}
       <div className="flex flex-col md:flex-row gap-4">
+        <MemberSummary />
+
+        {/* <PaymentSummary /> */}
+
         <SpotifyDriveAccess />
         <EventsSummary />
       </div>
