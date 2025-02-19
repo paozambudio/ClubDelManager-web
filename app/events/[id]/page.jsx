@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { fetchMemberbyDoc } from "@/utils/requests";
 import axios from "axios";
+import moment from "moment";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
@@ -26,6 +27,7 @@ const Event_Member_Page = () => {
     event_active: true,
     show_calendar: true,
     participants: [],
+    survey_url: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -128,6 +130,8 @@ const Event_Member_Page = () => {
       console.log(error);
     }
   };
+  //Verifica si el evento ya pasó
+  const eventoYaPaso = moment().isAfter(moment(unEvento.event_date));
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center">
@@ -151,6 +155,19 @@ const Event_Member_Page = () => {
             {unEvento.participants.length}
           </div>
         </div>
+        {/* Mostrar el enlace de la encuesta solo si el evento ya pasó y hay un survey_url */}
+        {eventoYaPaso && unEvento.survey_url && (
+          <div className="mt-4">
+            <a
+              href={unEvento.survey_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-600 underline"
+            >
+              Completar la encuesta del evento
+            </a>
+          </div>
+        )}
       </div>
       <div className="w-full max-w-sm px-4 py-3 m-2 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md shadow-md">
         <form onSubmit={handleSubmit}>
