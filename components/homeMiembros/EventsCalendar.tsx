@@ -35,6 +35,7 @@ interface EventData {
   event_date: string;
   location: string;
   description: string;
+  survey_url: string;
 }
 
 type View = "month" | "week" | "day" | "agenda";
@@ -45,6 +46,7 @@ interface CalendarEvent {
   end: Date;
   location: string;
   desc: string;
+  survey_url: string;
 }
 
 const EventsCalendar = () => {
@@ -73,6 +75,7 @@ const EventsCalendar = () => {
             end: eventDate,
             location: "Lugar: " + uno.location,
             desc: "Detalle: " + uno.description,
+            survey_url: uno.survey_url,
           } as CalendarEvent;
         });
 
@@ -164,6 +167,18 @@ const EventsCalendar = () => {
               <Typography id="event-modal-description" sx={{ mt: 2 }}>
                 {selectedEvent.desc}
               </Typography>
+              {selectedEvent.survey_url && (
+                <Typography id="event-modal-description" sx={{ mt: 2 }}>
+                  <a
+                    href={selectedEvent.survey_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#1e90ff", textDecoration: "underline" }}
+                  >
+                    Acceder a la encuesta
+                  </a>
+                </Typography>
+              )}
             </div>
           )}
         </Box>
